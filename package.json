@@ -1,0 +1,40 @@
+{
+  "name": "kuet_radio",
+  "version": "1.0.0",
+  "description": "This is a website for broadcasting programs of kuet radio",
+  "main": "index.html",
+  "scripts": {
+    "start": "npm run watch:all",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lite": "lite-server",
+    "scss": "node-sass -o css/ css/",
+    "watch:scss": "onchange \"css/*.scss\" -- npm run scss",
+    "watch:all": "parallelshell \"npm run watch:scss\" \"npm run lite\"",
+    "clean": "rimraf dist",
+    "copyiconfonts": "copyfiles -f node_modules/font-awesome/fonts/* dist/fonts",
+    "copyfonts": "copyfiles -f fonts/* dist/fonts",
+    "imagemin": "imagemin img/* --out-dir=\"dist/img\"",
+    "usemin": "usemin index.html -d dist --htmlmin -o dist/index.html",
+    "build": "npm run clean && npm run imagemin && npm run copyfonts && npm run copyiconfonts && npm run usemin"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "browser-sync": "^2.23.6",
+    "cssmin": "^0.4.3",
+    "htmlmin": "0.0.7",
+    "lite-server": "^2.3.0",
+    "node-sass": "^4.13.0",
+    "onchange": "^6.1.0",
+    "parallelshell": "^3.0.2",
+    "rimraf": "^3.0.0",
+    "uglifyjs": "^2.4.11",
+    "usemin-cli": "^0.5.1"
+  },
+  "dependencies": {
+    "bootstrap": "^4.0.0",
+    "font-awesome": "^4.7.0",
+    "jquery": "^3.3.1",
+    "popper.js": "^1.12.9"
+  }
+}
