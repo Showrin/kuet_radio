@@ -13,9 +13,10 @@
     "clean": "rimraf dist",
     "copyiconfonts": "copyfiles -f node_modules/font-awesome/fonts/* dist/fonts",
     "copyfonts": "copyfiles -f fonts/* dist/fonts",
+    "copyaudios": "copyfiles -f audios/* dist/audios",
     "imagemin": "imagemin img/* --out-dir=\"dist/img\"",
     "usemin": "usemin index.html -d dist --htmlmin -o dist/index.html",
-    "build": "npm run clean && npm run imagemin && npm run copyfonts && npm run copyiconfonts && npm run usemin"
+    "build": "npm run clean && npm run imagemin && npm run copyfonts && npm run copyiconfonts && npm run copyaudios && npm run usemin"
   },
   "author": "",
   "license": "ISC",
