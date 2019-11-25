@@ -4,6 +4,29 @@
 $primary: #A8CF45;
 $secondery: #202427;
 
+// ----------------------- Importing font --------------------------
+@font-face {
+    font-family: 'muli';
+    src: url('/fonts/Muli.ttf');
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'muli_light';
+    src: url('/fonts/Muli\ Light.ttf');
+    font-style: normal;
+}
+
+
+// ----------------------- Declared Classes --------------------------
+.font_muli {
+    font-family: 'muli' !important;
+}
+
+.font_muli_light {
+    font-family: 'muli_light' !important;
+}
+
 .home_bg_cover {
     background: url(/img/bg_cover.jpg);
     background-size: cover;
@@ -12,25 +35,22 @@ $secondery: #202427;
     min-height: 100vh;
 }
 
+.clear_line_height {
+    line-height: unset !important;
+}
+
+
+
+
+
+// ----------------------- Modifying --------------------------
+body {
+    color: white;
+    font-family: 'muli';
+}
+
 @include media-breakpoint-only(xs) {
     .navbar {
         background-color: $secondery;
     }
-}
-
-
-
-.btn-outline-primary {
-    color: $primary;
-    border-color: $primary;
-}
-.btn-outline-primary:hover {
-    color: #fff;
-    background-color: $primary;
-    border-color: $primary;
-}
-.btn-outline-primary:not(:disabled):not(.disabled).active, .btn-outline-primary:not(:disabled):not(.disabled):active, .show>.btn-outline-primary.dropdown-toggle {
-    color: #fff;
-    background-color: $primary;
-    border-color: $primary;
 }
