@@ -17,7 +17,7 @@
 
 </head>
 
-<body class="home_bg_cover">
+<body class="home_bg_cover pb-5 mb-3 pb-sm-0 mb-sm-0 d-flex">
 
     <nav class="navbar navbar-dark navbar-expand-sm fixed-top">
         <div class="container">
@@ -54,7 +54,7 @@
         </div>
     </nav>
 
-    <div class="container mt-5 pt-5">
+    <div class="container mt-5 pt-5 mt-sm-0 pt-sm-0 align-self-center">
         <div class="row">
             <div class="offset-xl-3 offset-md-2 offset-0 col-12 col-xl-6 col-md-8">
                 <h1 class="display-4 font-weight-lighter font_muli_light clear_line_height text-center mt-5">
@@ -82,6 +82,39 @@
             </div>
         </div>
     </div>
+
+    <!-- Radio Player Starts -->
+    <div class="radio-player">
+        <div class="container">
+            <div class="row">
+                <div class="col-2 d-none d-sm-flex align-items-center">
+                    <img src="/img/logo.png" alt="LOGO" class="img-fluid" width="100">
+                </div>
+                <div class="col pr-0 pl-sm-0 d-flex align-items-center justify-content-start">
+                    <div class="rounded-circle play-pause-btn align-items-center justify-content-center text-white" id="js-play-pause-btn">
+                        <span class="fa fa-play"></span>
+                    </div>
+                </div>
+                <div class="col-8 col-sm-7 text-white">
+                    <h5> <span>KUET Radio</span> <small class="d-block d-sm-inline font-weight-normal my-2 my-sm-0">(Beta Test)</small></h5>
+                    <h6 class="d-none d-sm-block font_muli_light">Guest: ABCDEF & MNOPQR</h6>
+                </div>
+                <div class="col-2 d-flex align-items-center justify-content-end">
+                    <span class="fa fa-2x fa-comments-o cursor_pointer"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <audio id="theme-song-player">
+        <source src="/audios/KUET_RADIO_Intro_song_short.m4a">
+    </audio>
+
+    <audio id="main-but-hidden-radio-player">
+        <source src="http://95.154.196.33:27878/;stream">
+        <source src="http://109.169.23.22:26954/;stream">
+    </audio>
+    <!-- Radio Player Ends -->
 
 
     <!-- jQuery first, then Popper.js, then Bootstrap JS. -->
