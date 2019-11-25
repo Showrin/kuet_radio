@@ -1,6 +1,36 @@
+@import '../node_modules/bootstrap/scss/bootstrap.scss';
+
+// ----------------------- Color Variable --------------------------
+$primary: #A8CF45;
+$secondery: #202427;
+
 .home_bg_cover {
     background: url(/img/bg_cover.jpg);
     background-size: cover;
     background-repeat: no-repeat;
-    background-position: 0% 5%;
+    background-position: 50% 5%;
+    min-height: 100vh;
+}
+
+@include media-breakpoint-only(xs) {
+    .navbar {
+        background-color: $secondery;
+    }
+}
+
+
+
+.btn-outline-primary {
+    color: $primary;
+    border-color: $primary;
+}
+.btn-outline-primary:hover {
+    color: #fff;
+    background-color: $primary;
+    border-color: $primary;
+}
+.btn-outline-primary:not(:disabled):not(.disabled).active, .btn-outline-primary:not(:disabled):not(.disabled):active, .show>.btn-outline-primary.dropdown-toggle {
+    color: #fff;
+    background-color: $primary;
+    border-color: $primary;
 }
