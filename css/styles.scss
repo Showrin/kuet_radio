@@ -2,7 +2,8 @@
 
 // ----------------------- Color Variable --------------------------
 $primary: #A8CF45;
-$secondery: #202427;
+$secondary: #202427;
+$black-dark: #252525;
 
 // ----------------------- Importing font --------------------------
 @font-face {
@@ -82,6 +83,9 @@ $secondery: #202427;
     cursor: pointer;
 }
 
+.text_dark {
+    color: $black-dark !important;
+}
 
 
 
@@ -94,7 +98,7 @@ body {
 
 @include media-breakpoint-only(xs) {
     .navbar {
-        background-color: $secondery;     
+        background-color: $secondary;     
         box-shadow: 3px 6px 10px rgba($color: #000000, $alpha: .5);
     }
 }
