@@ -89,5 +89,26 @@ $(document).ready(function() {
 
     // ------------------- Calling Initial Function -------------------------
     setPresentCopyrightYear('present_copyright_year');
+
+
+
+
+    // -------------------- Navbar color change on scroll -------------------
+    
+    window.onscroll = () => {
+        if ($(window).width() > 575.98) { //if it's not a phone or extra small (xs) device  
+            if ($('html').scrollTop() > 0) {
+                $('.navbar').css({
+                    "background-color": "#202427",
+                    "box-shadow": "0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23)"
+                });
+            } else {
+                $('.navbar').css({
+                    "background-color": "transparent",
+                    "box-shadow": "none"
+                });
+            }
+        }
+    };
     
 });
