@@ -71,5 +71,23 @@ $(document).ready(function() {
         mainPlayer.volume = 1; //raising volume to 0 - full of main player after theme song is ended
     });
 
+
+
+    // -------------------- get present year --------------------
+    function getPresentYear () {
+        var date = new Date;
+        var presentYear = date.getFullYear();
+        return presentYear;
+    }
+
+    // -------------------- set present copyright year --------------------
+    function setPresentCopyrightYear (selectorID) {
+        $(`#${selectorID}`).text(getPresentYear());
+    }
+
+
+
+    // ------------------- Calling Initial Function -------------------------
+    setPresentCopyrightYear('present_copyright_year');
     
 });
