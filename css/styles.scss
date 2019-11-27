@@ -112,6 +112,25 @@ $black-dark: #252525;
     right: 0 !important;
 }
 
+.object_fit_cover {
+    object-fit: cover;
+}
+
+.card_img_thumbnail {
+    width: 5rem;
+    height: 5rem;
+    object-fit: cover;
+    object-position: top center;
+}
+
+.box_shadow_basic {
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+
+.card_border_radius {
+    border-radius: .2rem;
+}
+
 
 
 
@@ -124,7 +143,7 @@ body {
 @include media-breakpoint-only(xs) {
     .navbar {
         background-color: $secondary;     
-        box-shadow: 3px 6px 10px rgba($color: #000000, $alpha: .5);
+        box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
     }
 }
 
