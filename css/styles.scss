@@ -145,6 +145,34 @@ $black-dark: #252525;
     min-height: 60vh;
 }
 
+.schedule_card_bg_1 {
+    background-image: linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4) ), url('/img/schedule_bg_1.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 20% 35%;
+}
+
+.schedule_card_bg_2 {
+    background-image: linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4) ), url('/img/schedule_bg_2.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 20% 35%;
+}
+
+.schedule_card_bg_3 {
+    background-image: linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4) ), url('/img/schedule_bg_3.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 20% 10%;
+}
+
+.schedule_card_bg_4 {
+    background-image: linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4) ), url('/img/schedule_bg_4.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 20% 35%;
+}
+
 
 
 
