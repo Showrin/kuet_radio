@@ -86,15 +86,31 @@ $(document).ready(function() {
     }
 
 
+    // -------------------- set height of footer according to player ------------------
+    function setFooterHeight () {
+        
+        if ($('.radio-player').height() && $('footer').height()) {
+            
+            var playerHeight = $('.radio-player').height();
+            var footerPresentHeight = $('footer').height();
+            var footerFinalHeight;
+    
+            footerFinalHeight = footerPresentHeight + (playerHeight + 20);
+    
+            $('footer').height(footerFinalHeight);
+        }
+    }
+
+
 
     // ------------------- Calling Initial Function -------------------------
     setPresentCopyrightYear('present_copyright_year');
+    setFooterHeight();
 
 
 
 
     // -------------------- Navbar color change on scroll -------------------
-    
     window.onscroll = () => {
         if ($(window).width() > 575.98) { //if it's not a phone or extra small (xs) device  
             if ($('html').scrollTop() > 0) {
