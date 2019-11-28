@@ -126,5 +126,8 @@ $(document).ready(function() {
             }
         }
     };
+
+    // --------------------- Tooltip enabling -------------------------
+    $('[data-toggle="tooltip"]').tooltip();
     
 });
