@@ -106,6 +106,7 @@ $(document).ready(function() {
     // ------------------- Calling Initial Function -------------------------
     setPresentCopyrightYear('present_copyright_year');
     setFooterHeight();
+    setPresentCopyrightYear('present_year_for_alumni');
 
 
 
