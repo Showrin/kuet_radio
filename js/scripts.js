@@ -128,6 +128,24 @@ $(document).ready(function() {
         }
     };
 
+
+    
+
+    // ---------------- Navbar position changed from fixed to absolute for large dropdown --------------------
+    $('#memberOptions').click(function() {
+        if ($(window).width() < 575.98) { //if it's a phone or extra small (xs) device  
+            if ($('#memberOptionsDropdownArea').css('display') === "none") {
+                $('.navbar').css({
+                    "position": "absolute"
+                });
+            } else {
+                $('.navbar').css({
+                    "position": "fixed"
+                });
+            }
+        }
+    });
+
     // --------------------- Tooltip enabling -------------------------
     $('[data-toggle="tooltip"]').tooltip();
     
