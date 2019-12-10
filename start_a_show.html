@@ -126,7 +126,7 @@
             <div class="col-12 col-sm-9">
                 <h1 class="text_dark mt-5 mb-4">Start a Show</h1>
 
-                <form>
+                <form id="start_show_form">
                     <div class="form-row">
                         <div class="col-12 mb-3">
                             <label class="text_dark" for="show_name">Show Name</label>
@@ -233,34 +233,37 @@
                         </div>
                     </div>
 
-                    <h4 class="text_dark mt-4 mb-3">Guest #1</h4>
-                    <div class="form-row">
-                        <div class="col-12 col-sm-4 mb-3">
-                            <label class="text_dark" for="guest1_name">Name</label>
-                            <input type="text" class="form-control" id="guest1_name" aria-describedby="guest1_nameHelp">
-                            <small id="guest1_nameHelp" class="form-text text-muted">Please fill up this field</small>
+                    <div class="guestDiv_permanent">
+                        <h4 class="text_dark mt-4 mb-3">Guest #1</h4>
+                        <div class="form-row">
+                            <div class="col-12 col-sm-4 mb-3">
+                                <label class="text_dark" for="guest1_name">Name</label>
+                                <input type="text" class="form-control" id="guest1_name" aria-describedby="guest1_nameHelp">
+                                <small id="guest1_nameHelp" class="form-text text-muted">Please fill up this field</small>
+                            </div>
+                            <div class="col-12 col-sm-4 mb-3">
+                                <label class="text_dark" for="guest1_dept">Department (Optional)</label>
+                                <input type="text" class="form-control" id="guest1_dept" aria-describedby="guest1_depttHelp">
+                                <small id="guest1_depttHelp" class="form-text text-muted">Please fill up this field</small>
+                            </div>
+                            <div class="col-12 col-sm-4 mb-3">
+                                <label class="text_dark" for="guest1_batch">Batch (Optional)</label>
+                                <input type="text" class="form-control" id="guest1_batch" aria-describedby="guest1_batchHelp">
+                                <small id="guest1_batchHelp" class="form-text text-muted">Please fill up this field</small>
+                            </div>
                         </div>
-                        <div class="col-12 col-sm-4 mb-3">
-                            <label class="text_dark" for="guest1_dept">Department</label>
-                            <input type="text" class="form-control" id="guest1_dept" aria-describedby="guest1_depttHelp">
-                            <small id="guest1_depttHelp" class="form-text text-muted">Please fill up this field</small>
+    
+                        <div class="form-row">
+                            <div class="col-12 mb-4">
+                                <label class="text_dark" for="guest1_description">Other Description (Optional)</label>
+                                <input type="text" class="form-control" id="guest1_description" aria-describedby="guest1_descriptionHelp">
+                                <small id="guest1_descriptionHelp" class="form-text text-muted">Please fill up this field</small>
+                            </div>
                         </div>
-                        <div class="col-12 col-sm-4 mb-3">
-                            <label class="text_dark" for="guest1_batch">Batch</label>
-                            <input type="text" class="form-control" id="guest1_batch" aria-describedby="guest1_batchHelp">
-                            <small id="guest1_batchHelp" class="form-text text-muted">Please fill up this field</small>
-                        </div>
-                    </div>
-
-                    <div class="form-row">
-                        <div class="col-12 mb-4">
-                            <label class="text_dark" for="guest1_description">Email</label>
-                            <input type="text" class="form-control" id="guest1_description" aria-describedby="guest1_descriptionHelp">
-                            <small id="guest1_descriptionHelp" class="form-text text-muted">Please fill up this field</small>
-                        </div>
+                    
                     </div>
                     
-                    <div class="form-row">
+                    <div id="startShowFormSubmitBtn" class="form-row">
                         <div class="col-12 mb-3">
                             <button type="submit" class="btn btn-success">Save Changes</button>
                         </div>
@@ -353,6 +356,61 @@
     <script>
         $(document).ready(function() {
             bsCustomFileInput.init();
+
+            $('#guest_amount').on('keyup', function() {
+                let guestAmount = this.value;
+
+                $('#startShowFormSubmitBtn').remove();
+                
+                $('.guestDiv').remove();
+
+                for (let i=2; i<=guestAmount; i++) {
+                    $('#start_show_form').append(guestInputFieldSetter(i));
+                }
+
+                $('#start_show_form').append(`<div id="startShowFormSubmitBtn" class="form-row">
+                        <div class="col-12 mb-3">
+                            <button type="submit" class="btn btn-success">Save Changes</button>
+                        </div>
+                    </div>`);
+            });
+
+
+            // ------------------ guest input field setter -----------------------
+            function guestInputFieldSetter(guestNo) {
+                let guestInputField = 
+                `<div class="guestDiv">
+                    <h4 class="text_dark mt-4 mb-3">Guest #${guestNo}</h4>
+                    <div class="form-row">
+                        <div class="col-12 col-sm-4 mb-3">
+                            <label class="text_dark" for="guest${guestNo}_name">Name</label>
+                            <input type="text" class="form-control" id="guest${guestNo}_name" aria-describedby="guest${guestNo}_nameHelp">
+                            <small id="guest${guestNo}_nameHelp" class="form-text text-muted">Please fill up this field</small>
+                        </div>
+                        <div class="col-12 col-sm-4 mb-3">
+                            <label class="text_dark" for="guest${guestNo}_dept">Department (Optional)</label>
+                            <input type="text" class="form-control" id="guest${guestNo}_dept" aria-describedby="guest${guestNo}_depttHelp">
+                            <small id="guest${guestNo}_depttHelp" class="form-text text-muted">Please fill up this field</small>
+                        </div>
+                        <div class="col-12 col-sm-4 mb-3">
+                            <label class="text_dark" for="guest${guestNo}_batch">Batch (Optional)</label>
+                            <input type="text" class="form-control" id="guest${guestNo}_batch" aria-describedby="guest${guestNo}_batchHelp">
+                            <small id="guest${guestNo}_batchHelp" class="form-text text-muted">Please fill up this field</small>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="col-12 mb-4">
+                            <label class="text_dark" for="guest${guestNo}_description">Other Description (Optional)</label>
+                            <input type="text" class="form-control" id="guest${guestNo}_description" aria-describedby="guest${guestNo}_descriptionHelp">
+                            <small id="guest${guestNo}_descriptionHelp" class="form-text text-muted">Please fill up this field</small>
+                        </div>
+                    </div>
+                
+                </div>`;
+
+                return guestInputField;
+            }
         });
     </script>
     <!-- endbuild -->
