@@ -1,220 +1,224 @@
-@import '../node_modules/bootstrap/scss/bootstrap.scss';
+@import "../node_modules/bootstrap/scss/bootstrap.scss";
 
 // ----------------------- Color Variable --------------------------
-$primary: #A8CF45;
+$primary: #a8cf45;
 $secondary: #202427;
 $black-dark: #252525;
 
 // ----------------------- Importing font --------------------------
 @font-face {
-    font-family: 'muli';
-    src: url('/fonts/Muli.ttf');
-    font-style: normal;
+  font-family: "muli";
+  src: url("/fonts/Muli.ttf");
+  font-style: normal;
 }
 
 @font-face {
-    font-family: 'muli_light';
-    src: url('/fonts/Muli\ Light.ttf');
-    font-style: normal;
+  font-family: "muli_light";
+  src: url("/fonts/Muli\ Light.ttf");
+  font-style: normal;
 }
-
 
 // ----------------------- Declared Classes --------------------------
 .font_muli {
-    font-family: 'muli' !important;
+  font-family: "muli" !important;
 }
 
 .font_muli_light {
-    font-family: 'muli_light' !important;
+  font-family: "muli_light" !important;
 }
 
 .home_bg_cover {
-    background: url(/img/bg_cover.jpg);
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: 50% 5%;
-    min-height: 100vh;
+  background: url(/img/bg_cover.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 50% 5%;
+  min-height: 100vh;
 }
 
 .clear_line_height {
-    line-height: unset !important;
+  line-height: unset !important;
 }
 
 .radio-player {
-    position: fixed;
-    z-index: 100;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    padding-bottom: .5rem;
-    padding-top: .5rem;
-    background: url('/img/player_bg.jpg') fixed no-repeat center;
-    background-size: cover;
-    overflow: hidden;
-    box-shadow: 0px -3px 6px rgba($color: #000000, $alpha: .5);
+  position: fixed;
+  z-index: 100;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding-bottom: 0.5rem;
+  padding-top: 0.5rem;
+  background: url("/img/player_bg.jpg") fixed no-repeat center;
+  background-size: cover;
+  overflow: hidden;
+  box-shadow: 0px -3px 6px rgba($color: #000000, $alpha: 0.5);
 }
 .radio-player:before {
-    content: '';
-    position: absolute;
-    height: calc(100% + 50px);
-    width: calc(100% + 50px);
-    top: -25px;
-    left: -25px;
-    bottom: 0;
-    right: 0;
-    background: inherit;
-    box-shadow: inset 0 0 0 200px rgba(255,255,255,0.2);
-    filter: blur(5px);
+  content: "";
+  position: absolute;
+  height: calc(100% + 50px);
+  width: calc(100% + 50px);
+  top: -25px;
+  left: -25px;
+  bottom: 0;
+  right: 0;
+  background: inherit;
+  box-shadow: inset 0 0 0 200px rgba(255, 255, 255, 0.2);
+  filter: blur(5px);
 }
 
 .min_vh_unset {
-    min-height: unset !important;
+  min-height: unset !important;
 }
 
 .mt-10 {
-    margin-top: 10rem;
+  margin-top: 10rem;
 }
 
 .play-pause-btn {
-    display: flex;
-    height: 38px;
-    width: 38px;
-    border-radius: 50%;
-    border: 3px solid #fff;
-    cursor: pointer;
-    transition: .1s all ease-in-out;
+  display: flex;
+  height: 38px;
+  width: 38px;
+  border-radius: 50%;
+  border: 3px solid #fff;
+  cursor: pointer;
+  transition: 0.1s all ease-in-out;
 
-    span {
-        transition: .1s all ease-in-out;
-    }
+  span {
+    transition: 0.1s all ease-in-out;
+  }
 }
 
 .play-pause-btn--large {
-    height: 5rem;
-    width: 5rem;
+  height: 5rem;
+  width: 5rem;
 }
 
 .cursor_pointer {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .text_dark {
-    color: $black-dark !important;
+  color: $black-dark !important;
 }
 
 .min_vh_75 {
-    min-height: 75vh !important;
+  min-height: 75vh !important;
 }
 
 .left_0 {
-    left: 0 !important;
+  left: 0 !important;
 }
 
 .bottom_0 {
-    bottom: 0 !important;
+  bottom: 0 !important;
 }
 
 .top_0 {
-    top: 0 !important;
+  top: 0 !important;
 }
 
 .right_0 {
-    right: 0 !important;
+  right: 0 !important;
 }
 
 .object_fit_cover {
-    object-fit: cover;
+  object-fit: cover;
 }
 
 .card_img_thumbnail {
-    width: 5rem;
-    height: 5rem;
-    object-fit: cover;
-    object-position: top center;
+  width: 5rem;
+  height: 5rem;
+  object-fit: cover;
+  object-position: top center;
 }
 
 .card_img_thumbnail--small {
-    width: 2rem;
-    height: 2rem;
+  width: 2rem;
+  height: 2rem;
 }
 
 .card_img_thumbnail--large {
-    width: 8rem;
-    height: 8rem;
+  width: 8rem;
+  height: 8rem;
 }
 
 .box_shadow_basic {
-    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+.box_shadow_basic:hover {
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
 }
 
 .card_border_radius {
-    border-radius: .2rem;
+  border-radius: 0.2rem;
 }
 
 .min_vh_60 {
-    min-height: 60vh;
+  min-height: 60vh;
 }
 
 .schedule_card_bg_1 {
-    background-image: linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4) ), url('/img/schedule_bg_1.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: 20% 35%;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+    url("/img/schedule_bg_1.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 20% 35%;
 }
 
 .schedule_card_bg_2 {
-    background-image: linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4) ), url('/img/schedule_bg_2.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: 20% 35%;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+    url("/img/schedule_bg_2.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 20% 35%;
 }
 
 .schedule_card_bg_3 {
-    background-image: linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4) ), url('/img/schedule_bg_3.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: 20% 10%;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+    url("/img/schedule_bg_3.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 20% 10%;
 }
 
 .schedule_card_bg_4 {
-    background-image: linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4) ), url('/img/schedule_bg_4.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: 20% 35%;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+    url("/img/schedule_bg_4.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 20% 35%;
 }
-
-
-
 
 // ----------------------- Modifying --------------------------
 body {
-    color: white;
-    font-family: 'muli';
+  color: white;
+  font-family: "muli";
 }
 
 @include media-breakpoint-only(xs) {
-    .navbar {
-        background-color: $secondary;     
-        box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
-    }
+  .navbar {
+    background-color: $secondary;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  }
 }
 
 .navbar {
-    transition: all .2s ease-in-out;
+  transition: all 0.2s ease-in-out;
 }
 
 textarea {
-    resize: none !important;
+  resize: none !important;
 }
 
 .bg-primary {
-    background-color: $primary !important;
+  background-color: $primary !important;
 }
 
 .bg-secondary {
-    background-color: $secondary !important;
+  background-color: $secondary !important;
 }
 
 html {
-    scroll-behavior: smooth;
+  scroll-behavior: smooth;
 }
