@@ -7022,12 +7022,12 @@ a.text-dark:hover, a.text-dark:focus {
 
 @font-face {
   font-family: "muli";
-  src: url("/fonts/Muli.ttf");
+  src: url("../fonts/Muli.ttf");
   font-style: normal; }
 
 @font-face {
   font-family: "muli_light";
-  src: url("/fonts/Muli Light.ttf");
+  src: url("../fonts/Muli Light.ttf");
   font-style: normal; }
 
 .font_muli {
@@ -7037,7 +7037,7 @@ a.text-dark:hover, a.text-dark:focus {
   font-family: "muli_light" !important; }
 
 .home_bg_cover {
-  background: url(/img/bg_cover.jpg);
+  background: url(../img/bg_cover.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: 50% 5%;
@@ -7054,7 +7054,7 @@ a.text-dark:hover, a.text-dark:focus {
   width: 100%;
   padding-bottom: 0.5rem;
   padding-top: 0.5rem;
-  background: url("/img/player_bg.jpg") fixed no-repeat center;
+  background: url("../img/player_bg.jpg") fixed no-repeat center;
   background-size: cover;
   overflow: hidden;
   box-shadow: 0px -3px 6px rgba(0, 0, 0, 0.5); }
@@ -7145,25 +7145,25 @@ a.text-dark:hover, a.text-dark:focus {
   min-height: 60vh; }
 
 .schedule_card_bg_1 {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("/img/schedule_bg_1.jpg");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("../img/schedule_bg_1.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: 20% 35%; }
 
 .schedule_card_bg_2 {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("/img/schedule_bg_2.jpg");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("../img/schedule_bg_2.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: 20% 35%; }
 
 .schedule_card_bg_3 {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("/img/schedule_bg_3.jpg");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("../img/schedule_bg_3.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: 20% 10%; }
 
 .schedule_card_bg_4 {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("/img/schedule_bg_4.jpg");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("../img/schedule_bg_4.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: 20% 35%; }
