@@ -10,12 +10,12 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
 
     <!-- Bootstrap CSS -->
-    <!-- build:css css/main.css -->
+    <!-- build:css ../css/main.css -->
     <link
       rel="stylesheet"
-      href="node_modules/font-awesome/css/font-awesome.css"
+      href="../node_modules/font-awesome/css/font-awesome.css"
     />
-    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="../css/styles.css" />
     <!-- endbuild -->
 
     <title>KUET Radio (Voice of KUETians)</title>
@@ -33,17 +33,17 @@
           <span class="navbar-toggler-icon"></span>
         </button>
 
-        <a class="navbar-brand mr-auto" href="/index.html"
-          ><img src="./img/logo.png" width="90"
+        <a class="navbar-brand mr-auto" href="../index.php"
+          ><img src="../img/logo.png" width="90"
         /></a>
 
         <div class="collapse navbar-collapse" id="Navbar">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-              <a href="./index.html" class="nav-link">Home</a>
+              <a href="../index.php" class="nav-link">Home</a>
             </li>
             <li class="nav-item pl-sm-4">
-              <a href="./onAir.html" class="nav-link"> On Air</a>
+              <a href="./onAir.php" class="nav-link"> On Air</a>
             </li>
             <li class="nav-item dropdown pl-sm-4">
               <a
@@ -61,10 +61,10 @@
                 class="dropdown-menu dropdown-menu-right"
                 aria-labelledby="navbarDropdown"
               >
-                <a class="dropdown-item" href="/schedule.html">Schedule</a>
-                <a class="dropdown-item" href="/team.html">Our Team</a>
-                <a class="dropdown-item" href="/alumni.html">Alumni</a>
-                <a class="dropdown-item" href="/contact.html">Contact Us</a>
+                <a class="dropdown-item" href="./schedule.php">Schedule</a>
+                <a class="dropdown-item" href="./team.php">Our Team</a>
+                <a class="dropdown-item" href="./alumni.php">Alumni</a>
+                <a class="dropdown-item" href="./contact.php">Contact Us</a>
               </div>
             </li>
             <li class="nav-item dropdown pl-sm-4">
@@ -78,7 +78,7 @@
                 aria-expanded="false"
               >
                 <img
-                  src="./img/2. Mrinmoy Mandal Tushar.jpg"
+                  src="../img/2. Mrinmoy Mandal Tushar.jpg"
                   class="mr-2 card_img_thumbnail card_img_thumbnail--small rounded-circle"
                 />
                 Mrinmoy
@@ -88,41 +88,39 @@
                 aria-labelledby="memberOptions"
                 id="memberOptionsDropdownArea"
               >
-                <a class="dropdown-item" href="/profile.html">Profile</a>
-                <a class="dropdown-item" href="/start_a_show.html"
+                <a class="dropdown-item" href="./profile.php">Profile</a>
+                <a class="dropdown-item" href="./start_a_show.php"
                   >Start a Show</a
                 >
-                <a class="dropdown-item" href="/comments.html">Comments</a>
-                <a class="dropdown-item" href="/running_show_settings.html"
+                <a class="dropdown-item" href="./comments.php">Comments</a>
+                <a class="dropdown-item" href="./running_show_settings.php"
                   >Running Show Settings</a
                 >
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="/song_requests.html"
+                <a class="dropdown-item" href="./song_requests.php"
                   >Song Requests</a
                 >
-                <a class="dropdown-item" href="/account_requests.html"
+                <a class="dropdown-item active" href="./account_requests.php"
                   >Account Requests</a
                 >
-                <a class="dropdown-item" href="/playlist_settings.html"
+                <a class="dropdown-item" href="./playlist_settings.php"
                   >Playlist Settings</a
                 >
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="/schedule_settings.html"
+                <a class="dropdown-item" href="./schedule_settings.php"
                   >Schedule Settings</a
                 >
-                <a class="dropdown-item" href="/server_settings.html"
+                <a class="dropdown-item" href="./server_settings.php"
                   >Server Settings</a
                 >
-                <a class="dropdown-item" href="/member_management.html"
+                <a class="dropdown-item" href="./member_management.php"
                   >Member Management</a
                 >
-                <a
-                  class="dropdown-item active"
-                  href="/committee_posts_settings.html"
+                <a class="dropdown-item" href="./committee_posts_settings.php"
                   >Committee Posts Settings</a
                 >
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="/logout.php">Logout</a>
+                <a class="dropdown-item" href="./logout.php">Logout</a>
               </div>
             </li>
           </ul>
@@ -139,7 +137,7 @@
             class="col-12 col-lg-2 d-flex justify-content-center justify-content-lg-start mb-4 mb-lg-0"
           >
             <img
-              src="./img/2. Mrinmoy Mandal Tushar.jpg"
+              src="../img/2. Mrinmoy Mandal Tushar.jpg"
               class="mr-2 card_img_thumbnail card_img_thumbnail--large rounded-circle"
             />
           </div>
@@ -152,7 +150,7 @@
           </div>
           <div class="col-6 col-lg-3 offset-3 offset-lg-0">
             <a
-              href="/start_a_show.html"
+              href="./start_a_show.php"
               class="btn btn-sm btn-block bg-primary text-white"
               >Start a Show</a
             >
@@ -213,9 +211,7 @@
             >
               Close
             </button>
-            <button type="submit" class="btn btn-success">
-              Comment
-            </button>
+            <button type="submit" class="btn btn-success">Comment</button>
           </div>
         </div>
       </div>
@@ -224,123 +220,147 @@
 
     <div class="container my-5">
       <div class="row">
-        <div class="col-12 col-sm-9">
-          <h1 class="text_dark mt-5 mb-4">Committee Posts Settings</h1>
+        <div class="col-12 col-sm-9 mt-5 mb-4">
+          <h1 class="text_dark">Account Requests</h1>
+        </div>
 
-          <form id="start_show_form">
-            <div class="form-row">
-              <div class="col-12">
-                <label class="text_dark">Present Posts</label>
-              </div>
-              <div class="col-3">
-                <div class="form-group form-check text_dark">
-                  <input type="checkbox" class="form-check-input" id="rj" />
-                  <label class="form-check-label" for="rj">Apurba Das</label>
+        <div class="col-12">
+          <div class="media box_shadow_basic p-3 card_border_radius mb-4">
+            <img
+              src="../img/3. Apurba Dash.jpg"
+              class="align-self-center mr-3 mr-sm-5 card_img_thumbnail rounded-circle"
+            />
+            <div class="media-body text_dark">
+              <div class="row">
+                <div class="col-12 col-sm-9">
+                  <h5>
+                    Apurba Das
+                  </h5>
+                  <div class="text-black-50">
+                    Industrial Engineering and Management
+                  </div>
+                  <div class="text-black-50">#1509030, Batch 2K15</div>
+                  <div class="text-black-50">Birthday: 16 June, 1996</div>
+                  <div class="text-black-50">Contact No: 018123456789</div>
+                  <div class="text-black-50">Email: abcd@gmail.com</div>
                 </div>
-              </div>
-              <div class="col-3">
-                <div class="form-group form-check text_dark">
-                  <input type="checkbox" class="form-check-input" id="rj" />
-                  <label class="form-check-label" for="rj">Apurba Das</label>
-                </div>
-              </div>
-              <div class="col-3">
-                <div class="form-group form-check text_dark">
-                  <input type="checkbox" class="form-check-input" id="rj" />
-                  <label class="form-check-label" for="rj">Apurba Das</label>
-                </div>
-              </div>
-              <div class="col-3">
-                <div class="form-group form-check text_dark">
-                  <input type="checkbox" class="form-check-input" id="rj" />
-                  <label class="form-check-label" for="rj">Apurba Das</label>
-                </div>
-              </div>
-              <div class="col-3">
-                <div class="form-group form-check text_dark">
-                  <input type="checkbox" class="form-check-input" id="rj" />
-                  <label class="form-check-label" for="rj">Apurba Das</label>
-                </div>
-              </div>
-              <div class="col-3">
-                <div class="form-group form-check text_dark">
-                  <input type="checkbox" class="form-check-input" id="rj" />
-                  <label class="form-check-label" for="rj">Apurba Das</label>
-                </div>
-              </div>
-              <div class="col-3">
-                <div class="form-group form-check text_dark">
-                  <input type="checkbox" class="form-check-input" id="rj" />
-                  <label class="form-check-label" for="rj">Apurba Das</label>
-                </div>
-              </div>
-              <div class="col-3">
-                <div class="form-group form-check text_dark">
-                  <input type="checkbox" class="form-check-input" id="rj" />
-                  <label class="form-check-label" for="rj">Apurba Das</label>
-                </div>
-              </div>
-              <div class="col-3">
-                <div class="form-group form-check text_dark">
-                  <input type="checkbox" class="form-check-input" id="rj" />
-                  <label class="form-check-label" for="rj">Apurba Das</label>
-                </div>
-              </div>
-              <div class="col-3">
-                <div class="form-group form-check text_dark">
-                  <input type="checkbox" class="form-check-input" id="rj" />
-                  <label class="form-check-label" for="rj">Apurba Das</label>
-                </div>
-              </div>
-              <div class="col-3">
-                <div class="form-group form-check text_dark">
-                  <input type="checkbox" class="form-check-input" id="rj" />
-                  <label class="form-check-label" for="rj">Apurba Das</label>
-                </div>
-              </div>
-              <div class="col-3">
-                <div class="form-group form-check text_dark">
-                  <input type="checkbox" class="form-check-input" id="rj" />
-                  <label class="form-check-label" for="rj">Apurba Das</label>
-                </div>
-              </div>
-              <div class="col-3">
-                <div class="form-group form-check text_dark">
-                  <input type="checkbox" class="form-check-input" id="rj" />
-                  <label class="form-check-label" for="rj">Apurba Das</label>
-                </div>
-              </div>
-              <div class="col-3">
-                <div class="form-group form-check text_dark">
-                  <input type="checkbox" class="form-check-input" id="rj" />
-                  <label class="form-check-label" for="rj">Apurba Das</label>
+                <div class="col-12 col-sm-3 align-self-center mt-3 mt-sm-0">
+                  <a
+                    href="./start_a_show.php"
+                    class="btn btn-sm btn-block bg-success text-white"
+                    >Accept</a
+                  >
+                  <a
+                    href="./start_a_show.php"
+                    class="btn btn-sm btn-block bg-danger text-white"
+                    >Delete</a
+                  >
                 </div>
               </div>
             </div>
-
-            <div class="form-row">
-              <div class="col-12 mb-3">
-                <label class="text_dark" for="post_name">New Post Name</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  id="post_name"
-                  aria-describedby="postNameHelp"
-                />
-                <small id="postNameHelp" class="form-text text-muted"
-                  >Please fill up this field</small
-                >
+          </div>
+          <div class="media box_shadow_basic p-3 card_border_radius mb-4">
+            <img
+              src="../img/3. Apurba Dash.jpg"
+              class="align-self-center mr-3 mr-sm-5 card_img_thumbnail rounded-circle"
+            />
+            <div class="media-body text_dark">
+              <div class="row">
+                <div class="col-12 col-sm-9">
+                  <h5>
+                    Apurba Das
+                  </h5>
+                  <div class="text-black-50">
+                    Industrial Engineering and Management
+                  </div>
+                  <div class="text-black-50">#1509030, Batch 2K15</div>
+                  <div class="text-black-50">Birthday: 16 June, 1996</div>
+                  <div class="text-black-50">Contact No: 018123456789</div>
+                  <div class="text-black-50">Email: abcd@gmail.com</div>
+                </div>
+                <div class="col-12 col-sm-3 align-self-center mt-3 mt-sm-0">
+                  <a
+                    href="./start_a_show.php"
+                    class="btn btn-sm btn-block bg-success text-white"
+                    >Accept</a
+                  >
+                  <a
+                    href="./start_a_show.php"
+                    class="btn btn-sm btn-block bg-danger text-white"
+                    >Delete</a
+                  >
+                </div>
               </div>
             </div>
-
-            <div class="form-row">
-              <div class="col-12 mb-3">
-                <button type="submit" class="btn btn-success">
-                  Update Settings
-                </button>
+          </div>
+          <div class="media box_shadow_basic p-3 card_border_radius mb-4">
+            <img
+              src="../img/3. Apurba Dash.jpg"
+              class="align-self-center mr-3 mr-sm-5 card_img_thumbnail rounded-circle"
+            />
+            <div class="media-body text_dark">
+              <div class="row">
+                <div class="col-12 col-sm-9">
+                  <h5>
+                    Apurba Das
+                  </h5>
+                  <div class="text-black-50">
+                    Industrial Engineering and Management
+                  </div>
+                  <div class="text-black-50">#1509030, Batch 2K15</div>
+                  <div class="text-black-50">Birthday: 16 June, 1996</div>
+                  <div class="text-black-50">Contact No: 018123456789</div>
+                  <div class="text-black-50">Email: abcd@gmail.com</div>
+                </div>
+                <div class="col-12 col-sm-3 align-self-center mt-3 mt-sm-0">
+                  <a
+                    href="./start_a_show.php"
+                    class="btn btn-sm btn-block bg-success text-white"
+                    >Accept</a
+                  >
+                  <a
+                    href="./start_a_show.php"
+                    class="btn btn-sm btn-block bg-danger text-white"
+                    >Delete</a
+                  >
+                </div>
               </div>
             </div>
-          </form>
+          </div>
+          <div class="media box_shadow_basic p-3 card_border_radius mb-4">
+            <img
+              src="../img/3. Apurba Dash.jpg"
+              class="align-self-center mr-3 mr-sm-5 card_img_thumbnail rounded-circle"
+            />
+            <div class="media-body text_dark">
+              <div class="row">
+                <div class="col-12 col-sm-9">
+                  <h5>
+                    Apurba Das
+                  </h5>
+                  <div class="text-black-50">
+                    Industrial Engineering and Management
+                  </div>
+                  <div class="text-black-50">#1509030, Batch 2K15</div>
+                  <div class="text-black-50">Birthday: 16 June, 1996</div>
+                  <div class="text-black-50">Contact No: 018123456789</div>
+                  <div class="text-black-50">Email: abcd@gmail.com</div>
+                </div>
+                <div class="col-12 col-sm-3 align-self-center mt-3 mt-sm-0">
+                  <a
+                    href="./start_a_show.php"
+                    class="btn btn-sm btn-block bg-success text-white"
+                    >Accept</a
+                  >
+                  <a
+                    href="./start_a_show.php"
+                    class="btn btn-sm btn-block bg-danger text-white"
+                    >Delete</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -351,7 +371,7 @@
         <div class="row">
           <div class="col-2 d-none d-sm-flex align-items-center">
             <img
-              src="./img/logo.png"
+              src="../img/logo.png"
               alt="LOGO"
               class="img-fluid"
               width="100"
@@ -392,7 +412,7 @@
     </div>
 
     <audio id="theme-song-player">
-      <source src="./audios/KUET_RADIO_Intro_song_short.m4a" />
+      <source src="../audios/KUET_RADIO_Intro_song_short.m4a" />
     </audio>
 
     <audio id="main-but-hidden-radio-player">
@@ -407,12 +427,12 @@
           <div class="col-4 col-sm-4">
             <h5>Links</h5>
             <ul class="list-unstyled">
-              <li><a href="./index.html">Home</a></li>
-              <li><a href="./onAir.html">On Air</a></li>
-              <li><a href="/schedule.html">Schedule</a></li>
-              <li><a href="/team.html">Our Team</a></li>
-              <li><a href="/alumni.html">Alumni</a></li>
-              <li><a href="/contact.html">Contact Us</a></li>
+              <li><a href="../index.php">Home</a></li>
+              <li><a href="./onAir.php">On Air</a></li>
+              <li><a href="./schedule.php">Schedule</a></li>
+              <li><a href="./team.php">Our Team</a></li>
+              <li><a href="./alumni.php">Alumni</a></li>
+              <li><a href="./contact.php">Contact Us</a></li>
             </ul>
           </div>
           <div class="col-7 col-sm-4">
@@ -448,9 +468,8 @@
         <div class="row justify-content-center mt-4">
           <div class="col-auto">
             <p class="text-center">
-              © Copyright
-              <span id="present_copyright_year"></span> KUET Radio | Developed
-              By
+              © Copyright <span id="present_copyright_year"></span> KUET Radio |
+              Developed By
               <a href="https://www.facebook.com/showrinbarua.hridoy"
                 >Showrin Barua</a
               >
@@ -462,10 +481,10 @@
 
     <!-- jQuery first, then Popper.js, then Bootstrap JS. -->
     <!-- build:js js/main.js -->
-    <script src="js/jquery.slim.min.js"></script>
-    <script src="js/popper.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/scripts.js"></script>
+    <script src="../js/jquery.slim.min.js"></script>
+    <script src="../js/popper.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/scripts.js"></script>
     <!-- endbuild -->
   </body>
 </html>

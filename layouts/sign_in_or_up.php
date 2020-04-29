@@ -10,12 +10,12 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
 
     <!-- Bootstrap CSS -->
-    <!-- build:css css/main.css -->
+    <!-- build:css ../css/main.css -->
     <link
       rel="stylesheet"
-      href="node_modules/font-awesome/css/font-awesome.css"
+      href="../node_modules/font-awesome/css/font-awesome.css"
     />
-    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="../css/styles.css" />
     <!-- endbuild -->
 
     <title>KUET Radio (Voice of KUETians)</title>
@@ -33,19 +33,19 @@
           <span class="navbar-toggler-icon"></span>
         </button>
 
-        <a class="navbar-brand mr-auto" href="/index.html"
-          ><img src="./img/logo.png" width="90"
+        <a class="navbar-brand mr-auto" href="../index.php"
+          ><img src="../img/logo.png" width="90"
         /></a>
 
         <div class="collapse navbar-collapse" id="Navbar">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-              <a href="./index.html" class="nav-link">Home</a>
+              <a href="../index.php" class="nav-link">Home</a>
             </li>
             <li class="nav-item pl-sm-4">
-              <a href="./onAir.html" class="nav-link"> On Air</a>
+              <a href="./onAir.php" class="nav-link"> On Air</a>
             </li>
-            <li class="nav-item active dropdown pl-sm-4">
+            <li class="nav-item dropdown pl-sm-4">
               <a
                 class="nav-link dropdown-toggle"
                 href="#"
@@ -61,16 +61,16 @@
                 class="dropdown-menu dropdown-menu-right"
                 aria-labelledby="navbarDropdown"
               >
-                <a class="dropdown-item" href="/schedule.html">Schedule</a>
-                <a class="dropdown-item" href="/team.html">Our Team</a>
-                <a class="dropdown-item active" href="/alumni.html">Alumni</a>
-                <a class="dropdown-item" href="/contact.html">Contact Us</a>
+                <a class="dropdown-item" href="./schedule.php">Schedule</a>
+                <a class="dropdown-item" href="./team.php">Our Team</a>
+                <a class="dropdown-item" href="./alumni.php">Alumni</a>
+                <a class="dropdown-item" href="./contact.php">Contact Us</a>
               </div>
             </li>
             <li class="nav-item pl-sm-4">
               <a
-                href="/sign_in_or_up.html"
-                class="btn btn-sm btn-outline-primary my-3 my-sm-1 px-4"
+                href="./sign_in_or_up.php"
+                class="btn btn-sm btn-outline-primary my-3 my-sm-1 px-4 active"
               >
                 Sign In
               </a>
@@ -229,11 +229,11 @@
           <div class="modal-body text-secondary">
             <form>
               <div class="form-group">
-                <label class="text_dark" for="your_name">Name</label>
+                <label class="text_dark" for="your_comment_name">Name</label>
                 <input
                   type="text"
                   class="form-control"
-                  id="your_name"
+                  id="your_comment_name"
                   aria-describedby="yourNameHelp"
                   placeholder="Enter your name"
                 />
@@ -271,115 +271,222 @@
     <!-- comment_modal ends -->
 
     <div class="container my-5">
-      <div class="row pr-sm-0 pr-md-3">
-        <div class="col-12 mt-5 mb-4">
-          <h1 class="text_dark">
-            Alumni (2017 - <span id="present_year_for_alumni"></span>)
-          </h1>
-        </div>
-        <div class="col-12 col-sm-6 col-lg-4">
-          <div class="media box_shadow_basic p-3 card_border_radius mb-4">
-            <img
-              src="./img/3. Apurba Dash.jpg"
-              class="align-self-center mr-3 card_img_thumbnail rounded-circle"
-            />
-            <div class="media-body text_dark">
-              <h5>Apurba Das</h5>
-              <h6 class="text-black-50">Alumni</h6>
-              <h6 class="text-uppercase text-primary">Member</h6>
+      <div class="row">
+        <div class="col-12 col-sm-5">
+          <h1 class="text_dark mt-5 mb-4">Sign In</h1>
+
+          <form>
+            <div class="form-group">
+              <label class="text_dark" for="your_sign_in_email">Email</label>
+              <input
+                type="email"
+                class="form-control"
+                id="your_sign_in_email"
+                aria-describedby="yourSignInEmailHelp"
+                required
+              />
+              <small id="yourSignInEmailHelp" class="form-text text-muted"
+                >Please fill up this field</small
+              >
             </div>
-          </div>
-        </div>
-        <div class="col-12 col-sm-6 col-lg-4">
-          <div class="media box_shadow_basic p-3 card_border_radius mb-4">
-            <img
-              src="./img/3. Apurba Dash.jpg"
-              class="align-self-center mr-3 card_img_thumbnail rounded-circle"
-            />
-            <div class="media-body text_dark">
-              <h5>Apurba Das</h5>
-              <h6 class="text-black-50">Alumni</h6>
-              <h6 class="text-uppercase text-primary">Member</h6>
+            <div class="form-group">
+              <label class="text_dark" for="sign-in-password">Password</label>
+              <input
+                type="password"
+                class="form-control"
+                id="sign-in-password"
+                aria-describedby="sign-in-password-help"
+                required
+              />
+              <small id="sign-in-password-help" class="form-text text-muted"
+                >Please fill up this field</small
+              >
             </div>
-          </div>
-        </div>
-        <div class="col-12 col-sm-6 col-lg-4">
-          <div class="media box_shadow_basic p-3 card_border_radius mb-4">
-            <img
-              src="./img/3. Apurba Dash.jpg"
-              class="align-self-center mr-3 card_img_thumbnail rounded-circle"
-            />
-            <div class="media-body text_dark">
-              <h5>Apurba Das</h5>
-              <h6 class="text-black-50">Alumni</h6>
-              <h6 class="text-uppercase text-primary">Member</h6>
+            <div class="form-group">
+              <button type="submit" class="btn btn-success">Sign In</button>
             </div>
-          </div>
+            <p class="text_dark">Forget password? <a href="#">Click Here</a></p>
+          </form>
         </div>
-        <div class="col-12 col-sm-6 col-lg-4">
-          <div class="media box_shadow_basic p-3 card_border_radius mb-4">
-            <img
-              src="./img/3. Apurba Dash.jpg"
-              class="align-self-center mr-3 card_img_thumbnail rounded-circle"
-            />
-            <div class="media-body text_dark">
-              <h5>Apurba Das</h5>
-              <h6 class="text-black-50">Alumni</h6>
-              <h6 class="text-uppercase text-primary">Member</h6>
+
+        <div class="col-12 offset-sm-1 col-sm-6">
+          <h1 class="text_dark mt-5 mb-4">Sign Up</h1>
+
+          <form>
+            <div class="form-row">
+              <div class="col-12 mb-3">
+                <label class="text_dark">Profile Picture</label>
+                <div class="custom-file">
+                  <input
+                    type="file"
+                    accept=".jpg, .jpeg, .png"
+                    class="custom-file-input text_dark"
+                    id="validatedCustomFile"
+                    required
+                  />
+                  <label class="custom-file-label" for="validatedCustomFile"
+                    >Upload your image .....</label
+                  >
+                  <div class="invalid-feedback">Invalid file</div>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
-        <div class="col-12 col-sm-6 col-lg-4">
-          <div class="media box_shadow_basic p-3 card_border_radius mb-4">
-            <img
-              src="./img/3. Apurba Dash.jpg"
-              class="align-self-center mr-3 card_img_thumbnail rounded-circle"
-            />
-            <div class="media-body text_dark">
-              <h5>Apurba Das</h5>
-              <h6 class="text-black-50">Alumni</h6>
-              <h6 class="text-uppercase text-primary">Member</h6>
+
+            <div class="form-row">
+              <div class="col-12 col-sm-6 mb-3">
+                <label class="text_dark" for="your_first_name"
+                  >First Name</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="your_first_name"
+                  aria-describedby="yourFirstNameHelp"
+                />
+                <small id="yourFirstNameHelp" class="form-text text-muted"
+                  >Please fill up this field</small
+                >
+              </div>
+              <div class="col-12 col-sm-6 mb-3">
+                <label class="text_dark" for="your_last_name">Last Name</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="your_last_name"
+                  aria-describedby="yourLastNameHelp"
+                />
+                <small id="yourLastNameHelp" class="form-text text-muted"
+                  >Please fill up this field</small
+                >
+              </div>
             </div>
-          </div>
-        </div>
-        <div class="col-12 col-sm-6 col-lg-4">
-          <div class="media box_shadow_basic p-3 card_border_radius mb-4">
-            <img
-              src="./img/3. Apurba Dash.jpg"
-              class="align-self-center mr-3 card_img_thumbnail rounded-circle"
-            />
-            <div class="media-body text_dark">
-              <h5>Apurba Das</h5>
-              <h6 class="text-black-50">Alumni</h6>
-              <h6 class="text-uppercase text-primary">Member</h6>
+
+            <div class="form-row">
+              <div class="col-12 col-sm-6 mb-3">
+                <label class="text_dark" for="your_birth_date"
+                  >Birth Date</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="your_birth_date"
+                  aria-describedby="yourBirthdateHelp"
+                />
+                <small id="yourBirthdateHelp" class="form-text text-muted"
+                  >Please fill up this field</small
+                >
+              </div>
+              <div class="col-12 col-sm-6 mb-3">
+                <label class="text_dark" for="your_birth_month"
+                  >Birth Month</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="your_birth_month"
+                  aria-describedby="yourBirthMonthHelp"
+                />
+                <small id="yourBirthMonthHelp" class="form-text text-muted"
+                  >Please fill up this field</small
+                >
+              </div>
             </div>
-          </div>
-        </div>
-        <div class="col-12 col-sm-6 col-lg-4">
-          <div class="media box_shadow_basic p-3 card_border_radius mb-4">
-            <img
-              src="./img/3. Apurba Dash.jpg"
-              class="align-self-center mr-3 card_img_thumbnail rounded-circle"
-            />
-            <div class="media-body text_dark">
-              <h5>Apurba Das</h5>
-              <h6 class="text-black-50">Alumni</h6>
-              <h6 class="text-uppercase text-primary">Member</h6>
+
+            <div class="form-row">
+              <div class="col-12 mb-3">
+                <label class="text_dark" for="your_contact"
+                  >Contact No (Mobile)</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="your_contact"
+                  aria-describedby="yourContactHelp"
+                />
+                <small id="yourContactHelp" class="form-text text-muted"
+                  >Please fill up this field</small
+                >
+              </div>
             </div>
-          </div>
-        </div>
-        <div class="col-12 col-sm-6 col-lg-4">
-          <div class="media box_shadow_basic p-3 card_border_radius mb-4">
-            <img
-              src="./img/3. Apurba Dash.jpg"
-              class="align-self-center mr-3 card_img_thumbnail rounded-circle"
-            />
-            <div class="media-body text_dark">
-              <h5>Apurba Das</h5>
-              <h6 class="text-black-50">Alumni</h6>
-              <h6 class="text-uppercase text-primary">Member</h6>
+
+            <div class="form-row">
+              <div class="col-12 mb-3">
+                <label class="text_dark" for="your_dept">Department</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="your_dept"
+                  aria-describedby="yourDeptHelp"
+                />
+                <small id="yourDeptHelp" class="form-text text-muted"
+                  >Please fill up this field</small
+                >
+              </div>
             </div>
-          </div>
+
+            <div class="form-row">
+              <div class="col-12 col-sm-6 mb-3">
+                <label class="text_dark" for="your_roll">Roll</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="your_roll"
+                  aria-describedby="yourRollHelp"
+                />
+                <small id="yourRollHelp" class="form-text text-muted"
+                  >Please fill up this field</small
+                >
+              </div>
+              <div class="col-12 col-sm-6 mb-3">
+                <label class="text_dark" for="your_batch">Batch</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="your_batch"
+                  aria-describedby="yourBatchHelp"
+                />
+                <small id="yourBatchHelp" class="form-text text-muted"
+                  >Please fill up this field</small
+                >
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="col-12 mb-3">
+                <label class="text_dark" for="your_email">Email</label>
+                <input
+                  type="email"
+                  class="form-control"
+                  id="your_email"
+                  aria-describedby="yourEmailHelp"
+                />
+                <small id="yourEmailHelp" class="form-text text-muted"
+                  >Please fill up this field</small
+                >
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="col-12 mb-3">
+                <label class="text_dark" for="sign-up-password">Password</label>
+                <input
+                  type="password"
+                  class="form-control"
+                  id="sign-up-password"
+                  aria-describedby="sign-up-password-help"
+                />
+                <small id="sign-up-password-help" class="form-text text-muted"
+                  >Please fill up this field</small
+                >
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="col-12 mb-3">
+                <button type="submit" class="btn btn-success">Sign Up</button>
+              </div>
+            </div>
+          </form>
         </div>
       </div>
     </div>
@@ -390,7 +497,7 @@
         <div class="row">
           <div class="col-2 d-none d-sm-flex align-items-center">
             <img
-              src="./img/logo.png"
+              src="../img/logo.png"
               alt="LOGO"
               class="img-fluid"
               width="100"
@@ -431,7 +538,7 @@
     </div>
 
     <audio id="theme-song-player">
-      <source src="./audios/KUET_RADIO_Intro_song_short.m4a" />
+      <source src="../audios/KUET_RADIO_Intro_song_short.m4a" />
     </audio>
 
     <audio id="main-but-hidden-radio-player">
@@ -446,12 +553,12 @@
           <div class="col-4 col-sm-4">
             <h5>Links</h5>
             <ul class="list-unstyled">
-              <li><a href="./index.html">Home</a></li>
-              <li><a href="./onAir.html">On Air</a></li>
-              <li><a href="/schedule.html">Schedule</a></li>
-              <li><a href="/team.html">Our Team</a></li>
-              <li><a href="/alumni.html">Alumni</a></li>
-              <li><a href="/contact.html">Contact Us</a></li>
+              <li><a href="../index.php">Home</a></li>
+              <li><a href="./onAir.php">On Air</a></li>
+              <li><a href="./schedule.php">Schedule</a></li>
+              <li><a href="./team.php">Our Team</a></li>
+              <li><a href="./alumni.php">Alumni</a></li>
+              <li><a href="./contact.php">Contact Us</a></li>
             </ul>
           </div>
           <div class="col-7 col-sm-4">
@@ -500,10 +607,17 @@
 
     <!-- jQuery first, then Popper.js, then Bootstrap JS. -->
     <!-- build:js js/main.js -->
-    <script src="js/jquery.slim.min.js"></script>
-    <script src="js/popper.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/scripts.js"></script>
+    <script src="../js/jquery.slim.min.js"></script>
+    <script src="../js/popper.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/scripts.js"></script>
+    <script src="../js/bs-custom-file-input.min.js"></script>
+
+    <script>
+      $(document).ready(function() {
+        bsCustomFileInput.init();
+      });
+    </script>
     <!-- endbuild -->
   </body>
 </html>

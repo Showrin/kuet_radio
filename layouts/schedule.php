@@ -10,12 +10,12 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
 
     <!-- Bootstrap CSS -->
-    <!-- build:css css/main.css -->
+    <!-- build:css ../css/main.css -->
     <link
       rel="stylesheet"
-      href="node_modules/font-awesome/css/font-awesome.css"
+      href="../node_modules/font-awesome/css/font-awesome.css"
     />
-    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="../css/styles.css" />
     <!-- endbuild -->
 
     <title>KUET Radio (Voice of KUETians)</title>
@@ -33,17 +33,17 @@
           <span class="navbar-toggler-icon"></span>
         </button>
 
-        <a class="navbar-brand mr-auto" href="/index.html"
-          ><img src="./img/logo.png" width="90"
+        <a class="navbar-brand mr-auto" href="../index.php"
+          ><img src="../img/logo.png" width="90"
         /></a>
 
         <div class="collapse navbar-collapse" id="Navbar">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-              <a href="./index.html" class="nav-link">Home</a>
+              <a href="../index.php" class="nav-link">Home</a>
             </li>
             <li class="nav-item pl-sm-4">
-              <a href="./onAir.html" class="nav-link"> On Air</a>
+              <a href="./onAir.php" class="nav-link"> On Air</a>
             </li>
             <li class="nav-item active dropdown pl-sm-4">
               <a
@@ -61,17 +61,17 @@
                 class="dropdown-menu dropdown-menu-right"
                 aria-labelledby="navbarDropdown"
               >
-                <a class="dropdown-item" href="/schedule.html">Schedule</a>
-                <a class="dropdown-item" href="/team.html">Our Team</a>
-                <a class="dropdown-item" href="/alumni.html">Alumni</a>
-                <a class="dropdown-item active" href="/contact.html"
-                  >Contact Us</a
+                <a class="dropdown-item active" href="./schedule.php"
+                  >Schedule</a
                 >
+                <a class="dropdown-item" href="./team.php">Our Team</a>
+                <a class="dropdown-item" href="./alumni.php">Alumni</a>
+                <a class="dropdown-item" href="./contact.php">Contact Us</a>
               </div>
             </li>
             <li class="nav-item pl-sm-4">
               <a
-                href="/sign_in_or_up.html"
+                href="./sign_in_or_up.php"
                 class="btn btn-sm btn-outline-primary my-3 my-sm-1 px-4"
               >
                 Sign In
@@ -272,68 +272,80 @@
     </div>
     <!-- comment_modal ends -->
 
-    <div class="container my-5" id="comment_form">
-      <div class="row">
-        <div class="col-12 mb-4">
-          <h1 class="text_dark">Contact Us</h1>
+    <div class="container my-5">
+      <div class="row pr-sm-0 pr-md-3">
+        <div class="col-12 mt-5 mb-4">
+          <h1 class="text_dark">Schedule</h1>
         </div>
-        <div class="col-12 col-sm-9">
-          <form>
-            <div class="form-group">
-              <label class="text_dark" for="your_name">Name</label>
-              <input
-                type="text"
-                class="form-control"
-                id="your_name"
-                aria-describedby="yourNameHelp"
-                placeholder="Enter your name"
-              />
-              <small id="yourNameHelp" class="form-text text-muted"
-                >Please fill up this field</small
-              >
+        <div class="col-12">
+          <div
+            class="media box_shadow_basic schedule_card_bg_1 p-4 card_border_radius mb-5"
+          >
+            <div class="media-body text-white">
+              <h1 class="mb-1"><strong>Jogakhichuri</strong></h1>
+              <h6 class="my-3">RJ Apurba & RJ Abir</h6>
+              <span class="badge badge-primary py-2 px-4 mt-3 text-white">
+                <span class="fa fa-clock-o"></span>
+                9:45 pm, Thursday
+              </span>
             </div>
-            <div class="form-group">
-              <label class="text_dark" for="your_message">Message</label>
-              <textarea
-                class="form-control"
-                id="your_message"
-                name="feedback"
-                rows="4"
-              ></textarea>
-              <small id="yourNameHelp" class="form-text text-muted"
-                >Please fill up this field</small
-              >
-            </div>
-            <div class="form-group">
-              <button type="submit" class="btn btn-success">Send</button>
-            </div>
-          </form>
+          </div>
         </div>
-      </div>
-      <div class="row mt-4">
-        <div class="col-12 text_dark">
-          Or Contact Us via
-          <span class="text-left">
-            <a class="pl-4" href="http://www.facebook.com/profile.php?id="
-              ><i class="fa fa-lg fa-facebook"></i
-            ></a>
-            <a class="pl-4" href="mailto:kuetradio01@gmail.com"
-              ><i
-                class="fa fa-lg fa-envelope"
-                data-toggle="tooltip"
-                data-placement="top"
-                title="kuetradio01@gmail.com"
-              ></i
-            ></a>
-            <a class="pl-4" href="tel:+852 1234 5678"
-              ><i
-                class="fa fa-lg fa-phone"
-                data-toggle="tooltip"
-                data-placement="top"
-                title="+852 1234 5678"
-              ></i
-            ></a>
-          </span>
+        <div class="col-12 col-sm-6">
+          <div
+            class="media box_shadow_basic schedule_card_bg_2 p-4 card_border_radius mb-5"
+          >
+            <div class="media-body text-white">
+              <h1 class="mb-1"><strong>Jogakhichuri</strong></h1>
+              <h6 class="my-3">RJ Apurba & RJ Abir</h6>
+              <span class="badge badge-primary py-2 px-4 mt-3 text-white">
+                <span class="fa fa-clock-o"></span>
+                9:45 pm, Thursday
+              </span>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-sm-6">
+          <div
+            class="media box_shadow_basic schedule_card_bg_3 p-4 card_border_radius mb-5"
+          >
+            <div class="media-body text-white">
+              <h1 class="mb-1"><strong>Jogakhichuri</strong></h1>
+              <h6 class="my-3">RJ Apurba & RJ Abir</h6>
+              <span class="badge badge-primary py-2 px-4 mt-3 text-white">
+                <span class="fa fa-clock-o"></span>
+                9:45 pm, Thursday
+              </span>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-sm-6">
+          <div
+            class="media box_shadow_basic schedule_card_bg_4 p-4 card_border_radius mb-5"
+          >
+            <div class="media-body text-white">
+              <h1 class="mb-1"><strong>Jogakhichuri</strong></h1>
+              <h6 class="my-3">RJ Apurba & RJ Abir</h6>
+              <span class="badge badge-primary py-2 px-4 mt-3 text-white">
+                <span class="fa fa-clock-o"></span>
+                9:45 pm, Thursday
+              </span>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-sm-6">
+          <div
+            class="media box_shadow_basic schedule_card_bg_1 p-4 card_border_radius mb-5"
+          >
+            <div class="media-body text-white">
+              <h1 class="mb-1"><strong>Jogakhichuri</strong></h1>
+              <h6 class="my-3">RJ Apurba & RJ Abir</h6>
+              <span class="badge badge-primary py-2 px-4 mt-3 text-white">
+                <span class="fa fa-clock-o"></span>
+                9:45 pm, Thursday
+              </span>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -344,7 +356,7 @@
         <div class="row">
           <div class="col-2 d-none d-sm-flex align-items-center">
             <img
-              src="./img/logo.png"
+              src="../img/logo.png"
               alt="LOGO"
               class="img-fluid"
               width="100"
@@ -385,7 +397,7 @@
     </div>
 
     <audio id="theme-song-player">
-      <source src="./audios/KUET_RADIO_Intro_song_short.m4a" />
+      <source src="../audios/KUET_RADIO_Intro_song_short.m4a" />
     </audio>
 
     <audio id="main-but-hidden-radio-player">
@@ -400,12 +412,12 @@
           <div class="col-4 col-sm-4">
             <h5>Links</h5>
             <ul class="list-unstyled">
-              <li><a href="./index.html">Home</a></li>
-              <li><a href="./onAir.html">On Air</a></li>
-              <li><a href="/schedule.html">Schedule</a></li>
-              <li><a href="/team.html">Our Team</a></li>
-              <li><a href="/alumni.html">Alumni</a></li>
-              <li><a href="/contact.html">Contact Us</a></li>
+              <li><a href="../index.php">Home</a></li>
+              <li><a href="./onAir.php">On Air</a></li>
+              <li><a href="./schedule.php">Schedule</a></li>
+              <li><a href="./team.php">Our Team</a></li>
+              <li><a href="./alumni.php">Alumni</a></li>
+              <li><a href="./contact.php">Contact Us</a></li>
             </ul>
           </div>
           <div class="col-7 col-sm-4">
@@ -454,10 +466,10 @@
 
     <!-- jQuery first, then Popper.js, then Bootstrap JS. -->
     <!-- build:js js/main.js -->
-    <script src="js/jquery.slim.min.js"></script>
-    <script src="js/popper.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/scripts.js"></script>
+    <script src="../js/jquery.slim.min.js"></script>
+    <script src="../js/popper.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/scripts.js"></script>
     <!-- endbuild -->
   </body>
 </html>

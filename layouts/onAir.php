@@ -10,12 +10,12 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
 
     <!-- Bootstrap CSS -->
-    <!-- build:css css/main.css -->
+    <!-- build:css ../css/main.css -->
     <link
       rel="stylesheet"
-      href="node_modules/font-awesome/css/font-awesome.css"
+      href="../node_modules/font-awesome/css/font-awesome.css"
     />
-    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="../css/styles.css" />
     <!-- endbuild -->
 
     <title>KUET Radio (Voice of KUETians)</title>
@@ -33,17 +33,17 @@
           <span class="navbar-toggler-icon"></span>
         </button>
 
-        <a class="navbar-brand mr-auto" href="/index.html"
-          ><img src="./img/logo.png" width="90"
+        <a class="navbar-brand mr-auto" href="../index.php"
+          ><img src="../img/logo.png" width="90"
         /></a>
 
         <div class="collapse navbar-collapse" id="Navbar">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-              <a href="./index.html" class="nav-link">Home</a>
+              <a href="../index.php" class="nav-link">Home</a>
             </li>
             <li class="nav-item active pl-sm-4">
-              <a href="./onAir.html" class="nav-link"> On Air</a>
+              <a href="./onAir.php" class="nav-link"> On Air</a>
             </li>
             <li class="nav-item dropdown pl-sm-4">
               <a
@@ -61,15 +61,15 @@
                 class="dropdown-menu dropdown-menu-right"
                 aria-labelledby="navbarDropdown"
               >
-                <a class="dropdown-item" href="/schedule.html">Schedule</a>
-                <a class="dropdown-item" href="/team.html">Our Team</a>
-                <a class="dropdown-item" href="/alumni.html">Alumni</a>
-                <a class="dropdown-item" href="/contact.html">Contact Us</a>
+                <a class="dropdown-item" href="./schedule.php">Schedule</a>
+                <a class="dropdown-item" href="./team.php">Our Team</a>
+                <a class="dropdown-item" href="./alumni.php">Alumni</a>
+                <a class="dropdown-item" href="./contact.php">Contact Us</a>
               </div>
             </li>
             <li class="nav-item pl-sm-4">
               <a
-                href="/sign_in_or_up.html"
+                href="./sign_in_or_up.php"
                 class="btn btn-sm btn-outline-primary my-3 my-sm-1 px-4"
               >
                 Sign In
@@ -241,7 +241,7 @@
             <div class="col-12">
               <div class="media box_shadow_basic p-3 card_border_radius mb-4">
                 <img
-                  src="./img/2. Mrinmoy Mandal Tushar.jpg"
+                  src="../img/2. Mrinmoy Mandal Tushar.jpg"
                   class="align-self-center mr-3 card_img_thumbnail rounded-circle"
                 />
                 <div class="media-body text_dark">
@@ -254,7 +254,7 @@
             <div class="col-12">
               <div class="media box_shadow_basic p-3 card_border_radius mb-4">
                 <img
-                  src="./img/2. Mrinmoy Mandal Tushar.jpg"
+                  src="../img/2. Mrinmoy Mandal Tushar.jpg"
                   class="align-self-center mr-3 card_img_thumbnail rounded-circle"
                 />
                 <div class="media-body text_dark">
@@ -267,7 +267,7 @@
             <div class="col-12">
               <div class="media box_shadow_basic p-3 card_border_radius mb-4">
                 <img
-                  src="./img/2. Mrinmoy Mandal Tushar.jpg"
+                  src="../img/2. Mrinmoy Mandal Tushar.jpg"
                   class="align-self-center mr-3 card_img_thumbnail rounded-circle"
                 />
                 <div class="media-body text_dark">
@@ -288,7 +288,7 @@
             <div class="col-12">
               <div class="media box_shadow_basic p-3 card_border_radius mb-4">
                 <img
-                  src="./img/3. Apurba Dash.jpg"
+                  src="../img/3. Apurba Dash.jpg"
                   class="align-self-center mr-3 card_img_thumbnail rounded-circle"
                 />
                 <div class="media-body text_dark">
@@ -301,7 +301,7 @@
             <div class="col-12">
               <div class="media box_shadow_basic p-3 card_border_radius mb-4">
                 <img
-                  src="./img/3. Apurba Dash.jpg"
+                  src="../img/3. Apurba Dash.jpg"
                   class="align-self-center mr-3 card_img_thumbnail rounded-circle"
                 />
                 <div class="media-body text_dark">
@@ -362,12 +362,12 @@
           <div class="col-4 col-sm-4">
             <h5>Links</h5>
             <ul class="list-unstyled">
-              <li><a href="./index.html">Home</a></li>
-              <li><a href="./onAir.html">On Air</a></li>
-              <li><a href="/schedule.html">Schedule</a></li>
-              <li><a href="/team.html">Our Team</a></li>
-              <li><a href="/alumni.html">Alumni</a></li>
-              <li><a href="/contact.html">Contact Us</a></li>
+              <li><a href="../index.php">Home</a></li>
+              <li><a href="./onAir.php">On Air</a></li>
+              <li><a href="./schedule.php">Schedule</a></li>
+              <li><a href="./team.php">Our Team</a></li>
+              <li><a href="./alumni.php">Alumni</a></li>
+              <li><a href="./contact.php">Contact Us</a></li>
             </ul>
           </div>
           <div class="col-7 col-sm-4">
@@ -415,7 +415,7 @@
     </footer>
 
     <audio id="theme-song-player">
-      <source src="./audios/KUET_RADIO_Intro_song_short.m4a" />
+      <source src="../audios/KUET_RADIO_Intro_song_short.m4a" />
     </audio>
 
     <audio id="main-but-hidden-radio-player">
@@ -425,10 +425,10 @@
 
     <!-- jQuery first, then Popper.js, then Bootstrap JS. -->
     <!-- build:js js/main.js -->
-    <script src="js/jquery.slim.min.js"></script>
-    <script src="js/popper.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/scripts.js"></script>
+    <script src="../js/jquery.slim.min.js"></script>
+    <script src="../js/popper.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/scripts.js"></script>
     <!-- endbuild -->
   </body>
 </html>
