@@ -1,5 +1,6 @@
 <?php
   include "../backend/is_logged_in_check.php";
+  include '../backend/connect_db.php';
 ?>
 
 <!DOCTYPE html>
@@ -229,142 +230,56 @@
         </div>
 
         <div class="col-12">
-          <div class="media box_shadow_basic p-3 card_border_radius mb-4">
-            <img
-              src="../img/3. Apurba Dash.jpg"
-              class="align-self-center mr-3 mr-sm-5 card_img_thumbnail rounded-circle"
-            />
-            <div class="media-body text_dark">
-              <div class="row">
-                <div class="col-12 col-sm-9">
-                  <h5>
-                    Apurba Das
-                  </h5>
-                  <div class="text-black-50">
-                    Industrial Engineering and Management
+          <?php  
+            include "../backend/find_unapproved_user.php";
+
+            if(!mysqli_num_rows($result)) {
+              ?>
+                <div class="alert alert-warning" role="alert">
+                  There is no pending request
+                </div>
+              <?php
+            }
+
+            while($row = mysqli_fetch_assoc($result)) {
+              ?>
+                <div class="media box_shadow_basic p-3 card_border_radius mb-4">
+                  <img
+                    src="../user_info/dp/<?php echo $row['dp_name'] ?>"
+                    class="align-self-center mr-3 mr-sm-5 card_img_thumbnail rounded-circle"
+                  />
+                  <div class="media-body text_dark">
+                    <div class="row">
+                      <div class="col-12 col-sm-9">
+                        <h5>
+                          <?php echo $row['first_name'] . ' ' . $row['last_name'] ?>
+                        </h5>
+                        <div class="text-black-50">
+                          <?php echo $row['dept_name'] ?>
+                        </div>
+                        <div class="text-black-50"><?php echo '#' . $row['roll'] . ', Batch ' . $row['batch_no'] ?></div>
+                        <div class="text-black-50">Birthday: <?php echo $row['birth_date'] ?></div>
+                        <div class="text-black-50">Contact No: <?php echo $row['contact'] ?></div>
+                        <div class="text-black-50">Email: <?php echo $row['email'] ?></div>
+                      </div>
+                      <div class="col-12 col-sm-3 align-self-center mt-3 mt-sm-0">
+                        <a
+                          href="../backend/approve_user.php?id=<?php echo $row['id'] ?>"
+                          class="btn btn-sm btn-block bg-success text-white"
+                          >Accept</a
+                        >
+                        <a
+                          href="../backend/delete_user.php?id=<?php echo $row['id'] ?>"
+                          class="btn btn-sm btn-block bg-danger text-white"
+                          >Delete</a
+                        >
+                      </div>
+                    </div>
                   </div>
-                  <div class="text-black-50">#1509030, Batch 2K15</div>
-                  <div class="text-black-50">Birthday: 16 June, 1996</div>
-                  <div class="text-black-50">Contact No: 018123456789</div>
-                  <div class="text-black-50">Email: abcd@gmail.com</div>
                 </div>
-                <div class="col-12 col-sm-3 align-self-center mt-3 mt-sm-0">
-                  <a
-                    href="./start_a_show.php"
-                    class="btn btn-sm btn-block bg-success text-white"
-                    >Accept</a
-                  >
-                  <a
-                    href="./start_a_show.php"
-                    class="btn btn-sm btn-block bg-danger text-white"
-                    >Delete</a
-                  >
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="media box_shadow_basic p-3 card_border_radius mb-4">
-            <img
-              src="../img/3. Apurba Dash.jpg"
-              class="align-self-center mr-3 mr-sm-5 card_img_thumbnail rounded-circle"
-            />
-            <div class="media-body text_dark">
-              <div class="row">
-                <div class="col-12 col-sm-9">
-                  <h5>
-                    Apurba Das
-                  </h5>
-                  <div class="text-black-50">
-                    Industrial Engineering and Management
-                  </div>
-                  <div class="text-black-50">#1509030, Batch 2K15</div>
-                  <div class="text-black-50">Birthday: 16 June, 1996</div>
-                  <div class="text-black-50">Contact No: 018123456789</div>
-                  <div class="text-black-50">Email: abcd@gmail.com</div>
-                </div>
-                <div class="col-12 col-sm-3 align-self-center mt-3 mt-sm-0">
-                  <a
-                    href="./start_a_show.php"
-                    class="btn btn-sm btn-block bg-success text-white"
-                    >Accept</a
-                  >
-                  <a
-                    href="./start_a_show.php"
-                    class="btn btn-sm btn-block bg-danger text-white"
-                    >Delete</a
-                  >
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="media box_shadow_basic p-3 card_border_radius mb-4">
-            <img
-              src="../img/3. Apurba Dash.jpg"
-              class="align-self-center mr-3 mr-sm-5 card_img_thumbnail rounded-circle"
-            />
-            <div class="media-body text_dark">
-              <div class="row">
-                <div class="col-12 col-sm-9">
-                  <h5>
-                    Apurba Das
-                  </h5>
-                  <div class="text-black-50">
-                    Industrial Engineering and Management
-                  </div>
-                  <div class="text-black-50">#1509030, Batch 2K15</div>
-                  <div class="text-black-50">Birthday: 16 June, 1996</div>
-                  <div class="text-black-50">Contact No: 018123456789</div>
-                  <div class="text-black-50">Email: abcd@gmail.com</div>
-                </div>
-                <div class="col-12 col-sm-3 align-self-center mt-3 mt-sm-0">
-                  <a
-                    href="./start_a_show.php"
-                    class="btn btn-sm btn-block bg-success text-white"
-                    >Accept</a
-                  >
-                  <a
-                    href="./start_a_show.php"
-                    class="btn btn-sm btn-block bg-danger text-white"
-                    >Delete</a
-                  >
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="media box_shadow_basic p-3 card_border_radius mb-4">
-            <img
-              src="../img/3. Apurba Dash.jpg"
-              class="align-self-center mr-3 mr-sm-5 card_img_thumbnail rounded-circle"
-            />
-            <div class="media-body text_dark">
-              <div class="row">
-                <div class="col-12 col-sm-9">
-                  <h5>
-                    Apurba Das
-                  </h5>
-                  <div class="text-black-50">
-                    Industrial Engineering and Management
-                  </div>
-                  <div class="text-black-50">#1509030, Batch 2K15</div>
-                  <div class="text-black-50">Birthday: 16 June, 1996</div>
-                  <div class="text-black-50">Contact No: 018123456789</div>
-                  <div class="text-black-50">Email: abcd@gmail.com</div>
-                </div>
-                <div class="col-12 col-sm-3 align-self-center mt-3 mt-sm-0">
-                  <a
-                    href="./start_a_show.php"
-                    class="btn btn-sm btn-block bg-success text-white"
-                    >Accept</a
-                  >
-                  <a
-                    href="./start_a_show.php"
-                    class="btn btn-sm btn-block bg-danger text-white"
-                    >Delete</a
-                  >
-                </div>
-              </div>
-            </div>
-          </div>
+              <?php
+            }
+          ?>
         </div>
       </div>
     </div>
@@ -485,10 +400,10 @@
 
     <!-- jQuery first, then Popper.js, then Bootstrap JS. -->
     <!-- build:js js/main.js -->
-    <script src="js/jquery.slim.min.js"></script>
-    <script src="js/popper.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/scripts.js"></script>
+    <script src="../js/jquery.slim.min.js"></script>
+    <script src="../js/popper.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/scripts.js"></script>
     <!-- endbuild -->
   </body>
 </html>
