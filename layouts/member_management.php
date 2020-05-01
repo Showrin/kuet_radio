@@ -26,6 +26,7 @@
     />
     <link rel="stylesheet" href="../css/styles.css" />
     <!-- endbuild -->
+    <script src="../js/jquery.slim.min.js"></script>
 
     <title>KUET Radio (Voice of KUETians)</title>
   </head>
@@ -247,7 +248,7 @@
               </button>
             </div>
             <div class="modal-body text-secondary">
-              <form id="post_update_form" method="POST" action="../backend/update_committee_posts.php">
+              <form id="post_update_form<?php echo $row['id'] ?>" method="POST" action="../backend/update_committee_posts.php">
                 <input
                   class="form-check-input"
                   type="text"
@@ -289,7 +290,7 @@
                       name="authorityLevel"
                       id="admin"
                       value="admin"
-                      <?php if(strtolower($row['designation']) === 'admin') {echo 'checked';} ?>
+                      <?php if(strtolower($row['authority_level']) === 'admin') {echo 'checked';} ?>
                     />
                     <label class="form-check-label" for="admin">Admin</label>
                   </div>
@@ -300,7 +301,7 @@
                       name="authorityLevel"
                       id="moderator"
                       value="moderator"
-                      <?php if(strtolower($row['designation']) === 'moderator') {echo 'checked';} ?>
+                      <?php if(strtolower($row['authority_level']) === 'moderator') {echo 'checked';} ?>
                     />
                     <label class="form-check-label" for="moderator"
                       >Moderator</label
@@ -313,7 +314,7 @@
                       name="authorityLevel"
                       id="editor"
                       value="editor"
-                      <?php if(strtolower($row['designation']) === 'editor') {echo 'checked';} ?>
+                      <?php if(strtolower($row['authority_level']) === 'editor') {echo 'checked';} ?>
                     />
                     <label class="form-check-label" for="editor"
                       >Editor</label
@@ -326,7 +327,7 @@
                       name="authorityLevel"
                       id="member"
                       value="member"
-                      <?php if(strtolower($row['designation']) === 'member') {echo 'checked';} ?>
+                      <?php if(strtolower($row['authority_level']) === 'member') {echo 'checked';} ?>
                     />
                     <label class="form-check-label" for="member"
                       >Member</label
@@ -343,11 +344,19 @@
               >
                 Close
               </button>
-              <button type="submit" id="post_update_btn" class="btn btn-success">Save Changes</button>
+              <button type="submit" id="post_update_btn<?php echo $row['id'] ?>" class="btn btn-success">Save Changes</button>
             </div>
           </div>
         </div>
       </div>
+
+      <script>
+        $(document).ready(function() {
+          $('#post_update_btn<?php echo $row['id'] ?>').click(() => {
+            $('#post_update_form<?php echo $row['id'] ?>').submit();
+          })
+        });
+      </script>
     <?php
       }
     ?>
@@ -526,18 +535,9 @@
 
     <!-- jQuery first, then Popper.js, then Bootstrap JS. -->
     <!-- build:js js/main.js -->
-    <script src="../js/jquery.slim.min.js"></script>
     <script src="../js/popper.min.js"></script>
     <script src="../js/bootstrap.min.js"></script>
     <script src="../js/scripts.js"></script>
-
-    <script>
-      $(document).ready(function() {
-        $('#post_update_btn').click(() => {
-          $('#post_update_form').submit();
-        })
-      });
-    </script>
     <!-- endbuild -->
   </body>
 </html>
