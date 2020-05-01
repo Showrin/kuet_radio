@@ -275,7 +275,7 @@
         <div class="col-12 col-sm-5">
           <h1 class="text_dark mt-5 mb-4">Sign In</h1>
 
-          <form>
+          <form id="login-form">
             <div class="form-group">
               <label class="text_dark" for="your_sign_in_email">Email</label>
               <input
@@ -283,6 +283,7 @@
                 class="form-control"
                 id="your_sign_in_email"
                 aria-describedby="yourSignInEmailHelp"
+                name="email"
                 required
               />
               <small id="yourSignInEmailHelp" class="form-text text-muted"
@@ -296,6 +297,7 @@
                 class="form-control"
                 id="sign-in-password"
                 aria-describedby="sign-in-password-help"
+                name="password"
                 required
               />
               <small id="sign-in-password-help" class="form-text text-muted"
@@ -303,7 +305,7 @@
               >
             </div>
             <div class="form-group">
-              <button type="submit" class="btn btn-success">Sign In</button>
+              <button id="login-btn" type="submit" class="btn btn-success">Sign In</button>
             </div>
             <p class="text_dark">Forget password? <a href="#">Click Here</a></p>
           </form>
@@ -626,6 +628,7 @@
         $('#your_email').keyup(() => {
           let email = $('#your_email')[0];
 
+          // checking for existing email in database
           if(email.validity.valid) {
             if (window.XMLHttpRequest) {
                 xmlhttp=new XMLHttpRequest();
@@ -652,6 +655,37 @@
             xmlhttp.send();
           }
         });
+          
+        // login function
+        $('#login-form').submit((e) => {
+          e.preventDefault();
+          let loginEmail = $('#your_sign_in_email')[0].value;
+          let loginPass = $('#sign-in-password')[0].value;
+          
+          if (window.XMLHttpRequest) {
+              xmlhttp=new XMLHttpRequest();
+          }
+          else {
+              xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+          }
+
+          xmlhttp.onreadystatechange=function() {
+            if (this.readyState==4 && this.status==200) {
+              if(this.responseText === "error") {
+                $("#yourSignInEmailHelp").removeClass("text-muted").addClass("text-danger font-weight-bold");
+                $("#yourSignInEmailHelp").text("Invalid Email or Password");
+                $("#sign-in-password-help").removeClass("text-muted").addClass("text-danger font-weight-bold");
+                $("#sign-in-password-help").text("Invalid Email or Password");
+                
+              } else if(this.responseText === "success") {
+                window.location.replace('../layouts/profile.php');
+              }
+            }
+          }
+
+          xmlhttp.open('GET', '../backend/login.php?email='+loginEmail+'&password='+loginPass, true);
+          xmlhttp.send();
+        }) 
       });
     </script>
     <!-- endbuild -->
