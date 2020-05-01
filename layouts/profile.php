@@ -1,5 +1,10 @@
 <?php
   include "../backend/is_logged_in_check.php";
+
+  $id = $_SESSION['id'];
+
+  include "../backend/connect_db.php";
+  include "../backend/find_user_info.php";
 ?>
 
 <!DOCTYPE html>
@@ -82,10 +87,10 @@
                 aria-expanded="false"
               >
                 <img
-                  src="../img/2. Mrinmoy Mandal Tushar.jpg"
+                  src="../user_info/dp/<?php echo $user['dp_name']; ?>"
                   class="mr-2 card_img_thumbnail card_img_thumbnail--small rounded-circle"
                 />
-                Mrinmoy
+                <?php echo $user['first_name']; ?>
               </a>
               <div
                 class="dropdown-menu dropdown-menu-left"
@@ -143,16 +148,16 @@
             class="col-12 col-lg-2 d-flex justify-content-center justify-content-lg-start mb-4 mb-lg-0"
           >
             <img
-              src="../img/2. Mrinmoy Mandal Tushar.jpg"
+              src="../user_info/dp/<?php echo $user['dp_name']; ?>"
               class="mr-2 card_img_thumbnail card_img_thumbnail--large rounded-circle"
             />
           </div>
           <div
             class="col-12 col-lg-6 pl-lg-0 text-center text-lg-left mb-4 mb-lg-0"
           >
-            <h2 class="font_muli_light">Mrinmoy Mandal Tusher</h2>
-            <h5 class="mt-2 mb-3"><strong>President</strong></h5>
-            <h5 class="text-uppercase text-primary">Admin</h5>
+            <h2 class="font_muli_light"><?php echo $user['first_name'] . ' ' . $user['last_name']; ?></h2>
+            <h5 class="mt-2 mb-3 text-capitalize"><strong><?php echo $user['designation']; ?></strong></h5>
+            <h5 class="text-uppercase text-primary"><?php echo $user['authority_level']; ?></h5>
           </div>
           <div class="col-6 col-lg-3 offset-3 offset-lg-0">
             <a
@@ -227,9 +232,9 @@
     <div class="container my-5">
       <div class="row">
         <div class="col-12 col-sm-9">
-          <h1 class="text_dark mt-5 mb-4">Hi, Mrinmoy</h1>
+          <h1 class="text_dark mt-5 mb-4">Hi, <?php echo $user['first_name']; ?></h1>
 
-          <form>
+          <form method="POST" action="../backend/update_user.php" enctype="multipart/form-data">
             <div class="form-row">
               <div class="col-12 mb-3">
                 <label class="text_dark">Change Profile Picture</label>
@@ -239,7 +244,7 @@
                     accept=".jpg, .jpeg, .png"
                     class="custom-file-input text_dark"
                     id="validatedCustomFile"
-                    required
+                    name="dp"
                   />
                   <label class="custom-file-label" for="validatedCustomFile"
                     >Upload your image .....</label
@@ -259,10 +264,10 @@
                   class="form-control"
                   id="your_first_name"
                   aria-describedby="yourFirstNameHelp"
+                  value="<?php echo $user['first_name']; ?>"
+                  name="first_name"
+                  required
                 />
-                <small id="yourFirstNameHelp" class="form-text text-muted"
-                  >Please fill up this field</small
-                >
               </div>
               <div class="col-12 col-sm-6 mb-3">
                 <label class="text_dark" for="your_last_name">Last Name</label>
@@ -271,15 +276,15 @@
                   class="form-control"
                   id="your_last_name"
                   aria-describedby="yourLastNameHelp"
+                  value="<?php echo $user['last_name']; ?>"
+                  name="last_name"
+                  required
                 />
-                <small id="yourLastNameHelp" class="form-text text-muted"
-                  >Please fill up this field</small
-                >
               </div>
             </div>
 
             <div class="form-row">
-              <div class="col-12 col-sm-6 mb-3">
+              <div class="col-12 mb-3">
                 <label class="text_dark" for="your_birth_date"
                   >Birth Date</label
                 >
@@ -288,24 +293,9 @@
                   class="form-control"
                   id="your_birth_date"
                   aria-describedby="yourBirthdateHelp"
+                  value="<?php echo $user['birth_date']; ?>"
+                  name="birth_date"
                 />
-                <small id="yourBirthdateHelp" class="form-text text-muted"
-                  >Please fill up this field</small
-                >
-              </div>
-              <div class="col-12 col-sm-6 mb-3">
-                <label class="text_dark" for="your_birth_month"
-                  >Birth Month</label
-                >
-                <input
-                  type="text"
-                  class="form-control"
-                  id="your_birth_month"
-                  aria-describedby="yourBirthMonthHelp"
-                />
-                <small id="yourBirthMonthHelp" class="form-text text-muted"
-                  >Please fill up this field</small
-                >
               </div>
             </div>
 
@@ -319,10 +309,10 @@
                   class="form-control"
                   id="your_contact"
                   aria-describedby="yourContactHelp"
+                  value="<?php echo $user['contact']; ?>"
+                  name="contact"
+                  required
                 />
-                <small id="yourContactHelp" class="form-text text-muted"
-                  >Please fill up this field</small
-                >
               </div>
             </div>
 
@@ -334,10 +324,10 @@
                   class="form-control"
                   id="your_dept"
                   aria-describedby="yourDeptHelp"
+                  value="<?php echo $user['dept_name']; ?>"
+                  name="dept_name"
+                  required
                 />
-                <small id="yourDeptHelp" class="form-text text-muted"
-                  >Please fill up this field</small
-                >
               </div>
             </div>
 
@@ -349,10 +339,10 @@
                   class="form-control"
                   id="your_roll"
                   aria-describedby="yourRollHelp"
+                  value="<?php echo $user['roll']; ?>"
+                  name="roll"
+                  required
                 />
-                <small id="yourRollHelp" class="form-text text-muted"
-                  >Please fill up this field</small
-                >
               </div>
               <div class="col-12 col-sm-6 mb-3">
                 <label class="text_dark" for="your_batch">Batch</label>
@@ -361,10 +351,10 @@
                   class="form-control"
                   id="your_batch"
                   aria-describedby="yourBatchHelp"
+                  value="<?php echo $user['batch_no']; ?>"
+                  name="batch_no"
+                  required
                 />
-                <small id="yourBatchHelp" class="form-text text-muted"
-                  >Please fill up this field</small
-                >
               </div>
             </div>
 
@@ -376,10 +366,11 @@
                   class="form-control"
                   id="your_email"
                   aria-describedby="yourEmailHelp"
+                  value="<?php echo $user['email']; ?>"
+                  name="email"
+                  required
+                  disabled
                 />
-                <small id="yourEmailHelp" class="form-text text-muted"
-                  >Please fill up this field</small
-                >
               </div>
             </div>
 
