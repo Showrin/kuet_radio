@@ -1,6 +1,10 @@
 <?php
   include "../backend/is_logged_in_check.php";
-  include '../backend/connect_db.php';
+
+  $id = $_SESSION['id'];
+
+  include "../backend/connect_db.php";
+  include "../backend/find_user_info.php";
 ?>
 
 <!DOCTYPE html>
@@ -83,17 +87,19 @@
                 aria-expanded="false"
               >
                 <img
-                  src="../img/2. Mrinmoy Mandal Tushar.jpg"
+                  src="../user_info/dp/<?php echo $user['dp_name']; ?>"
                   class="mr-2 card_img_thumbnail card_img_thumbnail--small rounded-circle"
                 />
-                Mrinmoy
+                <?php echo $user['first_name']; ?>
               </a>
               <div
                 class="dropdown-menu dropdown-menu-left"
                 aria-labelledby="memberOptions"
                 id="memberOptionsDropdownArea"
               >
-                <a class="dropdown-item" href="./profile.php">Profile</a>
+                <a class="dropdown-item" href="./profile.php"
+                  >Profile</a
+                >
                 <a class="dropdown-item" href="./start_a_show.php"
                   >Start a Show</a
                 >
@@ -142,16 +148,16 @@
             class="col-12 col-lg-2 d-flex justify-content-center justify-content-lg-start mb-4 mb-lg-0"
           >
             <img
-              src="../img/2. Mrinmoy Mandal Tushar.jpg"
+            src="../user_info/dp/<?php echo $user['dp_name']; ?>"
               class="mr-2 card_img_thumbnail card_img_thumbnail--large rounded-circle"
             />
           </div>
           <div
             class="col-12 col-lg-6 pl-lg-0 text-center text-lg-left mb-4 mb-lg-0"
           >
-            <h2 class="font_muli_light">Mrinmoy Mandal Tusher</h2>
-            <h5 class="mt-2 mb-3"><strong>President</strong></h5>
-            <h5 class="text-uppercase text-primary">Admin</h5>
+            <h2 class="font_muli_light"><?php echo $user['first_name'] . ' ' . $user['last_name']; ?></h2>
+            <h5 class="mt-2 mb-3 text-capitalize"><strong><?php echo $user['designation']; ?></strong></h5>
+            <h5 class="text-uppercase text-primary"><?php echo $user['authority_level']; ?></h5>
           </div>
           <div class="col-6 col-lg-3 offset-3 offset-lg-0">
             <a
