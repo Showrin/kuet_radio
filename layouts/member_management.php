@@ -1,5 +1,10 @@
 <?php
   include "../backend/is_logged_in_check.php";
+
+  $id = $_SESSION['id'];
+
+  include "../backend/connect_db.php";
+  include "../backend/find_user_info.php";
 ?>
 
 <!DOCTYPE html>
@@ -82,10 +87,10 @@
                 aria-expanded="false"
               >
                 <img
-                  src="../img/2. Mrinmoy Mandal Tushar.jpg"
-                  class="mr-2 card_img_thumbnail card_img_thumbnail--small rounded-circle"
-                />
-                Mrinmoy
+                    src="../user_info/dp/<?php echo $user['dp_name']; ?>"
+                    class="mr-2 card_img_thumbnail card_img_thumbnail--small rounded-circle"
+                  />
+                <?php echo $user['first_name']; ?>
               </a>
               <div
                 class="dropdown-menu dropdown-menu-left"
@@ -141,16 +146,16 @@
             class="col-12 col-lg-2 d-flex justify-content-center justify-content-lg-start mb-4 mb-lg-0"
           >
             <img
-              src="../img/2. Mrinmoy Mandal Tushar.jpg"
+            src="../user_info/dp/<?php echo $user['dp_name']; ?>"
               class="mr-2 card_img_thumbnail card_img_thumbnail--large rounded-circle"
             />
           </div>
           <div
             class="col-12 col-lg-6 pl-lg-0 text-center text-lg-left mb-4 mb-lg-0"
           >
-            <h2 class="font_muli_light">Mrinmoy Mandal Tusher</h2>
-            <h5 class="mt-2 mb-3"><strong>President</strong></h5>
-            <h5 class="text-uppercase text-primary">Admin</h5>
+            <h2 class="font_muli_light"><?php echo $user['first_name'] . ' ' . $user['last_name']; ?></h2>
+            <h5 class="mt-2 mb-3 text-capitalize"><strong><?php echo $user['designation']; ?></strong></h5>
+            <h5 class="text-uppercase text-primary"><?php echo $user['authority_level']; ?></h5>
           </div>
           <div class="col-6 col-lg-3 offset-3 offset-lg-0">
             <a
@@ -343,206 +348,52 @@
         </div>
 
         <div class="col-12">
-          <div class="media box_shadow_basic p-3 card_border_radius mb-4">
-            <img
-              src="../img/3. Apurba Dash.jpg"
-              class="align-self-center mr-3 mr-sm-5 card_img_thumbnail rounded-circle"
-            />
-            <div class="media-body text_dark">
-              <div class="row">
-                <div class="col-12 col-sm-9">
-                  <h5>
-                    Apurba Das <small class="text-primary">(Admin)</small>
-                  </h5>
-                  <h6>
-                    President
-                  </h6>
-                  <div class="text-black-50">
-                    Industrial Engineering and Management
+          <?php  
+            include "../backend/find_approved_user.php";
+            while($row = mysqli_fetch_assoc($result)) {
+          ?>
+            <div class="media box_shadow_basic p-3 card_border_radius mb-4">
+              <img
+                src="../user_info/dp/<?php echo $row['dp_name'] ?>"
+                class="align-self-center mr-3 mr-sm-5 card_img_thumbnail rounded-circle"
+              />
+              <div class="media-body text_dark">
+                <div class="row">
+                  <div class="col-12 col-sm-9">
+                    <h5>
+                    <?php echo $row['first_name'] . ' ' . $row['last_name'] ?> <small class="text-primary text-capitalize">(<?php echo $row['authority_level'] ?>)</small>
+                    </h5>
+                    <h6 class="text-capitalize">
+                      <?php echo $row['designation'] ?>
+                    </h6>
+                    <div class="text-black-50">
+                      <?php echo $row['dept_name'] ?>
+                    </div>
+                    <div class="text-black-50"><?php echo '#' . $row['roll'] . ', Batch ' . $row['batch_no'] ?></div>
+                    <div class="text-black-50">Birthday: <?php echo $row['birth_date'] ?></div>
+                    <div class="text-black-50">Contact No: <?php echo $row['contact'] ?></div>
+                    <div class="text-black-50">Email: <?php echo $row['email'] ?></div>
                   </div>
-                  <div class="text-black-50">#1509030, Batch 2K15</div>
-                  <div class="text-black-50">Birthday: 16 June, 1996</div>
-                  <div class="text-black-50">Contact No: 018123456789</div>
-                  <div class="text-black-50">Email: abcd@gmail.com</div>
-                </div>
-                <div class="col-12 col-sm-3 align-self-center mt-3 mt-sm-0">
-                  <button
-                    class="btn btn-sm btn-block bg-warning text-black"
-                    data-toggle="modal"
-                    data-target="#member_update_modal"
-                  >
-                    Update
-                  </button>
-                  <button
-                    href="./start_a_show.php"
-                    class="btn btn-sm btn-block bg-danger text-white"
-                  >
-                    Delete
-                  </button>
+                  <div class="col-12 col-sm-3 align-self-center mt-3 mt-sm-0">
+                    <button
+                      class="btn btn-sm btn-block bg-warning text-black"
+                      data-toggle="modal"
+                      data-target="#member_update_modal"
+                    >
+                      Update
+                    </button>
+                    <a
+                      href="../backend/delete_member.php?id=<?php echo $row['id'] ?>"
+                      class="btn btn-sm btn-block bg-danger text-white"
+                      >Delete</a
+                    >
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-          <div class="media box_shadow_basic p-3 card_border_radius mb-4">
-            <img
-              src="../img/3. Apurba Dash.jpg"
-              class="align-self-center mr-3 mr-sm-5 card_img_thumbnail rounded-circle"
-            />
-            <div class="media-body text_dark">
-              <div class="row">
-                <div class="col-12 col-sm-9">
-                  <h5>
-                    Apurba Das <small class="text-primary">(Admin)</small>
-                  </h5>
-                  <h6>
-                    President
-                  </h6>
-                  <div class="text-black-50">
-                    Industrial Engineering and Management
-                  </div>
-                  <div class="text-black-50">#1509030, Batch 2K15</div>
-                  <div class="text-black-50">Birthday: 16 June, 1996</div>
-                  <div class="text-black-50">Contact No: 018123456789</div>
-                  <div class="text-black-50">Email: abcd@gmail.com</div>
-                </div>
-                <div class="col-12 col-sm-3 align-self-center mt-3 mt-sm-0">
-                  <button
-                    class="btn btn-sm btn-block bg-warning text-black"
-                    data-toggle="modal"
-                    data-target="#member_update_modal"
-                  >
-                    Update
-                  </button>
-                  <button
-                    href="./start_a_show.php"
-                    class="btn btn-sm btn-block bg-danger text-white"
-                  >
-                    Delete
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="media box_shadow_basic p-3 card_border_radius mb-4">
-            <img
-              src="../img/3. Apurba Dash.jpg"
-              class="align-self-center mr-3 mr-sm-5 card_img_thumbnail rounded-circle"
-            />
-            <div class="media-body text_dark">
-              <div class="row">
-                <div class="col-12 col-sm-9">
-                  <h5>
-                    Apurba Das <small class="text-primary">(Admin)</small>
-                  </h5>
-                  <h6>
-                    President
-                  </h6>
-                  <div class="text-black-50">
-                    Industrial Engineering and Management
-                  </div>
-                  <div class="text-black-50">#1509030, Batch 2K15</div>
-                  <div class="text-black-50">Birthday: 16 June, 1996</div>
-                  <div class="text-black-50">Contact No: 018123456789</div>
-                  <div class="text-black-50">Email: abcd@gmail.com</div>
-                </div>
-                <div class="col-12 col-sm-3 align-self-center mt-3 mt-sm-0">
-                  <button
-                    class="btn btn-sm btn-block bg-warning text-black"
-                    data-toggle="modal"
-                    data-target="#member_update_modal"
-                  >
-                    Update
-                  </button>
-                  <button
-                    href="./start_a_show.php"
-                    class="btn btn-sm btn-block bg-danger text-white"
-                  >
-                    Delete
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="media box_shadow_basic p-3 card_border_radius mb-4">
-            <img
-              src="../img/3. Apurba Dash.jpg"
-              class="align-self-center mr-3 mr-sm-5 card_img_thumbnail rounded-circle"
-            />
-            <div class="media-body text_dark">
-              <div class="row">
-                <div class="col-12 col-sm-9">
-                  <h5>
-                    Apurba Das <small class="text-primary">(Admin)</small>
-                  </h5>
-                  <h6>
-                    President
-                  </h6>
-                  <div class="text-black-50">
-                    Industrial Engineering and Management
-                  </div>
-                  <div class="text-black-50">#1509030, Batch 2K15</div>
-                  <div class="text-black-50">Birthday: 16 June, 1996</div>
-                  <div class="text-black-50">Contact No: 018123456789</div>
-                  <div class="text-black-50">Email: abcd@gmail.com</div>
-                </div>
-                <div class="col-12 col-sm-3 align-self-center mt-3 mt-sm-0">
-                  <button
-                    class="btn btn-sm btn-block bg-warning text-black"
-                    data-toggle="modal"
-                    data-target="#member_update_modal"
-                  >
-                    Update
-                  </button>
-                  <button
-                    href="./start_a_show.php"
-                    class="btn btn-sm btn-block bg-danger text-white"
-                  >
-                    Delete
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="media box_shadow_basic p-3 card_border_radius mb-4">
-            <img
-              src="../img/3. Apurba Dash.jpg"
-              class="align-self-center mr-3 mr-sm-5 card_img_thumbnail rounded-circle"
-            />
-            <div class="media-body text_dark">
-              <div class="row">
-                <div class="col-12 col-sm-9">
-                  <h5>
-                    Apurba Das <small class="text-primary">(Admin)</small>
-                  </h5>
-                  <h6>
-                    President
-                  </h6>
-                  <div class="text-black-50">
-                    Industrial Engineering and Management
-                  </div>
-                  <div class="text-black-50">#1509030, Batch 2K15</div>
-                  <div class="text-black-50">Birthday: 16 June, 1996</div>
-                  <div class="text-black-50">Contact No: 018123456789</div>
-                  <div class="text-black-50">Email: abcd@gmail.com</div>
-                </div>
-                <div class="col-12 col-sm-3 align-self-center mt-3 mt-sm-0">
-                  <button
-                    class="btn btn-sm btn-block bg-warning text-black"
-                    data-toggle="modal"
-                    data-target="#member_update_modal"
-                  >
-                    Update
-                  </button>
-                  <button
-                    href="./start_a_show.php"
-                    class="btn btn-sm btn-block bg-danger text-white"
-                  >
-                    Delete
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
+          <?php
+            }
+          ?>
         </div>
       </div>
     </div>
