@@ -1,5 +1,10 @@
 <?php
   include "../backend/is_logged_in_check.php";
+
+  $id = $_SESSION['id'];
+
+  include "../backend/connect_db.php";
+  include "../backend/find_user_info.php";
 ?>
 
 <!DOCTYPE html>
@@ -82,10 +87,10 @@
                 aria-expanded="false"
               >
                 <img
-                  src="../img/2. Mrinmoy Mandal Tushar.jpg"
-                  class="mr-2 card_img_thumbnail card_img_thumbnail--small rounded-circle"
-                />
-                Mrinmoy
+                    src="../user_info/dp/<?php echo $user['dp_name']; ?>"
+                    class="mr-2 card_img_thumbnail card_img_thumbnail--small rounded-circle"
+                  />
+                <?php echo $user['first_name']; ?>
               </a>
               <div
                 class="dropdown-menu dropdown-menu-left"
@@ -143,16 +148,16 @@
             class="col-12 col-lg-2 d-flex justify-content-center justify-content-lg-start mb-4 mb-lg-0"
           >
             <img
-              src="../img/2. Mrinmoy Mandal Tushar.jpg"
+            src="../user_info/dp/<?php echo $user['dp_name']; ?>"
               class="mr-2 card_img_thumbnail card_img_thumbnail--large rounded-circle"
             />
           </div>
           <div
             class="col-12 col-lg-6 pl-lg-0 text-center text-lg-left mb-4 mb-lg-0"
           >
-            <h2 class="font_muli_light">Mrinmoy Mandal Tusher</h2>
-            <h5 class="mt-2 mb-3"><strong>President</strong></h5>
-            <h5 class="text-uppercase text-primary">Admin</h5>
+            <h2 class="font_muli_light"><?php echo $user['first_name'] . ' ' . $user['last_name']; ?></h2>
+            <h5 class="mt-2 mb-3 text-capitalize"><strong><?php echo $user['designation']; ?></strong></h5>
+            <h5 class="text-uppercase text-primary"><?php echo $user['authority_level']; ?></h5>
           </div>
           <div class="col-6 col-lg-3 offset-3 offset-lg-0">
             <a
@@ -231,97 +236,36 @@
         <div class="col-12 col-sm-9">
           <h1 class="text_dark mt-5 mb-4">Committee Posts Settings</h1>
 
-          <form id="start_show_form">
+          <form method="POST" action="../backend/check_posts_to_show.php">
             <div class="form-row">
               <div class="col-12">
                 <label class="text_dark">Present Posts</label>
               </div>
-              <div class="col-3">
-                <div class="form-group form-check text_dark">
-                  <input type="checkbox" class="form-check-input" id="rj" />
-                  <label class="form-check-label" for="rj">Apurba Das</label>
+              <?php
+                include "../backend/show_all_committee_posts.php";
+                while($row = mysqli_fetch_assoc($committee_posts_result)) {
+              ?>
+                <div class="col-3">
+                  <div class="form-group form-check text_dark">
+                    <input type="checkbox" class="form-check-input" id="<?php echo $row['post_id']; ?>" name='committee_posts[]' value="<?php echo $row['post_id']; ?>" <?php if($row['isChecked'] === '1'){ echo 'checked'; } ?> />
+                    <label class="form-check-label text-capitalize" for="<?php echo $row['post_id']; ?>"><?php echo $row['post_name']; ?></label>
+                  </div>
                 </div>
-              </div>
-              <div class="col-3">
-                <div class="form-group form-check text_dark">
-                  <input type="checkbox" class="form-check-input" id="rj" />
-                  <label class="form-check-label" for="rj">Apurba Das</label>
-                </div>
-              </div>
-              <div class="col-3">
-                <div class="form-group form-check text_dark">
-                  <input type="checkbox" class="form-check-input" id="rj" />
-                  <label class="form-check-label" for="rj">Apurba Das</label>
-                </div>
-              </div>
-              <div class="col-3">
-                <div class="form-group form-check text_dark">
-                  <input type="checkbox" class="form-check-input" id="rj" />
-                  <label class="form-check-label" for="rj">Apurba Das</label>
-                </div>
-              </div>
-              <div class="col-3">
-                <div class="form-group form-check text_dark">
-                  <input type="checkbox" class="form-check-input" id="rj" />
-                  <label class="form-check-label" for="rj">Apurba Das</label>
-                </div>
-              </div>
-              <div class="col-3">
-                <div class="form-group form-check text_dark">
-                  <input type="checkbox" class="form-check-input" id="rj" />
-                  <label class="form-check-label" for="rj">Apurba Das</label>
-                </div>
-              </div>
-              <div class="col-3">
-                <div class="form-group form-check text_dark">
-                  <input type="checkbox" class="form-check-input" id="rj" />
-                  <label class="form-check-label" for="rj">Apurba Das</label>
-                </div>
-              </div>
-              <div class="col-3">
-                <div class="form-group form-check text_dark">
-                  <input type="checkbox" class="form-check-input" id="rj" />
-                  <label class="form-check-label" for="rj">Apurba Das</label>
-                </div>
-              </div>
-              <div class="col-3">
-                <div class="form-group form-check text_dark">
-                  <input type="checkbox" class="form-check-input" id="rj" />
-                  <label class="form-check-label" for="rj">Apurba Das</label>
-                </div>
-              </div>
-              <div class="col-3">
-                <div class="form-group form-check text_dark">
-                  <input type="checkbox" class="form-check-input" id="rj" />
-                  <label class="form-check-label" for="rj">Apurba Das</label>
-                </div>
-              </div>
-              <div class="col-3">
-                <div class="form-group form-check text_dark">
-                  <input type="checkbox" class="form-check-input" id="rj" />
-                  <label class="form-check-label" for="rj">Apurba Das</label>
-                </div>
-              </div>
-              <div class="col-3">
-                <div class="form-group form-check text_dark">
-                  <input type="checkbox" class="form-check-input" id="rj" />
-                  <label class="form-check-label" for="rj">Apurba Das</label>
-                </div>
-              </div>
-              <div class="col-3">
-                <div class="form-group form-check text_dark">
-                  <input type="checkbox" class="form-check-input" id="rj" />
-                  <label class="form-check-label" for="rj">Apurba Das</label>
-                </div>
-              </div>
-              <div class="col-3">
-                <div class="form-group form-check text_dark">
-                  <input type="checkbox" class="form-check-input" id="rj" />
-                  <label class="form-check-label" for="rj">Apurba Das</label>
-                </div>
-              </div>
+              <?php
+                }
+              ?>
             </div>
 
+            <div class="form-row">
+              <div class="col-12 mb-3">
+                <button type="submit" class="btn btn-success">
+                  Update Settings
+                </button>
+              </div>
+            </div>
+          </form>
+          
+          <form class="mt-5" method="POST" action="../backend/add_new_post.php">
             <div class="form-row">
               <div class="col-12 mb-3">
                 <label class="text_dark" for="post_name">New Post Name</label>
@@ -330,17 +274,18 @@
                   class="form-control"
                   id="post_name"
                   aria-describedby="postNameHelp"
+                  name="new_post"
+                  required
                 />
                 <small id="postNameHelp" class="form-text text-muted"
                   >Please fill up this field</small
                 >
               </div>
             </div>
-
             <div class="form-row">
               <div class="col-12 mb-3">
                 <button type="submit" class="btn btn-success">
-                  Update Settings
+                  Add the Post
                 </button>
               </div>
             </div>
