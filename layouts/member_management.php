@@ -228,117 +228,129 @@
     <!-- comment_modal ends -->
 
     <!-- member_update_modal starts -->
-    <div id="member_update_modal" class="modal fade" role="dialog">
-      <div class="modal-dialog modal-lg modal-dialog-centered" role="content">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h4 class="modal-title text_dark">Change Role of Apurba Das</h4>
-            <button
-              type="button"
-              class="close"
-              data-dismiss="modal"
-              aria-label="Close"
-            >
-              &times;
-            </button>
-          </div>
-          <div class="modal-body text-secondary">
-            <form>
-              <div class="form-group">
-                <label class="text_dark d-block" for="member_designation"
-                  >Designation</label
-                >
-                <div class="form-check form-check-inline">
-                  <input
-                    class="form-check-input"
-                    type="radio"
-                    name="designation"
-                    id="role1"
-                    value="option1"
-                    checked
-                  />
-                  <label class="form-check-label" for="role1">President</label>
-                </div>
-                <div class="form-check form-check-inline">
-                  <input
-                    class="form-check-input"
-                    type="radio"
-                    name="designation"
-                    id="role2"
-                    value="option1"
-                  />
-                  <label class="form-check-label" for="role2"
-                    >Assistant General Secretary</label
+    <?php  
+      include "../backend/find_approved_user.php";
+      while($row = mysqli_fetch_assoc($result)) {
+    ?>
+      <div id="member_update_modal<?php echo $row['id'] ?>" class="modal fade" role="dialog">
+        <div class="modal-dialog modal-lg modal-dialog-centered" role="content">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4 class="modal-title text_dark">Change Role of <?php echo $row['first_name'] . ' ' . $row['last_name'] ?></h4>
+              <button
+                type="button"
+                class="close"
+                data-dismiss="modal"
+                aria-label="Close"
+              >
+                &times;
+              </button>
+            </div>
+            <div class="modal-body text-secondary">
+              <form id="post_update_form" method="POST" action="../backend/update_committee_posts.php">
+                <input
+                  class="form-check-input"
+                  type="text"
+                  name="id"
+                  value="<?php echo $row['id'] ?>"
+                  hidden
+                />
+                <div class="form-group">
+                  <label class="text_dark d-block" for="member_designation"
+                    >Designation</label
                   >
+                  <?php
+                    include '../backend/show_checked_committee_posts.php';
+                    while($post = mysqli_fetch_assoc($checked_committee_posts_result)) {
+                  ?>
+                    <div class="form-check form-check-inline">
+                      <input
+                        class="form-check-input"
+                        type="radio"
+                        name="designation"
+                        id="<?php echo $post['post_id'] ?>"
+                        value="<?php echo $post['post_name'] ?>"
+                        <?php if(strtolower($row['designation']) === strtolower($post['post_name'])) {echo 'checked';} ?>
+                      />
+                      <label class="form-check-label" for="<?php echo $post['post_id'] ?>"><?php echo $post['post_name'] ?></label>
+                    </div>
+                  <?php
+                    }
+                  ?>
                 </div>
-                <div class="form-check form-check-inline">
-                  <input
-                    class="form-check-input"
-                    type="radio"
-                    name="designation"
-                    id="role3"
-                    value="option1"
-                  />
-                  <label class="form-check-label" for="role3"
-                    >General Secretary</label
+                <div class="form-group">
+                  <label class="text_dark d-block" for="member_designation"
+                    >Authority Level</label
                   >
+                  <div class="form-check form-check-inline">
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      name="authorityLevel"
+                      id="admin"
+                      value="admin"
+                      <?php if(strtolower($row['designation']) === 'admin') {echo 'checked';} ?>
+                    />
+                    <label class="form-check-label" for="admin">Admin</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      name="authorityLevel"
+                      id="moderator"
+                      value="moderator"
+                      <?php if(strtolower($row['designation']) === 'moderator') {echo 'checked';} ?>
+                    />
+                    <label class="form-check-label" for="moderator"
+                      >Moderator</label
+                    >
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      name="authorityLevel"
+                      id="editor"
+                      value="editor"
+                      <?php if(strtolower($row['designation']) === 'editor') {echo 'checked';} ?>
+                    />
+                    <label class="form-check-label" for="editor"
+                      >Editor</label
+                    >
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      name="authorityLevel"
+                      id="member"
+                      value="member"
+                      <?php if(strtolower($row['designation']) === 'member') {echo 'checked';} ?>
+                    />
+                    <label class="form-check-label" for="member"
+                      >Member</label
+                    >
+                  </div>
                 </div>
-              </div>
-              <div class="form-group">
-                <label class="text_dark d-block" for="member_designation"
-                  >Authority Level</label
-                >
-                <div class="form-check form-check-inline">
-                  <input
-                    class="form-check-input"
-                    type="radio"
-                    name="authorityLevel"
-                    id="authority1"
-                    value="option1"
-                    checked
-                  />
-                  <label class="form-check-label" for="authority1">Admin</label>
-                </div>
-                <div class="form-check form-check-inline">
-                  <input
-                    class="form-check-input"
-                    type="radio"
-                    name="authorityLevel"
-                    id="authority2"
-                    value="option1"
-                  />
-                  <label class="form-check-label" for="authority2"
-                    >Moderator</label
-                  >
-                </div>
-                <div class="form-check form-check-inline">
-                  <input
-                    class="form-check-input"
-                    type="radio"
-                    name="authorityLevel"
-                    id="authority3"
-                    value="option1"
-                  />
-                  <label class="form-check-label" for="authority3"
-                    >Editor</label
-                  >
-                </div>
-              </div>
-            </form>
-          </div>
-          <div class="modal-footer">
-            <button
-              type="button"
-              class="btn btn-secondary"
-              data-dismiss="modal"
-            >
-              Close
-            </button>
-            <button type="submit" class="btn btn-success">Save Changes</button>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-dismiss="modal"
+              >
+                Close
+              </button>
+              <button type="submit" id="post_update_btn" class="btn btn-success">Save Changes</button>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    <?php
+      }
+    ?>
     <!-- member_update_modal ends -->
 
     <div class="container my-5">
@@ -378,7 +390,7 @@
                     <button
                       class="btn btn-sm btn-block bg-warning text-black"
                       data-toggle="modal"
-                      data-target="#member_update_modal"
+                      data-target="#member_update_modal<?php echo $row['id'] ?>"
                     >
                       Update
                     </button>
@@ -518,6 +530,14 @@
     <script src="../js/popper.min.js"></script>
     <script src="../js/bootstrap.min.js"></script>
     <script src="../js/scripts.js"></script>
+
+    <script>
+      $(document).ready(function() {
+        $('#post_update_btn').click(() => {
+          $('#post_update_form').submit();
+        })
+      });
+    </script>
     <!-- endbuild -->
   </body>
 </html>
