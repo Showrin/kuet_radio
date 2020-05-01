@@ -312,7 +312,7 @@
         <div class="col-12 offset-sm-1 col-sm-6">
           <h1 class="text_dark mt-5 mb-4">Sign Up</h1>
 
-          <form>
+          <form method="POST" action="../backend/signup.php" enctype="multipart/form-data">
             <div class="form-row">
               <div class="col-12 mb-3">
                 <label class="text_dark">Profile Picture</label>
@@ -322,6 +322,7 @@
                     accept=".jpg, .jpeg, .png"
                     class="custom-file-input text_dark"
                     id="validatedCustomFile"
+                    name="dp"
                     required
                   />
                   <label class="custom-file-label" for="validatedCustomFile"
@@ -342,6 +343,8 @@
                   class="form-control"
                   id="your_first_name"
                   aria-describedby="yourFirstNameHelp"
+                  name="first_name"
+                  required
                 />
                 <small id="yourFirstNameHelp" class="form-text text-muted"
                   >Please fill up this field</small
@@ -354,6 +357,8 @@
                   class="form-control"
                   id="your_last_name"
                   aria-describedby="yourLastNameHelp"
+                  name="last_name"
+                  required
                 />
                 <small id="yourLastNameHelp" class="form-text text-muted"
                   >Please fill up this field</small
@@ -362,7 +367,7 @@
             </div>
 
             <div class="form-row">
-              <div class="col-12 col-sm-6 mb-3">
+              <div class="col-12 mb-3">
                 <label class="text_dark" for="your_birth_date"
                   >Birth Date</label
                 >
@@ -371,22 +376,11 @@
                   class="form-control"
                   id="your_birth_date"
                   aria-describedby="yourBirthdateHelp"
+                  placeholder="ex: 20 June, 1997"
+                  name="birth_date"
+                  required
                 />
                 <small id="yourBirthdateHelp" class="form-text text-muted"
-                  >Please fill up this field</small
-                >
-              </div>
-              <div class="col-12 col-sm-6 mb-3">
-                <label class="text_dark" for="your_birth_month"
-                  >Birth Month</label
-                >
-                <input
-                  type="text"
-                  class="form-control"
-                  id="your_birth_month"
-                  aria-describedby="yourBirthMonthHelp"
-                />
-                <small id="yourBirthMonthHelp" class="form-text text-muted"
                   >Please fill up this field</small
                 >
               </div>
@@ -402,6 +396,8 @@
                   class="form-control"
                   id="your_contact"
                   aria-describedby="yourContactHelp"
+                  name="contact"
+                  required
                 />
                 <small id="yourContactHelp" class="form-text text-muted"
                   >Please fill up this field</small
@@ -417,6 +413,8 @@
                   class="form-control"
                   id="your_dept"
                   aria-describedby="yourDeptHelp"
+                  name="dept_name"
+                  required
                 />
                 <small id="yourDeptHelp" class="form-text text-muted"
                   >Please fill up this field</small
@@ -432,6 +430,8 @@
                   class="form-control"
                   id="your_roll"
                   aria-describedby="yourRollHelp"
+                  name="roll"
+                  required
                 />
                 <small id="yourRollHelp" class="form-text text-muted"
                   >Please fill up this field</small
@@ -444,6 +444,8 @@
                   class="form-control"
                   id="your_batch"
                   aria-describedby="yourBatchHelp"
+                  name="batch_no"
+                  required
                 />
                 <small id="yourBatchHelp" class="form-text text-muted"
                   >Please fill up this field</small
@@ -459,6 +461,8 @@
                   class="form-control"
                   id="your_email"
                   aria-describedby="yourEmailHelp"
+                  name="email"
+                  required
                 />
                 <small id="yourEmailHelp" class="form-text text-muted"
                   >Please fill up this field</small
@@ -474,6 +478,8 @@
                   class="form-control"
                   id="sign-up-password"
                   aria-describedby="sign-up-password-help"
+                  name="password"
+                  required
                 />
                 <small id="sign-up-password-help" class="form-text text-muted"
                   >Please fill up this field</small
@@ -483,7 +489,7 @@
 
             <div class="form-row">
               <div class="col-12 mb-3">
-                <button type="submit" class="btn btn-success">Sign Up</button>
+                <button id="signup-btn" type="submit" class="btn btn-success">Sign Up</button>
               </div>
             </div>
           </form>
@@ -616,6 +622,36 @@
     <script>
       $(document).ready(function() {
         bsCustomFileInput.init();
+
+        $('#your_email').keyup(() => {
+          let email = $('#your_email')[0];
+
+          if(email.validity.valid) {
+            if (window.XMLHttpRequest) {
+                xmlhttp=new XMLHttpRequest();
+            }
+            else {
+                xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+            }
+
+            xmlhttp.onreadystatechange=function() {
+              if (this.readyState==4 && this.status==200) {
+                if(this.responseText === "true") {
+                  $("#yourEmailHelp").removeClass("text-muted").addClass("text-danger font-weight-bold");
+                  $("#yourEmailHelp").text("This email is already in use");
+									$('#signup-btn').attr('disabled', 'disabled');
+                } else {
+                  $("#yourEmailHelp").removeClass("text-danger").addClass("text-muted");
+                  $("#yourEmailHelp").text("Please fill up this field");
+                  $('#signup-btn').removeAttr('disabled');
+                }
+              }
+            }
+
+            xmlhttp.open('GET', '../backend/user_existence_check.php?email='+email.value, true);
+            xmlhttp.send();
+          }
+        });
       });
     </script>
     <!-- endbuild -->
