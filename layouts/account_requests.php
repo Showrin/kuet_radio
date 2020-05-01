@@ -1,3 +1,7 @@
+<?php
+  include "../backend/is_logged_in_check.php";
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -120,7 +124,7 @@
                   >Committee Posts Settings</a
                 >
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="./logout.php">Logout</a>
+                <a class="dropdown-item" href="../backend/logout.php">Logout</a>
               </div>
             </li>
           </ul>
@@ -481,10 +485,10 @@
 
     <!-- jQuery first, then Popper.js, then Bootstrap JS. -->
     <!-- build:js js/main.js -->
-    <script src="../js/jquery.slim.min.js"></script>
-    <script src="../js/popper.min.js"></script>
-    <script src="../js/bootstrap.min.js"></script>
-    <script src="../js/scripts.js"></script>
+    <script src="js/jquery.slim.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/scripts.js"></script>
     <!-- endbuild -->
   </body>
 </html>

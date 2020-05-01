@@ -1,3 +1,7 @@
+<?php
+  include "../backend/is_logged_in_check.php";
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -122,7 +126,7 @@
                   >Committee Posts Settings</a
                 >
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="./logout.php">Logout</a>
+                <a class="dropdown-item" href="../backend/logout.php">Logout</a>
               </div>
             </li>
           </ul>
