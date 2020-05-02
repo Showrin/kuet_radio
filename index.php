@@ -1,3 +1,14 @@
+<?php
+  session_start();
+
+  if(isset($_SESSION['id'])) {
+    $id = $_SESSION['id'];
+
+    include "./backend/connect_db.php";
+    include "./backend/find_user_info.php";
+  }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -67,14 +78,79 @@
                 <a class="dropdown-item" href="./layouts/contact.php">Contact Us</a>
               </div>
             </li>
-            <a class="nav-item pl-sm-4">
-              <a
-                href="./layouts/sign_in_or_up.php"
-                class="btn btn-sm btn-outline-primary my-3 my-sm-1 px-4"
-              >
-                Sign In
-              </a>
-            </a>
+            <?php
+              if(isset($_SESSION['id'])) {
+            ?>
+              <li class="nav-item dropdown pl-sm-4">
+                <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                id="memberOptions"
+                role="button"
+                data-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="false"
+                >
+                <img
+                    src="./user_info/dp/<?php echo $user['dp_name']; ?>"
+                    class="mr-2 card_img_thumbnail card_img_thumbnail--small rounded-circle"
+                    />
+                <?php echo $user['first_name']; ?>
+                </a>
+                <div
+                class="dropdown-menu dropdown-menu-left"
+                aria-labelledby="memberOptions"
+                id="memberOptionsDropdownArea"
+                >
+                <a class="dropdown-item" href="./layouts/profile.php">Profile</a>
+                <a class="dropdown-item" href="./layouts/start_a_show.php"
+                    >Start a Show</a
+                >
+                <a class="dropdown-item" href="./layouts/comments.php">Comments</a>
+                <a class="dropdown-item" href="./layouts/running_show_settings.php"
+                    >Running Show Settings</a
+                >
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="./layouts/song_requests.php"
+                    >Song Requests</a
+                >
+                <a class="dropdown-item" href="./layouts/account_requests.php"
+                    >Account Requests</a
+                >
+                <a class="dropdown-item" href="./layouts/playlist_settings.php"
+                    >Playlist Settings</a
+                >
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="./layouts/schedule_settings.php"
+                    >Schedule Settings</a
+                >
+                <a class="dropdown-item" href="./layouts/server_settings.php"
+                    >Server Settings</a
+                >
+                <a class="dropdown-item" href="./layouts/member_management.php"
+                    >Member Management</a
+                >
+                <a class="dropdown-item" href="./layouts/committee_posts_settings.php"
+                    >Committee Posts Settings</a
+                >
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="./backend/logout.php">Logout</a>
+                </div>
+              </li>
+            <?php
+              } else {
+            ?>
+              <li class="nav-item pl-sm-4">
+                <a
+                  href="./sign_in_or_up.php"
+                  class="btn btn-sm btn-outline-primary my-3 my-sm-1 px-4"
+                >
+                  Sign In
+                </a>
+              </li>
+            <?php
+              }
+            ?>
           </ul>
         </div>
       </div>

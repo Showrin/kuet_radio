@@ -1,3 +1,14 @@
+<?php
+  session_start();
+
+  if(isset($_SESSION['id'])) {
+    $id = $_SESSION['id'];
+
+    include "../backend/connect_db.php";
+    include "../backend/find_user_info.php";
+  }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -69,14 +80,22 @@
                 >
               </div>
             </li>
-            <li class="nav-item pl-sm-4">
-              <a
-                href="./sign_in_or_up.php"
-                class="btn btn-sm btn-outline-primary my-3 my-sm-1 px-4"
-              >
-                Sign In
-              </a>
-            </li>
+            <?php
+              if(isset($_SESSION['id'])) {
+                include './components/user_dropdown.php';
+              } else {
+            ?>
+              <li class="nav-item pl-sm-4">
+                <a
+                  href="./sign_in_or_up.php"
+                  class="btn btn-sm btn-outline-primary my-3 my-sm-1 px-4"
+                >
+                  Sign In
+                </a>
+              </li>
+            <?php
+              }
+            ?>
           </ul>
         </div>
       </div>
