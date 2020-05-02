@@ -184,16 +184,16 @@
             class="col-12 col-lg-2 d-flex justify-content-center justify-content-lg-start mb-4 mb-lg-0"
           >
             <img
-              src="../img/2. Mrinmoy Mandal Tushar.jpg"
+              src="../user_info/dp/<?php echo $user['dp_name']; ?>"
               class="mr-2 card_img_thumbnail card_img_thumbnail--large rounded-circle"
             />
           </div>
           <div
             class="col-12 col-lg-6 pl-lg-0 text-center text-lg-left mb-4 mb-lg-0"
           >
-            <h2 class="font_muli_light">Mrinmoy Mandal Tusher</h2>
-            <h5 class="mt-2 mb-3"><strong>President</strong></h5>
-            <h5 class="text-uppercase text-primary">Admin</h5>
+            <h2 class="font_muli_light"><?php echo $user['first_name'] . ' ' . $user['last_name']; ?></h2>
+            <h5 class="mt-2 mb-3 text-capitalize"><strong><?php echo $user['designation']; ?></strong></h5>
+            <h5 class="text-uppercase text-primary"><?php echo $user['authority_level']; ?></h5>
           </div>
           <div class="col-6 col-lg-3 offset-3 offset-lg-0">
             <a
@@ -268,7 +268,7 @@
     <div class="container my-5">
       <div class="row">
         <div class="col-12 col-sm-10 mt-5 mb-0 mb-sm-4">
-          <h1 class="text_dark">Account Requests</h1>
+          <h1 class="text_dark">Playlist Settings</h1>
         </div>
         <div class="col-12 col-sm-2 mt-3 mt-sm-5 mb-5 mb-sm-4">
           <a
