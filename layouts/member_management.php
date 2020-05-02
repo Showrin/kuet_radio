@@ -280,7 +280,7 @@
                   ?>
                 </div>
                 <div class="form-group">
-                  <label class="text_dark d-block" for="member_designation"
+                  <label class="text_dark d-block" for="authority_Level"
                     >Authority Level</label
                   >
                   <div class="form-check form-check-inline">
@@ -334,6 +334,55 @@
                     >
                   </div>
                 </div>
+                <div class="form-group">
+                  <label class="text_dark d-block" for="is_In_WorkingCommittee"
+                    >Is in Working Committee?</label
+                  >
+                  <div class="form-check form-check-inline">
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      name="isInWorkingCommittee"
+                      id="yes"
+                      value="1"
+                      <?php if(strtolower($row['isInWorkingCommittee']) === '1') {echo 'checked';} ?>
+                    />
+                    <label class="form-check-label" for="yes">Yes</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      name="isInWorkingCommittee"
+                      id="no"
+                      value="0"
+                      <?php if(strtolower($row['isInWorkingCommittee']) === '0') {echo 'checked';} ?>
+                    />
+                    <label class="form-check-label" for="no">No</label>
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="col-12 col-sm-6 mb-3">
+                    <label class="text_dark" for="your_start_year">Start Year</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="your_start_year"
+                      name="start_year"
+                      value="<?php echo $row['start_year'] ?>"
+                    />
+                  </div>
+                  <div class="col-12 col-sm-6 mb-3">
+                    <label class="text_dark" for="your_end_year">End Year</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="your_end_year"
+                      name="end_year"
+                      value="<?php echo $row['end_year'] ?>"
+                    />
+                  </div>
+                </div>
               </form>
             </div>
             <div class="modal-footer">
@@ -385,7 +434,7 @@
                     <?php echo $row['first_name'] . ' ' . $row['last_name'] ?> <small class="text-primary text-capitalize">(<?php echo $row['authority_level'] ?>)</small>
                     </h5>
                     <h6 class="text-capitalize">
-                      <?php echo $row['designation'] ?>
+                      <?php echo $row['designation'] ?> <?php if($row['start_year'] !== '' && $row['end_year'] !== '') { echo '(' . $row['start_year']; } ?><?php if($row['start_year'] !== '' && $row['end_year'] !== '') { echo ' - ' . $row['end_year'] . ')'; } ?>
                     </h6>
                     <div class="text-black-50">
                       <?php echo $row['dept_name'] ?>
