@@ -115,13 +115,13 @@
                     <a class="dropdown-item" href="./layouts/running_show_settings.php"
                       >Running Show Settings</a
                     >
-                    <div class="dropdown-divider"></div>
                   <?php
                     }
                   ?>
                   <?php
                     if(strtolower($user['authority_level']) === 'admin' || strtolower($user['authority_level']) === 'moderator') {
                   ?>
+                    <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="./layouts/song_requests.php"
                       >Song Requests</a
                     >
@@ -138,7 +138,7 @@
                     }
                   ?>
                   <?php
-                    if(strtolower($user['authority_level']) === 'admin' || strtolower($user['authority_level']) === 'moderator' || strtolower($user['authority_level']) === 'editor') {
+                    if(strtolower($user['authority_level']) === 'admin' || strtolower($user['authority_level']) === 'moderator') {
                   ?>
                     <a class="dropdown-item" href="./layouts/playlist_settings.php"
                       >Playlist Settings</a
