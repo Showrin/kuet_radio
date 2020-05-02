@@ -12,9 +12,14 @@
 
   if(mysqli_num_rows($result)) {
     $user = mysqli_fetch_assoc($result);
-    session_start();
-    $_SESSION['id'] = $user['id'];
-    echo "success";
+    
+    if($user['isApproved'] === '1') {
+      session_start();
+      $_SESSION['id'] = $user['id'];
+      echo "success";
+    } else {
+      echo "not_approved_error";
+    }
 
   } else {
     echo "error";

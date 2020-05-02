@@ -653,7 +653,7 @@
                   $("#yourEmailHelp").text("This email is already in use");
 									$('#signup-btn').attr('disabled', 'disabled');
                 } else {
-                  $("#yourEmailHelp").removeClass("text-danger").addClass("text-muted");
+                  $("#yourEmailHelp").removeClass("text-danger font-weight-bold").addClass("text-muted");
                   $("#yourEmailHelp").text("Please fill up this field");
                   $('#signup-btn').removeAttr('disabled');
                 }
@@ -686,6 +686,12 @@
                 $("#sign-in-password-help").removeClass("text-muted").addClass("text-danger font-weight-bold");
                 $("#sign-in-password-help").text("Invalid Email or Password");
                 
+              } else if(this.responseText === "not_approved_error") {
+                $("#yourSignInEmailHelp").removeClass("text-muted").addClass("text-danger font-weight-bold");
+                $("#yourSignInEmailHelp").text("Your account is not approved yet");
+                $("#sign-in-password-help").removeClass("text-muted").addClass("text-danger font-weight-bold");
+                $("#sign-in-password-help").text("Your account is not approved yet");
+
               } else if(this.responseText === "success") {
                 window.location.replace('../layouts/profile.php');
               }
