@@ -14,7 +14,7 @@
     $password = $_POST['password'];
     $password = md5($password);
     $password = sha1($password);
-    
+
     $query = "INSERT INTO users VALUES ('', '', '$first_name', '$last_name', '$birth_date', '$contact', '$dept_name', '$batch_no', '$roll', '$email', '$password', 'member', 'member', '', '', '0', '0')";
     mysqli_query($connection, $query);
 
@@ -34,6 +34,6 @@
     mysqli_query($connection, $update_dp_name_query);
     
     session_start();
-    $_SESSION['id'] = $id;
-    header("Location:../layouts/profile.php");
+    $_SESSION['sign_up_success_message'] = 'true';
+    header("Location:../layouts/sign_in_or_up.php");
 ?>

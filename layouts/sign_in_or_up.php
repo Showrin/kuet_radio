@@ -281,6 +281,16 @@
 
     <div class="container my-5">
       <div class="row">
+        <?php
+          if($_SESSION['sign_up_success_message'] === 'true') {
+        ?>
+          <div class="col-12 alert alert-success" role="alert">
+            Your account has been created successfully and sent for approval. Thank you.
+          </div>
+        <?php
+          }
+          $_SESSION['sign_up_success_message'] = '';
+        ?>
         <div class="col-12 col-sm-5">
           <h1 class="text_dark mt-5 mb-4">Sign In</h1>
 
