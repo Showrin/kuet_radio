@@ -243,7 +243,7 @@
                 <div class="col-12 col-sm-3">
                   <a
                     href="./start_a_show.php"
-                    class="btn btn-sm btn-block bg-success text-white mt-3"
+                    class="btn btn-sm btn-block btn-info mt-3"
                     >Go to the Link</a
                   >
                 </div>
@@ -264,7 +264,7 @@
                 <div class="col-12 col-sm-3">
                   <a
                     href="./start_a_show.php"
-                    class="btn btn-sm btn-block bg-success text-white mt-3"
+                    class="btn btn-sm btn-block btn-info mt-3"
                     >Go to the Link</a
                   >
                 </div>
@@ -285,7 +285,7 @@
                 <div class="col-12 col-sm-3">
                   <a
                     href="./start_a_show.php"
-                    class="btn btn-sm btn-block bg-success text-white mt-3"
+                    class="btn btn-sm btn-block btn-info mt-3"
                     >Go to the Link</a
                   >
                 </div>
@@ -306,7 +306,7 @@
                 <div class="col-12 col-sm-3">
                   <a
                     href="./start_a_show.php"
-                    class="btn btn-sm btn-block bg-success text-white mt-3"
+                    class="btn btn-sm btn-block btn-info mt-3"
                     >Go to the Link</a
                   >
                 </div>
@@ -327,7 +327,7 @@
                 <div class="col-12 col-sm-3">
                   <a
                     href="./start_a_show.php"
-                    class="btn btn-sm btn-block bg-success text-white mt-3"
+                    class="btn btn-sm btn-block btn-info mt-3"
                     >Go to the Link</a
                   >
                 </div>

@@ -271,7 +271,7 @@
                       <div class="col-12 col-sm-3 align-self-center mt-3 mt-sm-0">
                         <a
                           href="../backend/approve_user.php?id=<?php echo $row['id'] ?>"
-                          class="btn btn-sm btn-block bg-success text-white"
+                          class="btn btn-sm btn-block btn-outline-success"
                           >Accept</a
                         >
                         <a

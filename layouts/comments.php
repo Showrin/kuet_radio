@@ -243,7 +243,7 @@
                   </h5>
                 </div>
                 <div class="col-12 col-sm-3 d-flex justify-content-sm-end mb-3">
-                  <span class="badge badge-primary py-2 px-4 text-white">
+                  <span class="badge badge-info py-2 px-4 text-white">
                     <span class="fa fa-clock-o"></span>
                     9:45 pm, Thursday
                   </span>
@@ -273,7 +273,7 @@
                   </h5>
                 </div>
                 <div class="col-12 col-sm-3 d-flex justify-content-sm-end mb-3">
-                  <span class="badge badge-primary py-2 px-4 text-white">
+                  <span class="badge badge-info py-2 px-4 text-white">
                     <span class="fa fa-clock-o"></span>
                     9:45 pm, Thursday
                   </span>
@@ -309,7 +309,7 @@
                   </h5>
                 </div>
                 <div class="col-12 col-sm-3 d-flex justify-content-sm-end mb-3">
-                  <span class="badge badge-primary py-2 px-4 text-white">
+                  <span class="badge badge-info py-2 px-4 text-white">
                     <span class="fa fa-clock-o"></span>
                     9:45 pm, Thursday
                   </span>
@@ -339,7 +339,7 @@
                   </h5>
                 </div>
                 <div class="col-12 col-sm-3 d-flex justify-content-sm-end mb-3">
-                  <span class="badge badge-primary py-2 px-4 text-white">
+                  <span class="badge badge-info py-2 px-4 text-white">
                     <span class="fa fa-clock-o"></span>
                     9:45 pm, Thursday
                   </span>
@@ -375,7 +375,7 @@
                   </h5>
                 </div>
                 <div class="col-12 col-sm-3 d-flex justify-content-sm-end mb-3">
-                  <span class="badge badge-primary py-2 px-4 text-white">
+                  <span class="badge badge-info py-2 px-4 text-white">
                     <span class="fa fa-clock-o"></span>
                     9:45 pm, Thursday
                   </span>
@@ -405,7 +405,7 @@
                   </h5>
                 </div>
                 <div class="col-12 col-sm-3 d-flex justify-content-sm-end mb-3">
-                  <span class="badge badge-primary py-2 px-4 text-white">
+                  <span class="badge badge-info py-2 px-4 text-white">
                     <span class="fa fa-clock-o"></span>
                     9:45 pm, Thursday
                   </span>
@@ -441,7 +441,7 @@
                   </h5>
                 </div>
                 <div class="col-12 col-sm-3 d-flex justify-content-sm-end mb-3">
-                  <span class="badge badge-primary py-2 px-4 text-white">
+                  <span class="badge badge-info py-2 px-4 text-white">
                     <span class="fa fa-clock-o"></span>
                     9:45 pm, Thursday
                   </span>
@@ -471,7 +471,7 @@
                   </h5>
                 </div>
                 <div class="col-12 col-sm-3 d-flex justify-content-sm-end mb-3">
-                  <span class="badge badge-primary py-2 px-4 text-white">
+                  <span class="badge badge-info py-2 px-4 text-white">
                     <span class="fa fa-clock-o"></span>
                     9:45 pm, Thursday
                   </span>
@@ -507,7 +507,7 @@
                   </h5>
                 </div>
                 <div class="col-12 col-sm-3 d-flex justify-content-sm-end mb-3">
-                  <span class="badge badge-primary py-2 px-4 text-white">
+                  <span class="badge badge-info py-2 px-4 text-white">
                     <span class="fa fa-clock-o"></span>
                     9:45 pm, Thursday
                   </span>
@@ -537,7 +537,7 @@
                   </h5>
                 </div>
                 <div class="col-12 col-sm-3 d-flex justify-content-sm-end mb-3">
-                  <span class="badge badge-primary py-2 px-4 text-white">
+                  <span class="badge badge-info py-2 px-4 text-white">
                     <span class="fa fa-clock-o"></span>
                     9:45 pm, Thursday
                   </span>

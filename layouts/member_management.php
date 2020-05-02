@@ -397,7 +397,7 @@
                   </div>
                   <div class="col-12 col-sm-3 align-self-center mt-3 mt-sm-0">
                     <button
-                      class="btn btn-sm btn-block bg-warning text-black"
+                      class="btn btn-sm btn-block btn-outline-info text-black"
                       data-toggle="modal"
                       data-target="#member_update_modal<?php echo $row['id'] ?>"
                     >
