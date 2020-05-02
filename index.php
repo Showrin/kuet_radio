@@ -44,14 +44,14 @@
           <span class="navbar-toggler-icon"></span>
         </button>
 
-        <a class="navbar-brand mr-auto" href="./layouts/index.php"
+        <a class="navbar-brand mr-auto" href="./"
           ><img src="./img/logo.png" width="90"
         /></a>
 
         <div class="collapse navbar-collapse" id="Navbar">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item active">
-              <a href="./layouts/index.php" class="nav-link">Home</a>
+              <a href="./" class="nav-link">Home</a>
             </li>
             <li class="nav-item pl-sm-4">
               <a href="./layouts/onAir.php" class="nav-link"> On Air</a>
