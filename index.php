@@ -142,7 +142,7 @@
             ?>
               <li class="nav-item pl-sm-4">
                 <a
-                  href="./sign_in_or_up.php"
+                  href="./layouts/sign_in_or_up.php"
                   class="btn btn-sm btn-outline-primary my-3 my-sm-1 px-4"
                 >
                   Sign In
