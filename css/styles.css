@@ -7198,3 +7198,6 @@ html {
 .media-body {
   word-wrap: break-word;
   word-break: break-word; }
+
+.flex-basis-100 {
+  flex-basis: 100%; }
