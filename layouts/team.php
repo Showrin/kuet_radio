@@ -294,110 +294,26 @@
         <div class="col-12 mt-5 mb-4">
           <h1 class="text_dark">Our Team</h1>
         </div>
-        <div class="col-12 col-sm-6 col-lg-4">
-          <div class="media box_shadow_basic p-3 card_border_radius mb-4">
-            <img
-              src="../img/3. Apurba Dash.jpg"
-              class="align-self-center mr-3 card_img_thumbnail rounded-circle"
-            />
-            <div class="media-body text_dark">
-              <h5>Apurba Das</h5>
-              <h6 class="text-black-50">President</h6>
-              <h6 class="text-uppercase text-primary">Admin</h6>
+        <?php
+          include '../backend/find_team_members.php';
+          while($member = mysqli_fetch_assoc($team_members)) {
+        ?>
+          <div class="col-12 col-sm-6 col-lg-4">
+            <div class="media box_shadow_basic p-3 card_border_radius mb-4 align-items-center">
+              <img
+                src="../user_info/dp/<?php echo $member['dp_name']; ?>"
+                class="mr-3 card_img_thumbnail rounded-circle"
+              />
+              <div class="media-body text_dark d-flex flex-wrap">
+                <h5 class="flex-basis-100 text-capitalize"><?php echo $member['first_name'] . ' ' . $member['last_name']; ?></h5>
+                <h6 class="text-capitalize text-primary flex-basis-100 text-capitalize"><?php echo $member['designation']; ?></h6>
+                <?php if($member['start_year'] !== '' && $member['end_year'] !== '') { echo '<h6 class="text-capitalize flex-basis-100  text-capitalize">(' . $member['start_year']; } ?><?php if($member['start_year'] !== '' && $member['end_year'] !== '') { echo ' - ' . $member['end_year'] . ')</h6>'; } ?>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="col-12 col-sm-6 col-lg-4">
-          <div class="media box_shadow_basic p-3 card_border_radius mb-4">
-            <img
-              src="../img/3. Apurba Dash.jpg"
-              class="align-self-center mr-3 card_img_thumbnail rounded-circle"
-            />
-            <div class="media-body text_dark">
-              <h5>Apurba Das</h5>
-              <h6 class="text-black-50">President</h6>
-              <h6 class="text-uppercase text-primary">Admin</h6>
-            </div>
-          </div>
-        </div>
-        <div class="col-12 col-sm-6 col-lg-4">
-          <div class="media box_shadow_basic p-3 card_border_radius mb-4">
-            <img
-              src="../img/3. Apurba Dash.jpg"
-              class="align-self-center mr-3 card_img_thumbnail rounded-circle"
-            />
-            <div class="media-body text_dark">
-              <h5>Apurba Das</h5>
-              <h6 class="text-black-50">President</h6>
-              <h6 class="text-uppercase text-primary">Admin</h6>
-            </div>
-          </div>
-        </div>
-        <div class="col-12 col-sm-6 col-lg-4">
-          <div class="media box_shadow_basic p-3 card_border_radius mb-4">
-            <img
-              src="../img/3. Apurba Dash.jpg"
-              class="align-self-center mr-3 card_img_thumbnail rounded-circle"
-            />
-            <div class="media-body text_dark">
-              <h5>Apurba Das</h5>
-              <h6 class="text-black-50">President</h6>
-              <h6 class="text-uppercase text-primary">Admin</h6>
-            </div>
-          </div>
-        </div>
-        <div class="col-12 col-sm-6 col-lg-4">
-          <div class="media box_shadow_basic p-3 card_border_radius mb-4">
-            <img
-              src="../img/3. Apurba Dash.jpg"
-              class="align-self-center mr-3 card_img_thumbnail rounded-circle"
-            />
-            <div class="media-body text_dark">
-              <h5>Apurba Das</h5>
-              <h6 class="text-black-50">President</h6>
-              <h6 class="text-uppercase text-primary">Admin</h6>
-            </div>
-          </div>
-        </div>
-        <div class="col-12 col-sm-6 col-lg-4">
-          <div class="media box_shadow_basic p-3 card_border_radius mb-4">
-            <img
-              src="../img/3. Apurba Dash.jpg"
-              class="align-self-center mr-3 card_img_thumbnail rounded-circle"
-            />
-            <div class="media-body text_dark">
-              <h5>Apurba Das</h5>
-              <h6 class="text-black-50">President</h6>
-              <h6 class="text-uppercase text-primary">Admin</h6>
-            </div>
-          </div>
-        </div>
-        <div class="col-12 col-sm-6 col-lg-4">
-          <div class="media box_shadow_basic p-3 card_border_radius mb-4">
-            <img
-              src="../img/3. Apurba Dash.jpg"
-              class="align-self-center mr-3 card_img_thumbnail rounded-circle"
-            />
-            <div class="media-body text_dark">
-              <h5>Apurba Das</h5>
-              <h6 class="text-black-50">President</h6>
-              <h6 class="text-uppercase text-primary">Admin</h6>
-            </div>
-          </div>
-        </div>
-        <div class="col-12 col-sm-6 col-lg-4">
-          <div class="media box_shadow_basic p-3 card_border_radius mb-4">
-            <img
-              src="../img/3. Apurba Dash.jpg"
-              class="align-self-center mr-3 card_img_thumbnail rounded-circle"
-            />
-            <div class="media-body text_dark">
-              <h5>Apurba Das</h5>
-              <h6 class="text-black-50">President</h6>
-              <h6 class="text-uppercase text-primary">Admin</h6>
-            </div>
-          </div>
-        </div>
+        <?php
+          }
+        ?>
       </div>
     </div>
 
