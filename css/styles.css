@@ -7194,3 +7194,7 @@ html {
 
 .custom-file-label {
   overflow: hidden; }
+
+.media-body {
+  word-wrap: break-word;
+  word-break: break-word; }
