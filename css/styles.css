@@ -7201,3 +7201,7 @@ html {
 
 .flex-basis-100 {
   flex-basis: 100%; }
+
+.member-card {
+  height: calc(100% - 1.5rem);
+  margin-bottom: 1.5rem; }

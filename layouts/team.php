@@ -298,7 +298,7 @@
           while($member = mysqli_fetch_assoc($team_members)) {
         ?>
           <div class="col-12 col-sm-6 col-lg-4">
-            <div class="media box_shadow_basic p-3 card_border_radius mb-4 align-items-center">
+            <div class="media member-card box_shadow_basic p-3 card_border_radius align-items-center">
               <img
                 src="../user_info/dp/<?php echo $member['dp_name']; ?>"
                 class="mr-3 card_img_thumbnail rounded-circle"
