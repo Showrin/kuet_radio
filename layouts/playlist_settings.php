@@ -391,7 +391,7 @@
 													<?php echo $song['singer']; ?>
 												</div>
 												<a
-													href="./start_a_show.php"
+													href="../backend/delete_song.php?id=<?php echo $song['id']; ?>"
 													class="btn btn-sm btn-block bg-danger text-white mt-3 align-self-end"
 													>Delete</a
 												>
