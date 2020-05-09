@@ -206,6 +206,100 @@
       </div>
     </div>
 
+    <!-- add_song_modal starts -->
+    <div id="add_song_modal" class="modal fade" role="dialog">
+      <div class="modal-dialog modal-lg modal-dialog-centered" role="content">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title text_dark">Leave a Comment</h4>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              &times;
+            </button>
+          </div>
+          <div class="modal-body text-secondary">
+            <form id="upload-song-form" method="POST" action="../backend/song_upload.php" enctype="multipart/form-data">
+              <div class="form-group">
+                <label class="text_dark" for="song_name">Song Name</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="song_name"
+                  aria-describedby="songNameHelp"
+                  name="song_name"
+                  placeholder="Enter song name"
+                />
+                <small id="songNameHelp" class="form-text text-muted"
+                  >Please fill up this field</small
+                >
+              </div>
+              <div class="form-group">
+                <label class="text_dark" for="singer_name">Singer Name</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="singer_name"
+                  aria-describedby="singerNameHelp"
+                  name="singer_name"
+                  placeholder="Enter singer name"
+                />
+                <small id="singerNameHelp" class="form-text text-muted"
+                  >Please fill up this field</small
+                >
+              </div>
+              <div class="form-row">
+                <div class="col-12 mb-3">
+                  <label class="text_dark">Upload the song</label>
+                  <div class="custom-file">
+                    <input
+                      type="file"
+                      accept=".mp3, .m4a, .oog"
+                      class="custom-file-input text_dark"
+                      id="uploaded-song"
+                      name="song"
+                    />
+                    <label class="custom-file-label" for="uploaded-song"
+                      >Upload the song .....</label
+                    >
+                    <div class="invalid-feedback">Invalid file</div>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="form-group">
+                <label class="text_dark" for="song-duration">Song Duration <small>(in Second)</small></label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="song-duration"
+                  aria-describedby="durationHelp"
+                  name="duration"
+                  readonly
+                />
+              </div>
+
+              <audio id="audio-player-for-uploaded-song"></audio>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-dismiss="modal"
+            >
+              Close
+            </button>
+            <button id="upload-song-btn" type="submit" class="btn btn-success">Upload</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- add_song_modal ends -->
+
     <!-- comment_modal starts -->
     <div id="comment_modal" class="modal fade" role="dialog">
       <div class="modal-dialog modal-lg modal-dialog-centered" role="content">
@@ -272,8 +366,9 @@
         </div>
         <div class="col-12 col-sm-2 mt-3 mt-sm-5 mb-5 mb-sm-4">
           <a
-            href="./start_a_show.php"
-            class="btn btn-sm btn-block bg-success text-white"
+            class="btn btn-sm btn-block bg-success text-white cursor_pointer"
+            data-toggle="modal"
+            data-target="#add_song_modal"
             >Add New</a
           >
         </div>
@@ -510,6 +605,33 @@
     <script src="../js/popper.min.js"></script>
     <script src="../js/bootstrap.min.js"></script>
     <script src="../js/scripts.js"></script>
+    <script src="../js/bs-custom-file-input.min.js"></script>
+
+    <script>
+      $(document).ready(function() {
+        bsCustomFileInput.init();
+
+        let objectUrl;
+
+        $("#audio-player-for-uploaded-song").on("canplaythrough", function(e){
+          var duration = e.currentTarget.duration;
+
+          $("#song-duration")[0].value = duration;
+          URL.revokeObjectURL(objectUrl);
+        });
+
+        $("#uploaded-song").change(function(e){
+          let file = e.currentTarget.files[0];
+          
+          objectUrl = URL.createObjectURL(file);
+          $("#audio-player-for-uploaded-song").prop("src", objectUrl);
+        });
+        
+        $("#upload-song-btn").click(() => {
+          $("#upload-song-form").submit();
+        })
+      });
+    </script>
     <!-- endbuild -->
   </body>
 </html>
