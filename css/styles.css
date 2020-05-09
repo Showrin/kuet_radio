@@ -7205,3 +7205,7 @@ html {
 .member-card {
   height: calc(100% - 1.5rem);
   margin-bottom: 1.5rem; }
+
+.song-card {
+  height: calc(100% - 1.5rem);
+  margin-bottom: 1.5rem; }
