@@ -1,4 +1,4 @@
-$(document).ready(function() {
+$(document).ready(function () {
   // ################ All Variables ####################
   var radioPlayPauseBtn = $("#js-play-pause-btn");
   var mainPlayer = $("#main-but-hidden-radio-player")[0];
@@ -6,7 +6,7 @@ $(document).ready(function() {
   var isMainPlayerRanFirstTimeAfterPageLoad = true; //1 defines true and 0 for false
 
   // ################ Main Code #######################
-  radioPlayPauseBtn.click(function() {
+  radioPlayPauseBtn.click(function () {
     playOrPauseFunction(100);
   });
 
@@ -16,7 +16,7 @@ $(document).ready(function() {
   function playOrPauseFunction(animationDelay = 100) {
     // ############### Scaling Animation for js-play-pause-btn ################
     radioPlayPauseBtn.css("transform", "scale(.9)");
-    setTimeout(function() {
+    setTimeout(function () {
       radioPlayPauseBtn.css("transform", "scale(1)");
     }, animationDelay);
 
@@ -38,7 +38,7 @@ $(document).ready(function() {
 
       mainPlayer.play();
 
-      setTimeout(function() {
+      setTimeout(function () {
         radioPlayPauseBtn.children("span").removeClass("fa-play");
         radioPlayPauseBtn.children("span").addClass("fa-pause");
         radioPlayPauseBtn.children("span").css("transform", "scale(1)");
@@ -48,7 +48,7 @@ $(document).ready(function() {
       themesongPlayer.pause();
       mainPlayer.load();
       mainPlayer.pause();
-      setTimeout(function() {
+      setTimeout(function () {
         radioPlayPauseBtn.children("span").removeClass("fa-pause");
         radioPlayPauseBtn.children("span").addClass("fa-play");
         radioPlayPauseBtn.children("span").css("transform", "scale(1)");
@@ -57,7 +57,7 @@ $(document).ready(function() {
   }
 
   // ############# Event driven functions ###########
-  themesongPlayer.addEventListener("ended", function() {
+  themesongPlayer.addEventListener("ended", function () {
     mainPlayer.volume = 1; //raising volume to 0 - full of main player after theme song is ended
   });
 
@@ -98,28 +98,29 @@ $(document).ready(function() {
       if ($("html").scrollTop() > 0) {
         $(".navbar").css({
           "background-color": "#202427",
-          "box-shadow": "0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23)"
+          "box-shadow":
+            "0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23)",
         });
       } else {
         $(".navbar").css({
           "background-color": "transparent",
-          "box-shadow": "none"
+          "box-shadow": "none",
         });
       }
     }
   };
 
   // ---------------- Navbar position changed from fixed to absolute for large dropdown --------------------
-  $("#memberOptions").click(function() {
+  $("#memberOptions").click(function () {
     if ($(window).width() < 575.98) {
       //if it's a phone or extra small (xs) device
       if ($("#memberOptionsDropdownArea").css("display") === "none") {
         $(".navbar").css({
-          position: "absolute"
+          position: "absolute",
         });
       } else {
         $(".navbar").css({
-          position: "fixed"
+          position: "fixed",
         });
       }
     }

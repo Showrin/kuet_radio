@@ -1,5 +1,4 @@
 <?php
-  header('Access-Control-Allow-Origin: https://kuet-radio-server.herokuapp.com', false);
   session_start();
 
   if(isset($_SESSION['id'])) {
@@ -442,6 +441,9 @@
       <source src="http://95.154.196.33:27878/;stream" />
       <source src="http://109.169.23.22:26954/;stream" />
     </audio>
+
+    <audio id="song-player-1"></audio>
+    <audio id="song-player-2"></audio>
     <!-- Radio Player Ends -->
 
     <!-- jQuery first, then Popper.js, then Bootstrap JS. -->
@@ -453,9 +455,7 @@
     <script src="js/scripts.js"></script>
     <script src="js/song_player_controller.js"></script>
     <script>
-      var user = <?php echo json_encode($user); ?>;
-      console.log(user);
-      songPlayer();
+      startMusicPlayer("./songs/");
     </script>
     <!-- endbuild -->
   </body>
