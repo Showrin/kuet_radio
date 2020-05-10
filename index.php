@@ -1,4 +1,5 @@
 <?php
+  header('Access-Control-Allow-Origin: https://kuet-radio-server.herokuapp.com', false);
   session_start();
 
   if(isset($_SESSION['id'])) {
@@ -448,7 +449,14 @@
     <script src="js/jquery.slim.min.js"></script>
     <script src="js/popper.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
+    <script src="js/axios.min.js"></script>
     <script src="js/scripts.js"></script>
+    <script src="js/song_player_controller.js"></script>
+    <script>
+      var user = <?php echo json_encode($user); ?>;
+      console.log(user);
+      songPlayer();
+    </script>
     <!-- endbuild -->
   </body>
 </html>
