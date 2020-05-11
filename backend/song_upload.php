@@ -4,8 +4,6 @@
     $song_name = $_POST['song_name'];
     $singer_name = $_POST['singer_name'];
     $duration = $_POST['duration'];
-
-    echo $song_name . " " . $singer_name . " " . $duration;
     
     $query = "INSERT INTO songs VALUES ('', '', '$song_name', '$singer_name', '$duration', '0')";
     mysqli_query($connection, $query);
@@ -14,8 +12,6 @@
     $result = mysqli_query($connection, $id_search_query);
     $row = mysqli_fetch_assoc($result);
     $song_id = $row['id'];
-
-    echo $song_id;
     
     // --------------- Uploading song File to destination folder ------------
     if($_FILES['song']['name'] !== '') {

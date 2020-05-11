@@ -413,13 +413,10 @@
             class="col-8 col-sm-7 text-white d-flex justify-content-center flex-column"
           >
             <h5 class="mb-0 mb-sm-2">
-              <span>KUET Radio</span>
-              <small class="d-block d-sm-inline font-weight-normal my-2 my-sm-0"
-                >(Beta Test)</small
-              >
+              <span id="playing_title">KUET Radio</span>
             </h5>
-            <h6 class="mb-0 d-none d-sm-block font_muli_light">
-              Guest: ABCDEF & MNOPQR
+            <h6  id="playing_author" class="mb-0 d-none d-sm-block font_muli_light">
+              
             </h6>
           </div>
           <div class="col-2 d-flex align-items-center justify-content-end">

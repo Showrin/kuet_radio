@@ -105,10 +105,14 @@
       <div class="container h-100">
         <div class="row">
           <div class="col-12 text-center">
-            <h1
+            <h1 id="playing_title"
               class="display-4 font-weight-lighter font_muli_light clear_line_height"
             >
-              Jogakhichuri
+              KUET Radio <br />
+            </h1>
+            <h1 class="font-weight-lighter font_muli_light clear_line_height"
+            >
+              <small id="playing_author">Singer</small>
             </h1>
           </div>
         </div>
@@ -442,12 +446,20 @@
       <source src="http://109.169.23.22:26954/;stream" />
     </audio>
 
+    <audio id="song-player-1"></audio>
+    <audio id="song-player-2"></audio>
+
     <!-- jQuery first, then Popper.js, then Bootstrap JS. -->
     <!-- build:js js/main.js -->
     <script src="../js/jquery.slim.min.js"></script>
     <script src="../js/popper.min.js"></script>
     <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/axios.min.js"></script>
+    <script src="../js/song_player_controller.js"></script>
     <script src="../js/scripts.js"></script>
+    <script>
+      startMusicPlayer("../songs/");
+    </script>
     <!-- endbuild -->
   </body>
 </html>
