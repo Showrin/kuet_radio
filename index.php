@@ -452,8 +452,8 @@
     <script src="js/popper.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/axios.min.js"></script>
-    <script src="js/scripts.js"></script>
     <script src="js/song_player_controller.js"></script>
+    <script src="js/scripts.js"></script>
     <script>
       startMusicPlayer("./songs/");
     </script>

@@ -1,4 +1,5 @@
 let playForFirstTime = true;
+let wasPlaying = $("#song-player-1")[0];
 
 async function songPlayer(relativeSongFolderPath) {
   let { playingSong, songlist } = await axios
@@ -62,4 +63,18 @@ function startMusicPlayer(folderPath) {
       songPlayer(folderPath);
     }
   });
+}
+
+function musicPlayerPause() {
+  if ($("#song-player-1")[0].paused) {
+    $("#song-player-2")[0].pause();
+    wasPlaying = $("#song-player-2")[0];
+  } else {
+    $("#song-player-1")[0].pause();
+    wasPlaying = $("#song-player-1")[0];
+  }
+}
+
+function musicPlayerPlay() {
+  wasPlaying.play();
 }

@@ -13,7 +13,7 @@ $(document).ready(function () {
   //################# All Functions #####################
 
   // ############# Function to control play or pause functionality ###########
-  function playOrPauseFunction(animationDelay = 100) {
+  async function playOrPauseFunction(animationDelay = 100) {
     // ############### Scaling Animation for js-play-pause-btn ################
     radioPlayPauseBtn.css("transform", "scale(.9)");
     setTimeout(function () {
@@ -26,7 +26,9 @@ $(document).ready(function () {
 
       // ########## If play button is hit for the first time sfter page load ##########
       if (isMainPlayerRanFirstTimeAfterPageLoad) {
-        mainPlayer.volume = 0;
+        // mainPlayer.volume = 0;
+        await musicPlayerPlay();
+        $("#song-player-1")[0].volume = 0;
         isMainPlayerRanFirstTimeAfterPageLoad = false;
         themesongPlayer.play();
       }
@@ -36,7 +38,8 @@ $(document).ready(function () {
         themesongPlayer.play();
       }
 
-      mainPlayer.play();
+      // mainPlayer.play();
+      musicPlayerPlay();
 
       setTimeout(function () {
         radioPlayPauseBtn.children("span").removeClass("fa-play");
@@ -46,8 +49,9 @@ $(document).ready(function () {
     } else if (radioPlayPauseBtn.children("span").hasClass("fa-pause")) {
       radioPlayPauseBtn.children("span").css("transform", "scale(0)");
       themesongPlayer.pause();
-      mainPlayer.load();
-      mainPlayer.pause();
+      // mainPlayer.load();
+      // mainPlayer.pause();
+      musicPlayerPause();
       setTimeout(function () {
         radioPlayPauseBtn.children("span").removeClass("fa-pause");
         radioPlayPauseBtn.children("span").addClass("fa-play");
@@ -59,6 +63,7 @@ $(document).ready(function () {
   // ############# Event driven functions ###########
   themesongPlayer.addEventListener("ended", function () {
     mainPlayer.volume = 1; //raising volume to 0 - full of main player after theme song is ended
+    $("#song-player-1")[0].volume = 1;
   });
 
   // -------------------- get present year --------------------
