@@ -412,11 +412,11 @@
           <div
             class="col-8 col-sm-7 text-white d-flex justify-content-center flex-column"
           >
-            <h5 class="mb-0 mb-sm-2">
+            <h5 class="mb-1 mb-sm-2 text-overflow-ellipsis">
               <span id="playing_title">KUET Radio</span>
             </h5>
-            <h6  id="playing_author" class="mb-0 d-none d-sm-block font_muli_light">
-              
+            <h6  id="playing_author" class="mb-0 font_muli_light text-overflow-ellipsis">
+              Rj abcd
             </h6>
           </div>
           <div class="col-2 d-flex align-items-center justify-content-end">

@@ -7209,3 +7209,8 @@ html {
 .song-card {
   height: calc(100% - 1.5rem);
   margin-bottom: 1.5rem; }
+
+.text-overflow-ellipsis {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis; }
