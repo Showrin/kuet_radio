@@ -1,9 +1,11 @@
 <?php
     include "./connect_db.php";
 
-    $song_name = $_POST['song_name'];
-    $singer_name = $_POST['singer_name'];
+    $song_name = str_replace("'", "''", $_POST['song_name']);
+    $singer_name = str_replace("'", "''", $_POST['singer_name']);
     $duration = $_POST['duration'];
+
+    echo $song_name . " " . $singer_name . " " . $duration;
     
     $query = "INSERT INTO songs VALUES ('', '', '$song_name', '$singer_name', '$duration', '0')";
     mysqli_query($connection, $query);
