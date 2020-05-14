@@ -27,5 +27,23 @@
         mysqli_query($connection, $update_song_name_query);
     }
 
+    // Sending new song info to nodejs server
+    $url = 'https://kuet-radio-server.herokuapp.com/upload';
+    $query = "SELECT * FROM songs WHERE id='$song_id'";
+    $new_song = mysqli_query($connection, $query);
+    $result = mysqli_fetch_all($new_song, MYSQLI_ASSOC);
+    $data = array('newSong' => json_encode($result));
+    
+    // use key 'http' even if you send the request to https://...
+    $options = array(
+        'http' => array(
+            'header'  => "Content-type: application/x-www-form-urlencoded\r\n",
+            'method'  => 'POST',
+            'content' => http_build_query($data)
+        )
+    );
+    $context  = stream_context_create($options);
+    $result = file_get_contents($url, false, $context);
+
     header("Location:../layouts/playlist_settings.php");
 ?>

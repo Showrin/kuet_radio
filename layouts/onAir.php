@@ -112,7 +112,7 @@
             </h1>
             <h1 class="font-weight-lighter font_muli_light clear_line_height"
             >
-              <small id="playing_author">Singer</small>
+              <small id="playing_author"></small>
             </h1>
           </div>
         </div>
