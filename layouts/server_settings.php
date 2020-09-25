@@ -5,6 +5,7 @@
 
   include "../backend/connect_db.php";
   include "../backend/find_user_info.php";
+  include "../backend/find_servers.php";
 ?>
 
 <!DOCTYPE html>
@@ -270,102 +271,47 @@
         <div class="col-12 col-sm-9">
           <h1 class="text_dark mt-5 mb-4">Server Settings</h1>
 
-          <form>
-            <div class="form-row">
-              <div class="col-12 col-sm-6 mb-3">
-                <label class="text_dark" for="your_server1_ip"
-                  >Server#1 IP</label
-                >
-                <input
-                  type="text"
-                  class="form-control"
-                  id="your_server1_ip"
-                  aria-describedby="yourServer1IpHelp"
-                />
-                <small id="yourServer1IpHelp" class="form-text text-muted"
-                  >Please fill up this field</small
-                >
-              </div>
-              <div class="col-12 col-sm-6 mb-3">
-                <label class="text_dark" for="your_server1_port"
-                  >Server#1 port</label
-                >
-                <input
-                  type="text"
-                  class="form-control"
-                  id="your_server1_port"
-                  aria-describedby="yourServer1PortHelp"
-                />
-                <small id="yourServer1PortHelp" class="form-text text-muted"
-                  >Please fill up this field</small
-                >
-              </div>
-            </div>
-
-            <div class="form-row">
-              <div class="col-12 col-sm-6 mb-3">
-                <label class="text_dark" for="your_sever1_url"
-                  >Server#1 URL</label
-                >
-                <input
-                  type="text"
-                  class="form-control"
-                  id="your_sever1_url"
-                  aria-describedby="yourServer1UrlHelp"
-                />
-                <small id="yourServer1UrlHelp" class="form-text text-muted"
-                  >Please fill up this field</small
-                >
-              </div>
-            </div>
-
-            <div class="form-row">
-              <div class="col-12 col-sm-6 mb-3">
-                <label class="text_dark" for="your_server2_ip"
-                  >Server#2 IP</label
-                >
-                <input
-                  type="text"
-                  class="form-control"
-                  id="your_server2_ip"
-                  aria-describedby="yourServer2IpHelp"
-                />
-                <small id="yourServer2IpHelp" class="form-text text-muted"
-                  >Please fill up this field</small
-                >
-              </div>
-              <div class="col-12 col-sm-6 mb-3">
-                <label class="text_dark" for="your_server2_port"
-                  >Server#2 port</label
-                >
-                <input
-                  type="text"
-                  class="form-control"
-                  id="your_server2_port"
-                  aria-describedby="yourServer2PortHelp"
-                />
-                <small id="yourServer2PortHelp" class="form-text text-muted"
-                  >Please fill up this field</small
-                >
-              </div>
-            </div>
-
-            <div class="form-row">
-              <div class="col-12 col-sm-6 mb-3">
-                <label class="text_dark" for="your_sever2_url"
-                  >Server#2 URL</label
-                >
-                <input
-                  type="text"
-                  class="form-control"
-                  id="your_sever2_url"
-                  aria-describedby="yourServer2UrlHelp"
-                />
-                <small id="yourServer2UrlHelp" class="form-text text-muted"
-                  >Please fill up this field</small
-                >
-              </div>
-            </div>
+          <form method='GET' action='../backend/update_servers.php'>
+            <?php
+              while($server = mysqli_fetch_assoc($servers)) {
+                ?>
+                  <div class="form-row">
+                    <div class="col-12 col-sm-6 mb-3">
+                      <label class="text_dark" for="your_server<?php echo $server['id'] ?>_ip"
+                        >Server#<?php echo $server['id'] ?> IP</label
+                      >
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="your_server<?php echo $server['id'] ?>_ip"
+                        aria-describedby="yourServer<?php echo $server['id'] ?>IpHelp"
+                        value='<?php echo $server['ip'] ?>'
+                        name="server<?php echo $server['id'] ?>_ip"
+                      />
+                      <small id="yourServer<?php echo $server['id'] ?>IpHelp" class="form-text text-muted"
+                        >Please fill up this field</small
+                      >
+                    </div>
+                    <div class="col-12 col-sm-6 mb-3">
+                      <label class="text_dark" for="your_server<?php echo $server['id'] ?>_port"
+                        >Server#<?php echo $server['id'] ?> port</label
+                      >
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="your_server<?php echo $server['id'] ?>_port"
+                        aria-describedby="yourServer<?php echo $server['id'] ?>PortHelp"
+                        value='<?php echo $server['port'] ?>'
+                        name="server<?php echo $server['id'] ?>_port"
+                      />
+                      <small id="yourServer<?php echo $server['id'] ?>PortHelp" class="form-text text-muted"
+                        >Please fill up this field</small
+                      >
+                    </div>
+                  </div>
+                <?php
+              }
+            ?>
 
             <div class="form-row">
               <div class="col-12 mb-3">
