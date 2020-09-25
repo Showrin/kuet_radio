@@ -6,6 +6,7 @@
 
     include "./backend/connect_db.php";
     include "./backend/find_user_info.php";
+    include "./backend/find_servers.php";
   }
 ?>
 
@@ -435,8 +436,13 @@
     </audio>
 
     <audio id="main-but-hidden-radio-player">
-      <source src="http://95.154.196.33:27878/;stream" />
-      <source src="http://109.169.23.22:26954/;stream" />
+    <?php
+      while($server = mysqli_fetch_assoc($servers)) {
+        ?>
+          <source src="http://<?php echo $server['ip'] ?>:<?php echo $server['port'] ?>/;stream" />
+        <?php
+      }
+    ?>
     </audio>
 
     <audio id="song-player-1"></audio>
