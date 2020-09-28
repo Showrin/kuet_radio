@@ -271,7 +271,7 @@
         <div class="col-12 col-sm-9">
           <h1 class="text_dark mt-5 mb-4">Start a Show</h1>
 
-          <form id="start_show_form">
+          <form id="start_show_form" method="POST" action="../backend/create_current_show.php" enctype="multipart/form-data">
             <div class="form-row">
               <div class="col-12 mb-3">
                 <label class="text_dark" for="show_name">Show Name</label>
@@ -280,6 +280,8 @@
                   class="form-control"
                   id="show_name"
                   aria-describedby="showNameHelp"
+                  name="show_name"
+                  required
                 />
                 <small id="showNameHelp" class="form-text text-muted"
                   >Please fill up this field</small
@@ -296,7 +298,7 @@
                   ?>
                     <div class="col-3">
                       <div class="form-group form-check text_dark">
-                        <input type="checkbox" class="form-check-input" id='rj-<?php echo $member['id'] ?>' name='rjs' value="<?php echo $member['id'] ?>" />
+                        <input type="checkbox" class="form-check-input" id='rj-<?php echo $member['id'] ?>' name='rjs[]' value="<?php echo $member['id'] ?>" />
                         <label class="form-check-label" for="rj-<?php echo $member['id'] ?>"><?php echo $member['first_name'] . ' ' . $member['last_name'] ?></label>
                       </div>
                     </div>
@@ -315,6 +317,8 @@
                   class="form-control"
                   id="guest_amount"
                   aria-describedby="guestAmountHelp"
+                  name="guest_amount"
+                  required
                 />
                 <small id="guestAmountHelp" class="form-text text-muted"
                   >Please fill up this field</small
@@ -331,7 +335,9 @@
                     type="text"
                     class="form-control"
                     id="guest1_name"
+                    name="guest1_name"
                     aria-describedby="guest1_nameHelp"
+                    required
                   />
                   <small id="guest1_nameHelp" class="form-text text-muted"
                     >Please fill up this field</small
@@ -345,6 +351,7 @@
                     type="text"
                     class="form-control"
                     id="guest1_dept"
+                    name="guest1_dept"
                     aria-describedby="guest1_depttHelp"
                   />
                   <small id="guest1_depttHelp" class="form-text text-muted"
@@ -359,6 +366,7 @@
                     type="text"
                     class="form-control"
                     id="guest1_batch"
+                    name="guest1_batch"
                     aria-describedby="guest1_batchHelp"
                   />
                   <small id="guest1_batchHelp" class="form-text text-muted"
@@ -368,7 +376,7 @@
               </div>
 
               <div class="form-row">
-                <div class="col-12 mb-4">
+                <div class="col-12 mb-3">
                   <label class="text_dark" for="guest1_description"
                     >Other Description (Optional)</label
                   >
@@ -376,6 +384,7 @@
                     type="text"
                     class="form-control"
                     id="guest1_description"
+                    name="guest1_description"
                     aria-describedby="guest1_descriptionHelp"
                   />
                   <small
@@ -385,10 +394,30 @@
                   >
                 </div>
               </div>
+              
+              <div class="form-row">
+                <div class="col-12 mb-3">
+                  <label class="text_dark">Display Picture</label>
+                  <div class="custom-file">
+                    <input
+                      type="file"
+                      accept=".jpg, .jpeg, .png"
+                      class="custom-file-input text_dark"
+                      id="guest1_dp"
+                      name="guest1_dp"
+                      required
+                    />
+                    <label class="custom-file-label" for="guest1_dp"
+                      >Upload your image .....</label
+                    >
+                    <div class="invalid-feedback">Invalid file</div>
+                  </div>
+                </div>
+              </div>
             </div>
 
             <div id="startShowFormSubmitBtn" class="form-row">
-              <div class="col-12 mb-3">
+              <div class="col-12 mt-4 mb-3">
                 <button type="submit" class="btn btn-success">
                   Start The Show
                 </button>
@@ -539,10 +568,12 @@
           $(
             "#start_show_form"
           ).append(`<div id="startShowFormSubmitBtn" class="form-row">
-                        <div class="col-12 mb-3">
+                        <div class="col-12 mt-4 mb-3">
                             <button type="submit" class="btn btn-success">Start The Show</button>
                         </div>
                     </div>`);
+          
+          bsCustomFileInput.init();
         });
 
         // ------------------ guest input field setter -----------------------
@@ -552,27 +583,47 @@
                     <div class="form-row">
                         <div class="col-12 col-sm-4 mb-3">
                             <label class="text_dark" for="guest${guestNo}_name">Name</label>
-                            <input type="text" class="form-control" id="guest${guestNo}_name" aria-describedby="guest${guestNo}_nameHelp">
+                            <input type="text" class="form-control" id="guest${guestNo}_name" name="guest${guestNo}_name" aria-describedby="guest${guestNo}_nameHelp" required>
                             <small id="guest${guestNo}_nameHelp" class="form-text text-muted">Please fill up this field</small>
                         </div>
                         <div class="col-12 col-sm-4 mb-3">
                             <label class="text_dark" for="guest${guestNo}_dept">Department (Optional)</label>
-                            <input type="text" class="form-control" id="guest${guestNo}_dept" aria-describedby="guest${guestNo}_depttHelp">
+                            <input type="text" class="form-control" id="guest${guestNo}_dept" name="guest${guestNo}_dept" aria-describedby="guest${guestNo}_depttHelp">
                             <small id="guest${guestNo}_depttHelp" class="form-text text-muted">Please fill up this field</small>
                         </div>
                         <div class="col-12 col-sm-4 mb-3">
                             <label class="text_dark" for="guest${guestNo}_batch">Batch (Optional)</label>
-                            <input type="text" class="form-control" id="guest${guestNo}_batch" aria-describedby="guest${guestNo}_batchHelp">
+                            <input type="text" class="form-control" id="guest${guestNo}_batch" name="guest${guestNo}_batch" aria-describedby="guest${guestNo}_batchHelp">
                             <small id="guest${guestNo}_batchHelp" class="form-text text-muted">Please fill up this field</small>
                         </div>
                     </div>
 
                     <div class="form-row">
-                        <div class="col-12 mb-4">
+                        <div class="col-12 mb-3">
                             <label class="text_dark" for="guest${guestNo}_description">Other Description (Optional)</label>
-                            <input type="text" class="form-control" id="guest${guestNo}_description" aria-describedby="guest${guestNo}_descriptionHelp">
+                            <input type="text" class="form-control" id="guest${guestNo}_description" name="guest${guestNo}_description" aria-describedby="guest${guestNo}_descriptionHelp">
                             <small id="guest${guestNo}_descriptionHelp" class="form-text text-muted">Please fill up this field</small>
                         </div>
+                    </div>
+
+                    <div class="form-row">
+                      <div class="col-12 mb-3">
+                        <label class="text_dark">Display Picture</label>
+                        <div class="custom-file">
+                          <input
+                            type="file"
+                            accept=".jpg, .jpeg, .png"
+                            class="custom-file-input text_dark"
+                            id="guest${guestNo}_dp"
+                            name="guest${guestNo}_dp"
+                            required                
+                          />
+                          <label class="custom-file-label" for="guest${guestNo}_dp"
+                            >Upload your image .....</label
+                          >
+                          <div class="invalid-feedback">Invalid file</div>
+                        </div>
+                      </div>
                     </div>
                 
                 </div>`;
