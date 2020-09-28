@@ -6,6 +6,7 @@
   include "../backend/connect_db.php";
   include "../backend/find_user_info.php";
   include '../backend/find_team_members.php';
+  include '../backend/find_current_show.php';
 ?>
 
 <!DOCTYPE html>
@@ -197,11 +198,25 @@
             <h5 class="text-uppercase text-primary"><?php echo $user['authority_level']; ?></h5>
           </div>
           <div class="col-6 col-lg-3 offset-3 offset-lg-0">
-            <a
-              href="./start_a_show.php"
-              class="btn btn-sm btn-block bg-primary text-white"
-              >Start a Show</a
-            >
+          <?php
+            if(mysqli_num_rows($running_show)) {
+              ?>
+                <a
+                  href="../backend/delete_running_show.php"
+                  class="btn btn-sm btn-block bg-danger text-white"
+                  >Stop the Show</a
+                >
+              <?php
+            } else {
+              ?>
+                <a
+                  href="./start_a_show.php"
+                  class="btn btn-sm btn-block bg-primary text-white"
+                  >Start a Show</a
+                >
+              <?php
+            }
+          ?>
           </div>
         </div>
       </div>
