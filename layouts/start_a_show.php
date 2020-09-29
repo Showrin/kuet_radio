@@ -433,7 +433,7 @@
 
             <div id="startShowFormSubmitBtn" class="form-row">
               <div class="col-12 mt-4 mb-3">
-                <button type="submit" class="btn btn-success">
+                <button type="submit" class="btn btn-success" <?php if(mysqli_num_rows($running_show)) { echo "disabled"; } ?>>
                   Start The Show
                 </button>
               </div>
