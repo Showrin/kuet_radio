@@ -8,17 +8,6 @@
     $show_name = $_POST['show_name'];
     $rjs = $_POST['rjs'];
     $guest_amount = $_POST['guest_amount'];
-
-    echo $show_name . '<br />';
-    echo $guest_amount . '<br />';
-    
-    foreach($rjs as $rj) {
-      echo $rj . '<br />';
-    }
-    
-    for($i = 1; $i <= $guest_amount; $i++) {
-      echo $_POST['guest' . $i . '_name'] . '<br />';
-    }
   
     $show_delete_query = "DELETE FROM running_show";
     $guests_delete_query = "DELETE FROM guests_of_running_show";
@@ -43,11 +32,6 @@
       $guest_batch = $_POST['guest' . $i . '_batch'];
       $guest_description = $_POST['guest' . $i . '_description'];
       $guest_dp = 'guest' . $i . '_dp';
-      
-      echo $guest_name . '<br />';
-      echo $guest_dept . '<br />';
-      echo $guest_batch . '<br />';
-      echo $guest_description . '<br />';
       
 
       $guests_insert_query = "INSERT INTO guests_of_running_show VALUES ('$i', '$guest_name', '$guest_dept', '$guest_batch', '$guest_description', '')";
