@@ -7,6 +7,18 @@
   include "../backend/find_user_info.php";
   include '../backend/find_team_members.php';
   include '../backend/find_current_show.php';
+  include '../backend/find_current_guests.php';
+  include '../backend/find_current_rjs.php';
+
+  if(mysqli_num_rows($running_show)) {
+    $running_show_info = mysqli_fetch_assoc($running_show);
+    $rj_list = [];
+
+    while($rj = mysqli_fetch_assoc($running_show_rjs)) {
+      array_push($rj_list, $rj['user_id']);
+    }
+  }
+
 ?>
 
 <!DOCTYPE html>
@@ -296,6 +308,7 @@
                   id="show_name"
                   aria-describedby="showNameHelp"
                   name="show_name"
+                  <?php if(isset($running_show_info)) { echo 'value=' . $running_show_info['name']; } ?>
                   required
                 />
                 <small id="showNameHelp" class="form-text text-muted"
@@ -313,7 +326,7 @@
                   ?>
                     <div class="col-3">
                       <div class="form-group form-check text_dark">
-                        <input type="checkbox" class="form-check-input" id='rj-<?php echo $member['id'] ?>' name='rjs[]' value="<?php echo $member['id'] ?>" />
+                        <input type="checkbox" class="form-check-input" id='rj-<?php echo $member['id'] ?>' name='rjs[]' value="<?php echo $member['id'] ?>" <?php if(in_array($member['id'], $rj_list)) { echo 'checked'; } ?> />
                         <label class="form-check-label" for="rj-<?php echo $member['id'] ?>"><?php echo $member['first_name'] . ' ' . $member['last_name'] ?></label>
                       </div>
                     </div>
@@ -333,6 +346,7 @@
                   id="guest_amount"
                   aria-describedby="guestAmountHelp"
                   name="guest_amount"
+                  <?php if(isset($running_show_info)) { echo 'value=' . $running_show_info['no_of_guests']; } ?>
                   required
                 />
                 <small id="guestAmountHelp" class="form-text text-muted"
@@ -341,95 +355,301 @@
               </div>
             </div>
 
-            <div class="guestDiv_permanent">
-              <h4 class="text_dark mt-4 mb-3">Guest #1</h4>
-              <div class="form-row">
-                <div class="col-12 col-sm-4 mb-3">
-                  <label class="text_dark" for="guest1_name">Name</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="guest1_name"
-                    name="guest1_name"
-                    aria-describedby="guest1_nameHelp"
-                    required
-                  />
-                  <small id="guest1_nameHelp" class="form-text text-muted"
-                    >Please fill up this field</small
-                  >
-                </div>
-                <div class="col-12 col-sm-4 mb-3">
-                  <label class="text_dark" for="guest1_dept"
-                    >Department (Optional)</label
-                  >
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="guest1_dept"
-                    name="guest1_dept"
-                    aria-describedby="guest1_depttHelp"
-                  />
-                  <small id="guest1_depttHelp" class="form-text text-muted"
-                    >Please fill up this field</small
-                  >
-                </div>
-                <div class="col-12 col-sm-4 mb-3">
-                  <label class="text_dark" for="guest1_batch"
-                    >Batch (Optional)</label
-                  >
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="guest1_batch"
-                    name="guest1_batch"
-                    aria-describedby="guest1_batchHelp"
-                  />
-                  <small id="guest1_batchHelp" class="form-text text-muted"
-                    >Please fill up this field</small
-                  >
-                </div>
-              </div>
-
-              <div class="form-row">
-                <div class="col-12 mb-3">
-                  <label class="text_dark" for="guest1_description"
-                    >Other Description (Optional)</label
-                  >
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="guest1_description"
-                    name="guest1_description"
-                    aria-describedby="guest1_descriptionHelp"
-                  />
-                  <small
-                    id="guest1_descriptionHelp"
-                    class="form-text text-muted"
-                    >Please fill up this field</small
-                  >
-                </div>
-              </div>
+            <?php
+              $index = 1;
               
-              <div class="form-row">
-                <div class="col-12 mb-3">
-                  <label class="text_dark">Display Picture</label>
-                  <div class="custom-file">
-                    <input
-                      type="file"
-                      accept=".jpg, .jpeg, .png"
-                      class="custom-file-input text_dark"
-                      id="guest1_dp"
-                      name="guest1_dp"
-                      required
-                    />
-                    <label class="custom-file-label" for="guest1_dp"
-                      >Upload your image .....</label
-                    >
-                    <div class="invalid-feedback">Invalid file</div>
+              if(isset($running_show_guests)) {
+                while($guest = mysqli_fetch_assoc($running_show_guests)) {
+                  if($index == 1){
+                    ?>
+                      <div class="guestDiv_permanent">
+                        <h4 class="text_dark mt-4 mb-3">Guest #<?php echo $index ?></h4>
+                        <div class="form-row">
+                          <div class="col-12 col-sm-4 mb-3">
+                            <label class="text_dark" for="guest1_name">Name</label>
+                            <input
+                              type="text"
+                              class="form-control"
+                              id="guest1_name"
+                              name="guest1_name"
+                              aria-describedby="guest1_nameHelp"
+                              <?php if($guest['name'] != '') { echo 'value=' . $guest['name']; } ?>
+                              required
+                            />
+                            <small id="guest1_nameHelp" class="form-text text-muted"
+                              >Please fill up this field</small
+                            >
+                          </div>
+                          <div class="col-12 col-sm-4 mb-3">
+                            <label class="text_dark" for="guest1_dept"
+                              >Department (Optional)</label
+                            >
+                            <input
+                              type="text"
+                              class="form-control"
+                              id="guest1_dept"
+                              name="guest1_dept"
+                              <?php if($guest['department'] != '') { echo 'value=' . $guest['department']; } ?>
+                              aria-describedby="guest1_depttHelp"
+                            />
+                            <small id="guest1_depttHelp" class="form-text text-muted"
+                              >Please fill up this field</small
+                            >
+                          </div>
+                          <div class="col-12 col-sm-4 mb-3">
+                            <label class="text_dark" for="guest1_batch"
+                              >Batch (Optional)</label
+                            >
+                            <input
+                              type="text"
+                              class="form-control"
+                              id="guest1_batch"
+                              name="guest1_batch"
+                              <?php if($guest['batch'] != '') { echo 'value=' . $guest['batch']; } ?>
+                              aria-describedby="guest1_batchHelp"
+                            />
+                            <small id="guest1_batchHelp" class="form-text text-muted"
+                              >Please fill up this field</small
+                            >
+                          </div>
+                        </div>
+    
+                        <div class="form-row">
+                          <div class="col-12 mb-3">
+                            <label class="text_dark" for="guest1_description"
+                              >Other Description (Optional)</label
+                            >
+                            <input
+                              type="text"
+                              class="form-control"
+                              id="guest1_description"
+                              name="guest1_description"
+                              <?php if($guest['other_description']  != '') { echo 'value=' . $guest['other_description']; } ?>
+                              aria-describedby="guest1_descriptionHelp"
+                            />
+                            <small
+                              id="guest1_descriptionHelp"
+                              class="form-text text-muted"
+                              >Please fill up this field</small
+                            >
+                          </div>
+                        </div>
+                        
+                        <div class="form-row">
+                          <div class="col-12 mb-3">
+                            <label class="text_dark">Display Picture</label>
+                            <div class="custom-file">
+                              <input
+                                type="file"
+                                accept=".jpg, .jpeg, .png"
+                                class="custom-file-input text_dark"
+                                id="guest1_dp"
+                                name="guest1_dp"
+                                required
+                              />
+                              <label class="custom-file-label" for="guest1_dp"
+                                >Upload your image .....</label
+                              >
+                              <div class="invalid-feedback">Invalid file</div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    <?php
+                  } else {
+                    ?>
+                      <div class="guestDiv">
+                        <h4 class="text_dark mt-4 mb-3">Guest #<?php echo $index ?></h4>
+                        <div class="form-row">
+                          <div class="col-12 col-sm-4 mb-3">
+                            <label class="text_dark" for="guest1_name">Name</label>
+                            <input
+                              type="text"
+                              class="form-control"
+                              id="guest1_name"
+                              name="guest1_name"
+                              aria-describedby="guest1_nameHelp"
+                              <?php if($guest['name'] != '') { echo 'value=' . $guest['name']; } ?>
+                              required
+                            />
+                            <small id="guest1_nameHelp" class="form-text text-muted"
+                              >Please fill up this field</small
+                            >
+                          </div>
+                          <div class="col-12 col-sm-4 mb-3">
+                            <label class="text_dark" for="guest1_dept"
+                              >Department (Optional)</label
+                            >
+                            <input
+                              type="text"
+                              class="form-control"
+                              id="guest1_dept"
+                              name="guest1_dept"
+                              <?php if($guest['department'] != '') { echo 'value=' . $guest['department']; } ?>
+                              aria-describedby="guest1_depttHelp"
+                            />
+                            <small id="guest1_depttHelp" class="form-text text-muted"
+                              >Please fill up this field</small
+                            >
+                          </div>
+                          <div class="col-12 col-sm-4 mb-3">
+                            <label class="text_dark" for="guest1_batch"
+                              >Batch (Optional)</label
+                            >
+                            <input
+                              type="text"
+                              class="form-control"
+                              id="guest1_batch"
+                              name="guest1_batch"
+                              <?php if($guest['batch'] != '') { echo 'value=' . $guest['batch']; } ?>
+                              aria-describedby="guest1_batchHelp"
+                            />
+                            <small id="guest1_batchHelp" class="form-text text-muted"
+                              >Please fill up this field</small
+                            >
+                          </div>
+                        </div>
+    
+                        <div class="form-row">
+                          <div class="col-12 mb-3">
+                            <label class="text_dark" for="guest1_description"
+                              >Other Description (Optional)</label
+                            >
+                            <input
+                              type="text"
+                              class="form-control"
+                              id="guest1_description"
+                              name="guest1_description"
+                              <?php if($guest['other_description']  != '') { echo 'value=' . $guest['other_description']; } ?>
+                              aria-describedby="guest1_descriptionHelp"
+                            />
+                            <small
+                              id="guest1_descriptionHelp"
+                              class="form-text text-muted"
+                              >Please fill up this field</small
+                            >
+                          </div>
+                        </div>
+                        
+                        <div class="form-row">
+                          <div class="col-12 mb-3">
+                            <label class="text_dark">Display Picture</label>
+                            <div class="custom-file">
+                              <input
+                                type="file"
+                                accept=".jpg, .jpeg, .png"
+                                class="custom-file-input text_dark"
+                                id="guest1_dp"
+                                name="guest1_dp"
+                                required
+                              />
+                              <label class="custom-file-label" for="guest1_dp"
+                                >Upload your image .....</label
+                              >
+                              <div class="invalid-feedback">Invalid file</div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    <?php
+                  }
+
+                  $index++;
+                }
+              } else {
+                ?>
+                  <div class="guestDiv_permanent">
+                    <h4 class="text_dark mt-4 mb-3">Guest #1</h4>
+                    <div class="form-row">
+                      <div class="col-12 col-sm-4 mb-3">
+                        <label class="text_dark" for="guest1_name">Name</label>
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="guest1_name"
+                          name="guest1_name"
+                          aria-describedby="guest1_nameHelp"
+                          required
+                        />
+                        <small id="guest1_nameHelp" class="form-text text-muted"
+                          >Please fill up this field</small
+                        >
+                      </div>
+                      <div class="col-12 col-sm-4 mb-3">
+                        <label class="text_dark" for="guest1_dept"
+                          >Department (Optional)</label
+                        >
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="guest1_dept"
+                          name="guest1_dept"
+                          aria-describedby="guest1_depttHelp"
+                        />
+                        <small id="guest1_depttHelp" class="form-text text-muted"
+                          >Please fill up this field</small
+                        >
+                      </div>
+                      <div class="col-12 col-sm-4 mb-3">
+                        <label class="text_dark" for="guest1_batch"
+                          >Batch (Optional)</label
+                        >
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="guest1_batch"
+                          name="guest1_batch"
+                          aria-describedby="guest1_batchHelp"
+                        />
+                        <small id="guest1_batchHelp" class="form-text text-muted"
+                          >Please fill up this field</small
+                        >
+                      </div>
+                    </div>
+
+                    <div class="form-row">
+                      <div class="col-12 mb-3">
+                        <label class="text_dark" for="guest1_description"
+                          >Other Description (Optional)</label
+                        >
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="guest1_description"
+                          name="guest1_description"
+                          aria-describedby="guest1_descriptionHelp"
+                        />
+                        <small
+                          id="guest1_descriptionHelp"
+                          class="form-text text-muted"
+                          >Please fill up this field</small
+                        >
+                      </div>
+                    </div>
+                    
+                    <div class="form-row">
+                      <div class="col-12 mb-3">
+                        <label class="text_dark">Display Picture</label>
+                        <div class="custom-file">
+                          <input
+                            type="file"
+                            accept=".jpg, .jpeg, .png"
+                            class="custom-file-input text_dark"
+                            id="guest1_dp"
+                            name="guest1_dp"
+                            required
+                          />
+                          <label class="custom-file-label" for="guest1_dp"
+                            >Upload your image .....</label
+                          >
+                          <div class="invalid-feedback">Invalid file</div>
+                        </div>
+                      </div>
+                    </div>
                   </div>
-                </div>
-              </div>
-            </div>
+                <?php
+              }
+            ?>
 
             <div id="startShowFormSubmitBtn" class="form-row">
               <div class="col-12 mt-4 mb-3">
