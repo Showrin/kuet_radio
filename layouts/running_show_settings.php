@@ -326,7 +326,7 @@
                   ?>
                     <div class="col-3">
                       <div class="form-group form-check text_dark">
-                        <input type="checkbox" class="form-check-input" id='rj-<?php echo $member['id'] ?>' name='rjs[]' value="<?php echo $member['id'] ?>" <?php if(in_array($member['id'], $rj_list)) { echo 'checked'; } ?> />
+                        <input type="checkbox" class="form-check-input" id='rj-<?php echo $member['id'] ?>' name='rjs[]' value="<?php echo $member['id'] ?>" <?php if(isset($rj_list) && in_array($member['id'], $rj_list)) { echo 'checked'; } ?> />
                         <label class="form-check-label" for="rj-<?php echo $member['id'] ?>"><?php echo $member['first_name'] . ' ' . $member['last_name'] ?></label>
                       </div>
                     </div>
@@ -356,9 +356,9 @@
             </div>
 
             <?php
-              $index = 1;
-              
-              if(isset($running_show_guests)) {
+              if(mysqli_num_rows($running_show_guests)) {
+                $index = 1;
+                
                 while($guest = mysqli_fetch_assoc($running_show_guests)) {
                   if($index == 1){
                     ?>
@@ -803,9 +803,11 @@
           $(
             "#start_show_form"
           ).append(`<div id="startShowFormSubmitBtn" class="form-row">
-                        <div class="col-12 mt-4 mb-3">
-                            <button type="submit" class="btn btn-success">Start The Show</button>
-                        </div>
+                      <div class="col-12 mt-4 mb-3">
+                        <button type="submit" class="btn btn-success" <?php if(!mysqli_num_rows($running_show)) { echo "disabled"; } ?>>
+                          Update The Show
+                        </button>
+                      </div>
                     </div>`);
           
           bsCustomFileInput.init();
