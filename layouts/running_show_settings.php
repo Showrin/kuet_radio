@@ -298,7 +298,7 @@
         <div class="col-12 col-sm-9">
           <h1 class="text_dark mt-5 mb-4">Running Show Settings</h1>
 
-          <form id="start_show_form" method="POST" action="../backend/create_current_show.php" enctype="multipart/form-data">
+          <form id="start_show_form" method="POST" action="../backend/update_current_show.php" enctype="multipart/form-data">
             <div class="form-row">
               <div class="col-12 mb-3">
                 <label class="text_dark" for="show_name">Show Name</label>
@@ -462,49 +462,49 @@
                         <h4 class="text_dark mt-4 mb-3">Guest #<?php echo $index ?></h4>
                         <div class="form-row">
                           <div class="col-12 col-sm-4 mb-3">
-                            <label class="text_dark" for="guest1_name">Name</label>
+                            <label class="text_dark" for="guest<?php echo $index; ?>_name">Name</label>
                             <input
                               type="text"
                               class="form-control"
-                              id="guest1_name"
-                              name="guest1_name"
-                              aria-describedby="guest1_nameHelp"
+                              id="guest<?php echo $index; ?>_name"
+                              name="guest<?php echo $index; ?>_name"
+                              aria-describedby="guest<?php echo $index; ?>_nameHelp"
                               <?php if($guest['name'] != '') { echo 'value=' . $guest['name']; } ?>
                               required
                             />
-                            <small id="guest1_nameHelp" class="form-text text-muted"
+                            <small id="guest<?php echo $index; ?>_nameHelp" class="form-text text-muted"
                               >Please fill up this field</small
                             >
                           </div>
                           <div class="col-12 col-sm-4 mb-3">
-                            <label class="text_dark" for="guest1_dept"
+                            <label class="text_dark" for="guest<?php echo $index; ?>_dept"
                               >Department (Optional)</label
                             >
                             <input
                               type="text"
                               class="form-control"
-                              id="guest1_dept"
-                              name="guest1_dept"
+                              id="guest<?php echo $index; ?>_dept"
+                              name="guest<?php echo $index; ?>_dept"
                               <?php if($guest['department'] != '') { echo 'value=' . $guest['department']; } ?>
-                              aria-describedby="guest1_depttHelp"
+                              aria-describedby="guest<?php echo $index; ?>_depttHelp"
                             />
-                            <small id="guest1_depttHelp" class="form-text text-muted"
+                            <small id="guest<?php echo $index; ?>_depttHelp" class="form-text text-muted"
                               >Please fill up this field</small
                             >
                           </div>
                           <div class="col-12 col-sm-4 mb-3">
-                            <label class="text_dark" for="guest1_batch"
+                            <label class="text_dark" for="guest<?php echo $index; ?>_batch"
                               >Batch (Optional)</label
                             >
                             <input
                               type="text"
                               class="form-control"
-                              id="guest1_batch"
-                              name="guest1_batch"
+                              id="guest<?php echo $index; ?>_batch"
+                              name="guest<?php echo $index; ?>_batch"
                               <?php if($guest['batch'] != '') { echo 'value=' . $guest['batch']; } ?>
-                              aria-describedby="guest1_batchHelp"
+                              aria-describedby="guest<?php echo $index; ?>_batchHelp"
                             />
-                            <small id="guest1_batchHelp" class="form-text text-muted"
+                            <small id="guest<?php echo $index; ?>_batchHelp" class="form-text text-muted"
                               >Please fill up this field</small
                             >
                           </div>
@@ -512,19 +512,19 @@
     
                         <div class="form-row">
                           <div class="col-12 mb-3">
-                            <label class="text_dark" for="guest1_description"
+                            <label class="text_dark" for="guest<?php echo $index; ?>_description"
                               >Other Description (Optional)</label
                             >
                             <input
                               type="text"
                               class="form-control"
-                              id="guest1_description"
-                              name="guest1_description"
+                              id="guest<?php echo $index; ?>_description"
+                              name="guest<?php echo $index; ?>_description"
                               <?php if($guest['other_description']  != '') { echo 'value=' . $guest['other_description']; } ?>
-                              aria-describedby="guest1_descriptionHelp"
+                              aria-describedby="guest<?php echo $index; ?>_descriptionHelp"
                             />
                             <small
-                              id="guest1_descriptionHelp"
+                              id="guest<?php echo $index; ?>_descriptionHelp"
                               class="form-text text-muted"
                               >Please fill up this field</small
                             >
@@ -539,11 +539,11 @@
                                 type="file"
                                 accept=".jpg, .jpeg, .png"
                                 class="custom-file-input text_dark"
-                                id="guest1_dp"
-                                name="guest1_dp"
+                                id="guest<?php echo $index; ?>_dp"
+                                name="guest<?php echo $index; ?>_dp"
                                 required
                               />
-                              <label class="custom-file-label" for="guest1_dp"
+                              <label class="custom-file-label" for="guest<?php echo $index; ?>_dp"
                                 >Upload your image .....</label
                               >
                               <div class="invalid-feedback">Invalid file</div>
