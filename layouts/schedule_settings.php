@@ -5,6 +5,7 @@
 
   include "../backend/connect_db.php";
   include "../backend/find_user_info.php";
+  include '../backend/find_team_members.php';
   include '../backend/find_current_show.php';
 ?>
 
@@ -319,7 +320,7 @@
         <div class="col-12 col-sm-9">
           <h1 class="text_dark mt-5 mb-4">Add New Show</h1>
 
-          <form id="start_show_form">
+          <form id="start_show_form" method="POST" action="../backend/create_show.php">
             <div class="form-row">
               <div class="col-12 mb-3">
                 <label class="text_dark" for="show_name">Show Name</label>
@@ -327,6 +328,7 @@
                   type="text"
                   class="form-control"
                   id="show_name"
+                  name="show_name"
                   aria-describedby="showNameHelp"
                 />
                 <small id="showNameHelp" class="form-text text-muted"
@@ -342,6 +344,7 @@
                   type="text"
                   class="form-control"
                   id="show_day"
+                  name="show_day"
                   aria-describedby="showDayHelp"
                 />
                 <small id="showDayHelp" class="form-text text-muted"
@@ -355,6 +358,7 @@
                   type="text"
                   class="form-control"
                   id="show_time"
+                  name="show_time"
                   aria-describedby="showTimeHelp"
                 />
                 <small id="showTimeHelp" class="form-text text-muted"
@@ -367,92 +371,19 @@
               <div class="col-12">
                 <label class="text_dark">RJs</label>
               </div>
-              <div class="col-3">
-                <div class="form-group form-check text_dark">
-                  <input type="checkbox" class="form-check-input" id="rj" />
-                  <label class="form-check-label" for="rj">Apurba Das</label>
-                </div>
-              </div>
-              <div class="col-3">
-                <div class="form-group form-check text_dark">
-                  <input type="checkbox" class="form-check-input" id="rj" />
-                  <label class="form-check-label" for="rj">Apurba Das</label>
-                </div>
-              </div>
-              <div class="col-3">
-                <div class="form-group form-check text_dark">
-                  <input type="checkbox" class="form-check-input" id="rj" />
-                  <label class="form-check-label" for="rj">Apurba Das</label>
-                </div>
-              </div>
-              <div class="col-3">
-                <div class="form-group form-check text_dark">
-                  <input type="checkbox" class="form-check-input" id="rj" />
-                  <label class="form-check-label" for="rj">Apurba Das</label>
-                </div>
-              </div>
-              <div class="col-3">
-                <div class="form-group form-check text_dark">
-                  <input type="checkbox" class="form-check-input" id="rj" />
-                  <label class="form-check-label" for="rj">Apurba Das</label>
-                </div>
-              </div>
-              <div class="col-3">
-                <div class="form-group form-check text_dark">
-                  <input type="checkbox" class="form-check-input" id="rj" />
-                  <label class="form-check-label" for="rj">Apurba Das</label>
-                </div>
-              </div>
-              <div class="col-3">
-                <div class="form-group form-check text_dark">
-                  <input type="checkbox" class="form-check-input" id="rj" />
-                  <label class="form-check-label" for="rj">Apurba Das</label>
-                </div>
-              </div>
-              <div class="col-3">
-                <div class="form-group form-check text_dark">
-                  <input type="checkbox" class="form-check-input" id="rj" />
-                  <label class="form-check-label" for="rj">Apurba Das</label>
-                </div>
-              </div>
-              <div class="col-3">
-                <div class="form-group form-check text_dark">
-                  <input type="checkbox" class="form-check-input" id="rj" />
-                  <label class="form-check-label" for="rj">Apurba Das</label>
-                </div>
-              </div>
-              <div class="col-3">
-                <div class="form-group form-check text_dark">
-                  <input type="checkbox" class="form-check-input" id="rj" />
-                  <label class="form-check-label" for="rj">Apurba Das</label>
-                </div>
-              </div>
-              <div class="col-3">
-                <div class="form-group form-check text_dark">
-                  <input type="checkbox" class="form-check-input" id="rj" />
-                  <label class="form-check-label" for="rj">Apurba Das</label>
-                </div>
-              </div>
-              <div class="col-3">
-                <div class="form-group form-check text_dark">
-                  <input type="checkbox" class="form-check-input" id="rj" />
-                  <label class="form-check-label" for="rj">Apurba Das</label>
-                </div>
-              </div>
-              <div class="col-3">
-                <div class="form-group form-check text_dark">
-                  <input type="checkbox" class="form-check-input" id="rj" />
-                  <label class="form-check-label" for="rj">Apurba Das</label>
-                </div>
-              </div>
-              <div class="col-3">
-                <div class="form-group form-check text_dark">
-                  <input type="checkbox" class="form-check-input" id="rj" />
-                  <label class="form-check-label" for="rj">Apurba Das</label>
-                </div>
-              </div>
+              <?php
+                while($member = mysqli_fetch_assoc($team_members)) {
+                  ?>
+                    <div class="col-3">
+                      <div class="form-group form-check text_dark">
+                        <input type="checkbox" class="form-check-input" id='rj-<?php echo $member['id'] ?>' name='rjs[]' value="<?php echo $member['id'] ?>" />
+                        <label class="form-check-label" for="rj-<?php echo $member['id'] ?>"><?php echo $member['first_name'] . ' ' . $member['last_name'] ?></label>
+                      </div>
+                    </div>
+                  <?php
+                }
+              ?>
             </div>
-
             <div class="form-row">
               <div class="col-12 mb-3">
                 <button type="submit" class="btn btn-success">
