@@ -308,7 +308,7 @@
                   id="show_name"
                   aria-describedby="showNameHelp"
                   name="show_name"
-                  <?php if(isset($running_show_info)) { echo 'value=' . $running_show_info['name']; } ?>
+                  <?php if(isset($running_show_info)) { echo 'value="' . $running_show_info['name'] . '"'; } ?>
                   required
                 />
                 <small id="showNameHelp" class="form-text text-muted"
@@ -346,7 +346,7 @@
                   id="guest_amount"
                   aria-describedby="guestAmountHelp"
                   name="guest_amount"
-                  <?php if(isset($running_show_info)) { echo 'value=' . $running_show_info['no_of_guests']; } ?>
+                  <?php if(isset($running_show_info)) { echo 'value="' . $running_show_info['no_of_guests'] . '"'; } ?>
                   required
                 />
                 <small id="guestAmountHelp" class="form-text text-muted"
@@ -373,7 +373,7 @@
                               id="guest1_name"
                               name="guest1_name"
                               aria-describedby="guest1_nameHelp"
-                              <?php if($guest['name'] != '') { echo 'value=' . $guest['name']; } ?>
+                              <?php if($guest['name'] != '') { echo 'value="' . $guest['name'] . '"'; } ?>
                               required
                             />
                             <small id="guest1_nameHelp" class="form-text text-muted"
@@ -389,7 +389,7 @@
                               class="form-control"
                               id="guest1_dept"
                               name="guest1_dept"
-                              <?php if($guest['department'] != '') { echo 'value=' . $guest['department']; } ?>
+                              <?php if($guest['department'] != '') { echo 'value="' . $guest['department'] . '"'; } ?>
                               aria-describedby="guest1_depttHelp"
                             />
                             <small id="guest1_depttHelp" class="form-text text-muted"
@@ -405,7 +405,7 @@
                               class="form-control"
                               id="guest1_batch"
                               name="guest1_batch"
-                              <?php if($guest['batch'] != '') { echo 'value=' . $guest['batch']; } ?>
+                              <?php if($guest['batch'] != '') { echo 'value="' . $guest['batch'] . '"'; } ?>
                               aria-describedby="guest1_batchHelp"
                             />
                             <small id="guest1_batchHelp" class="form-text text-muted"
@@ -424,7 +424,7 @@
                               class="form-control"
                               id="guest1_description"
                               name="guest1_description"
-                              <?php if($guest['other_description']  != '') { echo 'value=' . $guest['other_description']; } ?>
+                              <?php if($guest['other_description']  != '') { echo 'value="' . $guest['other_description'] . '"'; } ?>
                               aria-describedby="guest1_descriptionHelp"
                             />
                             <small
@@ -469,7 +469,7 @@
                               id="guest<?php echo $index; ?>_name"
                               name="guest<?php echo $index; ?>_name"
                               aria-describedby="guest<?php echo $index; ?>_nameHelp"
-                              <?php if($guest['name'] != '') { echo 'value=' . $guest['name']; } ?>
+                              <?php if($guest['name'] != '') { echo 'value="' . $guest['name'] . '"'; } ?>
                               required
                             />
                             <small id="guest<?php echo $index; ?>_nameHelp" class="form-text text-muted"
@@ -485,7 +485,7 @@
                               class="form-control"
                               id="guest<?php echo $index; ?>_dept"
                               name="guest<?php echo $index; ?>_dept"
-                              <?php if($guest['department'] != '') { echo 'value=' . $guest['department']; } ?>
+                              <?php if($guest['department'] != '') { echo 'value="' . $guest['department'] . '"'; } ?>
                               aria-describedby="guest<?php echo $index; ?>_depttHelp"
                             />
                             <small id="guest<?php echo $index; ?>_depttHelp" class="form-text text-muted"
@@ -501,7 +501,7 @@
                               class="form-control"
                               id="guest<?php echo $index; ?>_batch"
                               name="guest<?php echo $index; ?>_batch"
-                              <?php if($guest['batch'] != '') { echo 'value=' . $guest['batch']; } ?>
+                              <?php if($guest['batch'] != '') { echo 'value="' . $guest['batch'] . '"'; } ?>
                               aria-describedby="guest<?php echo $index; ?>_batchHelp"
                             />
                             <small id="guest<?php echo $index; ?>_batchHelp" class="form-text text-muted"
@@ -520,7 +520,7 @@
                               class="form-control"
                               id="guest<?php echo $index; ?>_description"
                               name="guest<?php echo $index; ?>_description"
-                              <?php if($guest['other_description']  != '') { echo 'value=' . $guest['other_description']; } ?>
+                              <?php if($guest['other_description']  != '') { echo 'value="' . $guest['other_description'] . '"'; } ?>
                               aria-describedby="guest<?php echo $index; ?>_descriptionHelp"
                             />
                             <small
