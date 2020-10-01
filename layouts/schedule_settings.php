@@ -284,8 +284,40 @@
 
     <div class="container my-5">
       <div class="row">
+        <div class="col-12">
+          <h1 class="text_dark mt-5 mb-4">Existing Shows</h1>
+          <div class="row">
+            <div class="col-12 col-sm-4">
+              <div class="media song-card box_shadow_basic p-3 card_border_radius">
+                <div class="media-body text_dark h-100">
+                  <div class="row h-100">
+                    <div class="col-12 d-flex flex-wrap h-100">
+                      <h5 class="w-100">
+                        Jogakhichuri
+                      </h5>
+                      <span class="badge badge-info p-2 my-1 text-white">
+                        <span class="fa fa-clock-o"></span>
+                        9:45 pm, Thursday
+                      </span>
+                      <div class="text-dark w-100 mb-3">
+                        <strong>RJ:</strong> fdgsdfg
+                      </div>
+                      <a
+                        href="../backend/delete_song.php?id="
+                        class="btn btn-sm btn-block bg-danger text-white mt-3 align-self-end"
+                        >Delete</a
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
         <div class="col-12 col-sm-9">
-          <h1 class="text_dark mt-5 mb-4">Schedule Settings</h1>
+          <h1 class="text_dark mt-5 mb-4">Add New Show</h1>
 
           <form id="start_show_form">
             <div class="form-row">
