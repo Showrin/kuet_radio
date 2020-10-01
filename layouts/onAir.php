@@ -7,6 +7,20 @@
     include "../backend/connect_db.php";
     include "../backend/find_user_info.php";
   }
+  
+  include '../backend/find_team_members.php';
+  include '../backend/find_current_show.php';
+  include '../backend/find_current_guests.php';
+  include '../backend/find_current_rjs.php';
+
+  if(mysqli_num_rows($running_show)) {
+    $running_show_info = mysqli_fetch_assoc($running_show);
+    $rj_list = [];
+
+    while($rj = mysqli_fetch_assoc($running_show_rjs)) {
+      array_push($rj_list, $rj['user_id']);
+    }
+  }
 ?>
 
 <!DOCTYPE html>
@@ -108,7 +122,13 @@
             <h1 id="playing_title"
               class="display-4 font-weight-lighter font_muli_light clear_line_height"
             >
-              KUET Radio <br />
+              <?php
+                if(isset($running_show_info)) {
+                  echo $running_show_info['name'];
+                } else {
+                  echo 'No Shows';
+                }
+              ?> <br />
             </h1>
             <h1 class="font-weight-lighter font_muli_light clear_line_height"
             >
@@ -256,86 +276,74 @@
 
     <div class="container my-5">
       <div class="row">
-        <div class="col-12 col-sm-6">
-          <div class="row pr-sm-0 pr-md-3">
-            <div class="col-12 mt-5 mb-4">
-              <h1 class="text_dark">Guests</h1>
-            </div>
-            <div class="col-12">
-              <div class="media box_shadow_basic p-3 card_border_radius mb-4">
-                <img
-                  src="../img/2. Mrinmoy Mandal Tushar.jpg"
-                  class="align-self-center mr-3 card_img_thumbnail rounded-circle"
-                />
-                <div class="media-body text_dark">
-                  <h5>Mrinmoy Mandal Tusher</h5>
-                  <h6 class="text-black-50">Dept of ECE</h6>
-                  <h6 class="text-uppercase text-black-50">2k13</h6>
+        <?php
+          if(!isset($running_show_info)) {
+            ?>
+              <div class="col-12 alert alert-danger" role="alert">
+                No shows are running.
+              </div>
+            <?php
+          } else {
+            ?>
+              <div class="col-12 col-sm-6">
+                <div class="row pr-sm-0 pr-md-3">
+                  <div class="col-12 mt-5 mb-4">
+                    <h1 class="text_dark">Guests</h1>
+                  </div>
+                  <?php
+                    while($guest = mysqli_fetch_assoc($running_show_guests)) {
+                      ?>
+                        <div class="col-12">
+                          <div class="media box_shadow_basic p-3 card_border_radius mb-4">
+                            <img
+                              src="../guest_info/dp/<?php echo $guest['dp_name'] ?>"
+                              class="align-self-center mr-3 card_img_thumbnail rounded-circle"
+                            />
+                            <div class="media-body text_dark">
+                              <h5><?php echo $guest['name'] ?></h5>
+                              <h6 class="text-black-50"><?php echo $guest['department'] ?></h6>
+                              <h6 class="text-uppercase text-black-50"><?php echo $guest['batch'] ?></h6>
+                              <h6 class="text-uppercase text-black-50"><?php echo $guest['other_description'] ?></h6>
+                            </div>
+                          </div>
+                        </div>
+                      <?php
+                    }
+                  ?>
                 </div>
               </div>
-            </div>
-            <div class="col-12">
-              <div class="media box_shadow_basic p-3 card_border_radius mb-4">
-                <img
-                  src="../img/2. Mrinmoy Mandal Tushar.jpg"
-                  class="align-self-center mr-3 card_img_thumbnail rounded-circle"
-                />
-                <div class="media-body text_dark">
-                  <h5>Mrinmoy Mandal Tusher</h5>
-                  <h6 class="text-black-50">Dept of ECE</h6>
-                  <h6 class="text-uppercase text-black-50">2k13</h6>
-                </div>
-              </div>
-            </div>
-            <div class="col-12">
-              <div class="media box_shadow_basic p-3 card_border_radius mb-4">
-                <img
-                  src="../img/2. Mrinmoy Mandal Tushar.jpg"
-                  class="align-self-center mr-3 card_img_thumbnail rounded-circle"
-                />
-                <div class="media-body text_dark">
-                  <h5>Mrinmoy Mandal Tusher</h5>
-                  <h6 class="text-black-50">Dept of ECE</h6>
-                  <h6 class="text-uppercase text-black-50">2k13</h6>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
 
-        <div class="col-12 col-sm-6">
-          <div class="row pl-sm-0 pl-md-3">
-            <div class="col-12 mt-5 mb-4">
-              <h1 class="text_dark">RJs</h1>
-            </div>
-            <div class="col-12">
-              <div class="media box_shadow_basic p-3 card_border_radius mb-4">
-                <img
-                  src="../img/3. Apurba Dash.jpg"
-                  class="align-self-center mr-3 card_img_thumbnail rounded-circle"
-                />
-                <div class="media-body text_dark">
-                  <h5>Apurba Das</h5>
-                  <h6 class="text-black-50">President</h6>
-                  <h6 class="text-uppercase text-primary">Admin</h6>
+              <div class="col-12 col-sm-6">
+                <div class="row pl-sm-0 pl-md-3">
+                  <div class="col-12 mt-5 mb-4">
+                    <h1 class="text_dark">RJs</h1>
+                  </div>
+                  <?php
+                    while($member = mysqli_fetch_assoc($team_members)) {
+                      if(isset($rj_list) && in_array($member['id'], $rj_list)) {
+                        ?>
+                          <div class="col-12">
+                            <div class="media box_shadow_basic p-3 card_border_radius mb-4">
+                              <img
+                                src="../user_info/dp/<?php echo $member['dp_name'] ?>"
+                                class="align-self-center mr-3 card_img_thumbnail rounded-circle"
+                              />
+                              <div class="media-body text_dark">
+                                <h5><?php echo $member['first_name'] . ' ' . $member['last_name'] ?></h5>
+                                <h6 class="text-black-50"><?php echo $member['designation'] ?></h6>
+                                <h6 class="text-uppercase text-primary"><?php echo $member['authority_level'] ?></h6>
+                              </div>
+                            </div>
+                          </div>
+                        <?php
+                      }
+                    }
+                  ?>
                 </div>
               </div>
-            </div>
-            <div class="col-12">
-              <div class="media box_shadow_basic p-3 card_border_radius mb-4">
-                <img
-                  src="../img/3. Apurba Dash.jpg"
-                  class="align-self-center mr-3 card_img_thumbnail rounded-circle"
-                />
-                <div class="media-body text_dark">
-                  <h5>Apurba Das</h5>
-                  <h6 class="text-black-50">President</h6>
-                  <h6 class="text-uppercase text-primary">Admin</h6>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+            <?php
+          }
+        ?>
       </div>
     </div>
 
