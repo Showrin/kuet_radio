@@ -61,9 +61,6 @@
                     $show_rj_id = $rj_list[$rj_index];
                     $find_show_rj_info = "SELECT * FROM users WHERE id = '$show_rj_id'";
                     $show_rj_name = mysqli_fetch_assoc(mysqli_query($connection, $find_show_rj_info))['first_name'];
-                    ?>
-                      
-                    <?php
                     
                     if($rj_index == 0) {
                       echo 'RJ ' . $show_rj_name;
