@@ -2,7 +2,7 @@
   session_start();
 
   include "../backend/connect_db.php";
-  
+
   if(isset($_SESSION['id'])) {
     $id = $_SESSION['id'];
     include "../backend/find_user_info.php";
@@ -390,7 +390,7 @@
     <script src="../js/song_player_controller.js"></script>
     <script src="../js/scripts.js"></script>
     <script>
-      startMusicPlayer("./songs/");
+      startMusicPlayer("../songs/");
     </script>
     <!-- endbuild -->
   </body>

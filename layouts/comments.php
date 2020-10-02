@@ -694,7 +694,7 @@
     <script src="../js/song_player_controller.js"></script>
     <script src="../js/scripts.js"></script>
     <script>
-      startMusicPlayer("./songs/");
+      startMusicPlayer("../songs/");
     </script>
     <!-- endbuild -->
   </body>
