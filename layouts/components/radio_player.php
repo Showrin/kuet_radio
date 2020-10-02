@@ -1,4 +1,6 @@
 <?php
+
+  include "../backend/connect_db.php";
   include "../backend/find_servers.php";
   include '../backend/find_current_show.php';
   include '../backend/find_current_rjs.php';
