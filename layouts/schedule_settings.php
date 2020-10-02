@@ -357,6 +357,7 @@
                   id="show_name"
                   name="show_name"
                   aria-describedby="showNameHelp"
+                  required
                 />
                 <small id="showNameHelp" class="form-text text-muted"
                   >Please fill up this field</small
@@ -373,6 +374,7 @@
                   id="show_day"
                   name="show_day"
                   aria-describedby="showDayHelp"
+                  required
                 />
                 <small id="showDayHelp" class="form-text text-muted"
                   >Please fill up this field</small
@@ -387,6 +389,7 @@
                   id="show_time"
                   name="show_time"
                   aria-describedby="showTimeHelp"
+                  required
                 />
                 <small id="showTimeHelp" class="form-text text-muted"
                   >Please fill up this field</small
