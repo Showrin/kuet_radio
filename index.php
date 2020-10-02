@@ -419,9 +419,7 @@
             <h5 class="mb-1 mb-sm-2 text-overflow-ellipsis">
               <span id="playing_title">KUET Radio</span>
             </h5>
-            <h6  id="playing_author" class="mb-0 font_muli_light text-overflow-ellipsis">
-              Rj abcd
-            </h6>
+            <h6  id="playing_author" class="mb-0 font_muli_light text-overflow-ellipsis"></h6>
           </div>
           <div class="col-2 d-flex align-items-center justify-content-end">
             <span
@@ -458,7 +456,6 @@
         <?php
       }
     ?>
-
     <!-- Radio Player Ends -->
 
     <!-- jQuery first, then Popper.js, then Bootstrap JS. -->
