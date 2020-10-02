@@ -13,6 +13,7 @@
   include '../backend/find_current_show.php';
   include '../backend/find_current_guests.php';
   include '../backend/find_current_rjs.php';
+  include "../backend/find_servers.php";
 
   if(mysqli_num_rows($running_show)) {
     $running_show_info = mysqli_fetch_assoc($running_show);
@@ -450,13 +451,26 @@
       <source src="../audios/KUET_RADIO_Intro_song_short.m4a" />
     </audio>
 
-    <audio id="main-but-hidden-radio-player">
-      <source src="http://95.154.196.33:27878/;stream" />
-      <source src="http://109.169.23.22:26954/;stream" />
-    </audio>
-
-    <audio id="song-player-1"></audio>
-    <audio id="song-player-2"></audio>
+    <?php
+      if(mysqli_num_rows($running_show)) {
+        ?>
+          <audio id="main-but-hidden-radio-player">
+            <?php
+              while($server = mysqli_fetch_assoc($servers)) {
+                ?>
+                  <source src="http://<?php echo $server['ip'] ?>:<?php echo $server['port'] ?>/;stream" />
+                <?php
+              }
+            ?>
+          </audio>
+        <?php
+      } else {
+        ?>
+          <audio id="song-player-1"></audio>
+          <audio id="song-player-2"></audio>
+        <?php
+      }
+    ?>
 
     <!-- jQuery first, then Popper.js, then Bootstrap JS. -->
     <!-- build:js js/main.js -->
