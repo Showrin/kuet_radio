@@ -7,6 +7,8 @@
     include "../backend/connect_db.php";
     include "../backend/find_user_info.php";
   }
+
+  include '../backend/find_shows.php';
 ?>
 
 <!DOCTYPE html>
@@ -294,78 +296,53 @@
     <div class="container my-5">
       <div class="row pr-sm-0 pr-md-3">
         <div class="col-12 mt-5 mb-4">
-          <h1 class="text_dark">Schedule</h1>
+          <h1 class="text_dark">Scheduled Shows</h1>
         </div>
-        <div class="col-12">
-          <div
-            class="media box_shadow_basic schedule_card_bg_1 p-4 card_border_radius mb-5"
-          >
-            <div class="media-body text-white">
-              <h1 class="mb-1"><strong>Jogakhichuri</strong></h1>
-              <h6 class="my-3">RJ Apurba & RJ Abir</h6>
-              <span class="badge badge-primary py-2 px-4 mt-3 text-white">
-                <span class="fa fa-clock-o"></span>
-                9:45 pm, Thursday
-              </span>
-            </div>
-          </div>
-        </div>
-        <div class="col-12 col-sm-6">
-          <div
-            class="media box_shadow_basic schedule_card_bg_2 p-4 card_border_radius mb-5"
-          >
-            <div class="media-body text-white">
-              <h1 class="mb-1"><strong>Jogakhichuri</strong></h1>
-              <h6 class="my-3">RJ Apurba & RJ Abir</h6>
-              <span class="badge badge-primary py-2 px-4 mt-3 text-white">
-                <span class="fa fa-clock-o"></span>
-                9:45 pm, Thursday
-              </span>
-            </div>
-          </div>
-        </div>
-        <div class="col-12 col-sm-6">
-          <div
-            class="media box_shadow_basic schedule_card_bg_3 p-4 card_border_radius mb-5"
-          >
-            <div class="media-body text-white">
-              <h1 class="mb-1"><strong>Jogakhichuri</strong></h1>
-              <h6 class="my-3">RJ Apurba & RJ Abir</h6>
-              <span class="badge badge-primary py-2 px-4 mt-3 text-white">
-                <span class="fa fa-clock-o"></span>
-                9:45 pm, Thursday
-              </span>
-            </div>
-          </div>
-        </div>
-        <div class="col-12 col-sm-6">
-          <div
-            class="media box_shadow_basic schedule_card_bg_4 p-4 card_border_radius mb-5"
-          >
-            <div class="media-body text-white">
-              <h1 class="mb-1"><strong>Jogakhichuri</strong></h1>
-              <h6 class="my-3">RJ Apurba & RJ Abir</h6>
-              <span class="badge badge-primary py-2 px-4 mt-3 text-white">
-                <span class="fa fa-clock-o"></span>
-                9:45 pm, Thursday
-              </span>
-            </div>
-          </div>
-        </div>
-        <div class="col-12 col-sm-6">
-          <div
-            class="media box_shadow_basic schedule_card_bg_1 p-4 card_border_radius mb-5"
-          >
-            <div class="media-body text-white">
-              <h1 class="mb-1"><strong>Jogakhichuri</strong></h1>
-              <h6 class="my-3">RJ Apurba & RJ Abir</h6>
-              <span class="badge badge-primary py-2 px-4 mt-3 text-white">
-                <span class="fa fa-clock-o"></span>
-                9:45 pm, Thursday
-              </span>
-            </div>
-          </div>
-        </div>
+        <?php
+          $show_index = 1;
+
+          while($show = mysqli_fetch_assoc($scheduled_shows)) {
+            $show_id = $show['show_id'];
+            $find_show_rjs_query = "SELECT * FROM scheduled_shows_rjs WHERE show_id='$show_id'";
+            $scheduled_shows_rjs = mysqli_query($connection, $find_show_rjs_query);
+
+            ?>
+              <div class="col-12 <?php if($show_index % 5 !== 1) { echo "col-sm-6"; } ?>">
+                <div
+                  class="media box_shadow_basic schedule_card_bg_<?php echo ($show_index % 3) + 1; ?> p-4 card_border_radius mb-5"
+                >
+                  <div class="media-body text-white">
+                    <h1 class="mb-1"><strong><?php echo $show['show_name']; ?></strong></h1>
+                    <h6 class="my-3">
+                      <?php
+                        $rj_index = 1;
+
+                        while($show_rj = mysqli_fetch_assoc($scheduled_shows_rjs)) {
+                          $show_rj_id = $show_rj['rj_id'];
+                          $find_show_rj_info = "SELECT * FROM users WHERE id = '$show_rj_id'";
+                          $show_rj_name = mysqli_fetch_assoc(mysqli_query($connection, $find_show_rj_info))['first_name'];
+                          
+                          if($rj_index == 1) {
+                            echo 'RJ ' . $show_rj_name;
+                          }else {
+                            echo ', RJ ' . $show_rj_name;
+                          }
+
+                          $rj_index++;
+                        }
+                      ?>
+                    </h6>
+                    <span class="badge badge-info py-2 px-4 mt-3 text-white">
+                      <span class="fa fa-clock-o"></span>
+                      <?php echo $show['show_time'] . ', ' . $show['show_day']; ?>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            <?php
+            $show_index++;
+          }
+        ?>
       </div>
     </div>
 
