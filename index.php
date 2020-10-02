@@ -11,6 +11,17 @@
 
   include "./backend/find_servers.php";
   include './backend/find_current_show.php';
+  include './backend/find_current_rjs.php';
+  include './backend/find_current_guests.php';
+
+  if(mysqli_num_rows($running_show)) {
+    $running_show_info = mysqli_fetch_assoc($running_show);
+    $rj_list = [];
+
+    while($rj = mysqli_fetch_assoc($running_show_rjs)) {
+      array_push($rj_list, $rj['user_id']);
+    }
+  }
 ?>
 
 <!DOCTYPE html>
@@ -417,9 +428,51 @@
             class="col-8 col-sm-7 text-white d-flex justify-content-center flex-column"
           >
             <h5 class="mb-1 mb-sm-2 text-overflow-ellipsis">
-              <span id="playing_title">KUET Radio</span>
+              <span id="playing_title">
+                <?php
+                  if(isset($running_show_info)) {
+                    echo $running_show_info['name'];
+                  } else {
+                    echo 'KUET Radio';
+                  }
+                ?> 
+                <small>
+                  (<?php
+                    $rj_index = 0;
+
+                    while(isset($rj_list[$rj_index])) {
+                      $show_rj_id = $rj_list[$rj_index];
+                      $find_show_rj_info = "SELECT * FROM users WHERE id = '$show_rj_id'";
+                      $show_rj_name = mysqli_fetch_assoc(mysqli_query($connection, $find_show_rj_info))['first_name'];
+                      
+                      if($rj_index == 0) {
+                        echo 'RJ ' . $show_rj_name;
+                      }else {
+                        echo ', RJ ' . $show_rj_name;
+                      }
+
+                      $rj_index++;
+                    }
+                  ?>)
+                </small>
+              </span>
             </h5>
-            <h6  id="playing_author" class="mb-0 font_muli_light text-overflow-ellipsis"></h6>
+            <h6  id="playing_author" class="mb-0 font_muli_light text-overflow-ellipsis">
+              <strong>Guests:</strong>
+              <?php
+                $guest_index = 0;
+
+                while($guest = mysqli_fetch_assoc($running_show_guests)) {
+                  if($guest_index == 0) {
+                    echo explode(" ", $guest['name'])[0];
+                  }else {
+                    echo ', ' . explode(" ", $guest['name'])[0];
+                  }
+
+                  $guest_index++;
+                }
+              ?>
+            </h6>
           </div>
           <div class="col-2 d-flex align-items-center justify-content-end">
             <span
