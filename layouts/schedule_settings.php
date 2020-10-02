@@ -7,6 +7,7 @@
   include "../backend/find_user_info.php";
   include '../backend/find_team_members.php';
   include '../backend/find_current_show.php';
+  include '../backend/find_shows.php';
 ?>
 
 <!DOCTYPE html>
@@ -288,31 +289,57 @@
         <div class="col-12">
           <h1 class="text_dark mt-5 mb-4">Existing Shows</h1>
           <div class="row">
-            <div class="col-12 col-sm-4">
-              <div class="media song-card box_shadow_basic p-3 card_border_radius">
-                <div class="media-body text_dark h-100">
-                  <div class="row h-100">
-                    <div class="col-12 d-flex flex-wrap h-100">
-                      <h5 class="w-100">
-                        Jogakhichuri
-                      </h5>
-                      <span class="badge badge-info p-2 my-1 text-white">
-                        <span class="fa fa-clock-o"></span>
-                        9:45 pm, Thursday
-                      </span>
-                      <div class="text-dark w-100 mb-3">
-                        <strong>RJ:</strong> fdgsdfg
+            <?php
+              while($show = mysqli_fetch_assoc($scheduled_shows)) {
+                $show_id = $show['show_id'];
+                $find_show_rjs_query = "SELECT * FROM scheduled_shows_rjs WHERE show_id='$show_id'";
+                $scheduled_shows_rjs = mysqli_query($connection, $find_show_rjs_query);
+                ?>
+                  <div class="col-12 col-sm-4">
+                    <div class="media song-card box_shadow_basic p-3 card_border_radius">
+                      <div class="media-body text_dark h-100">
+                        <div class="row h-100">
+                          <div class="col-12 d-flex flex-wrap h-100">
+                            <h5 class="w-100">
+                              <?php echo $show['show_name']; ?>
+                            </h5>
+                            <span class="badge badge-info p-2 my-1 text-white">
+                              <span class="fa fa-clock-o"></span>
+                              <?php echo $show['show_time'] . ', ' . $show['show_day']; ?>
+                            </span>
+                            <div class="text-dark w-100 mb-3">
+                              <strong>RJ: </strong>
+                              <?php
+                                $index = 1;
+
+                                while($show_rj = mysqli_fetch_assoc($scheduled_shows_rjs)) {
+                                  $show_rj_id = $show_rj['rj_id'];
+                                  $find_show_rj_info = "SELECT * FROM users WHERE id = '$show_rj_id'";
+                                  $show_rj_name = mysqli_fetch_assoc(mysqli_query($connection, $find_show_rj_info))['first_name'];
+                                  
+                                  if($index == 1) {
+                                    echo ' ' . $show_rj_name;
+                                  }else {
+                                    echo ', ' . $show_rj_name;
+                                  }
+
+                                  $index++;
+                                }
+                              ?>
+                            </div>
+                            <a
+                              href="../backend/delete_scheduled_show.php?show_id=<?php echo $show_id; ?>"
+                              class="btn btn-sm btn-block bg-danger text-white mt-3 align-self-end"
+                              >Delete</a
+                            >
+                          </div>
+                        </div>
                       </div>
-                      <a
-                        href="../backend/delete_song.php?id="
-                        class="btn btn-sm btn-block bg-danger text-white mt-3 align-self-end"
-                        >Delete</a
-                      >
                     </div>
                   </div>
-                </div>
-              </div>
-            </div>
+                <?php
+              }
+            ?>
           </div>
         </div>
       </div>
