@@ -1,10 +1,11 @@
 <?php
   session_start();
+  
+  include "../backend/connect_db.php";
 
   if(isset($_SESSION['id'])) {
     $id = $_SESSION['id'];
 
-    include "../backend/connect_db.php";
     include "../backend/find_user_info.php";
   }
   
