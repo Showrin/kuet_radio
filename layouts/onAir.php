@@ -128,7 +128,7 @@
                 if(isset($running_show_info)) {
                   echo $running_show_info['name'];
                 } else {
-                  echo 'No Shows';
+                  echo 'KUET Radio';
                 }
               ?> <br />
             </h1>
