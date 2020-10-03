@@ -1,8 +1,4 @@
 <?php
-    include "../backend/is_logged_in_check.php";
-
-    $id = $_SESSION['id'];
-
     include "./connect_db.php";
 
     $song_name = $_POST['song_name'];
