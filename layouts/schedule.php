@@ -165,62 +165,9 @@
     <!-- request_a_song_modal ends -->
 
     <!-- comment_modal starts -->
-    <div id="comment_modal" class="modal fade" role="dialog">
-      <div class="modal-dialog modal-lg modal-dialog-centered" role="content">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h4 class="modal-title text_dark">Leave a Comment</h4>
-            <button
-              type="button"
-              class="close"
-              data-dismiss="modal"
-              aria-label="Close"
-            >
-              &times;
-            </button>
-          </div>
-          <div class="modal-body text-secondary">
-            <form>
-              <div class="form-group">
-                <label class="text_dark" for="your_name">Name</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  id="your_name"
-                  aria-describedby="yourNameHelp"
-                  placeholder="Enter your name"
-                />
-                <small id="yourNameHelp" class="form-text text-muted"
-                  >Please fill up this field</small
-                >
-              </div>
-              <div class="form-group">
-                <label class="text_dark" for="your_comment">Comment</label>
-                <textarea
-                  class="form-control"
-                  id="your_comment"
-                  name="feedback"
-                  rows="4"
-                ></textarea>
-                <small id="yourNameHelp" class="form-text text-muted"
-                  >Please fill up this field</small
-                >
-              </div>
-            </form>
-          </div>
-          <div class="modal-footer">
-            <button
-              type="button"
-              class="btn btn-secondary"
-              data-dismiss="modal"
-            >
-              Close
-            </button>
-            <button type="submit" class="btn btn-success">Comment</button>
-          </div>
-        </div>
-      </div>
-    </div>
+    <?php
+      include './components/comment_modal.php';
+    ?>
     <!-- comment_modal ends -->
 
     <div class="container my-5">
