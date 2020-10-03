@@ -6,6 +6,7 @@
   include "../backend/connect_db.php";
   include "../backend/find_user_info.php";
   include '../backend/find_current_show.php';
+  include '../backend/find_song_requests.php';
 ?>
 
 <!DOCTYPE html>
@@ -287,111 +288,39 @@
         </div>
 
         <div class="col-12">
-          <div class="media box_shadow_basic p-3 card_border_radius mb-4">
-            <div class="media-body text_dark">
-              <div class="row">
-                <div class="col-12 col-sm-9">
-                  <h5>
-                    Ami Tomay Na Dekhi, Tumi Amar Hou
-                  </h5>
-                  <div class="text-black-50">
-                    Singer: Mrinmoy Mandal Tushar
+          <?php
+            while($song_request = mysqli_fetch_assoc($song_requests)) {
+              ?>
+                <div class="media box_shadow_basic p-3 card_border_radius mb-4">
+                  <div class="media-body text_dark">
+                    <div class="row">
+                      <div class="col-12 col-sm-9">
+                        <h5>
+                          <?php echo $song_request['song_name']; ?>
+                        </h5>
+                        <div class="text-black-50">
+                          <?php echo $song_request['singer_name']; ?>
+                        </div>
+                      </div>
+                      <div class="col-12 col-sm-3 d-flex align-items-center justify-content-end">
+                        <a
+                          href="<?php echo $song_request['song_url']; ?>"
+                          target="_blank"
+                          class="btn btn-sm btn-info"
+                          >Go to the Link</a
+                        >
+                        <a
+                          href="../backend/delete_song_requests.php?request_id=<?php echo $song_request['request_id']; ?>"
+                          class="btn btn-sm btn-danger ml-2"
+                          >X</a
+                        >
+                      </div>
+                    </div>
                   </div>
                 </div>
-                <div class="col-12 col-sm-3">
-                  <a
-                    href="./start_a_show.php"
-                    class="btn btn-sm btn-block btn-info mt-3"
-                    >Go to the Link</a
-                  >
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="media box_shadow_basic p-3 card_border_radius mb-4">
-            <div class="media-body text_dark">
-              <div class="row">
-                <div class="col-12 col-sm-9">
-                  <h5>
-                    Ami Tomay Na Dekhi, Tumi Amar Hou
-                  </h5>
-                  <div class="text-black-50">
-                    Singer: Mrinmoy Mandal Tushar
-                  </div>
-                </div>
-                <div class="col-12 col-sm-3">
-                  <a
-                    href="./start_a_show.php"
-                    class="btn btn-sm btn-block btn-info mt-3"
-                    >Go to the Link</a
-                  >
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="media box_shadow_basic p-3 card_border_radius mb-4">
-            <div class="media-body text_dark">
-              <div class="row">
-                <div class="col-12 col-sm-9">
-                  <h5>
-                    Ami Tomay Na Dekhi, Tumi Amar Hou
-                  </h5>
-                  <div class="text-black-50">
-                    Singer: Mrinmoy Mandal Tushar
-                  </div>
-                </div>
-                <div class="col-12 col-sm-3">
-                  <a
-                    href="./start_a_show.php"
-                    class="btn btn-sm btn-block btn-info mt-3"
-                    >Go to the Link</a
-                  >
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="media box_shadow_basic p-3 card_border_radius mb-4">
-            <div class="media-body text_dark">
-              <div class="row">
-                <div class="col-12 col-sm-9">
-                  <h5>
-                    Ami Tomay Na Dekhi, Tumi Amar Hou
-                  </h5>
-                  <div class="text-black-50">
-                    Singer: Mrinmoy Mandal Tushar
-                  </div>
-                </div>
-                <div class="col-12 col-sm-3">
-                  <a
-                    href="./start_a_show.php"
-                    class="btn btn-sm btn-block btn-info mt-3"
-                    >Go to the Link</a
-                  >
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="media box_shadow_basic p-3 card_border_radius mb-4">
-            <div class="media-body text_dark">
-              <div class="row">
-                <div class="col-12 col-sm-9">
-                  <h5>
-                    Ami Tomay Na Dekhi, Tumi Amar Hou
-                  </h5>
-                  <div class="text-black-50">
-                    Singer: Mrinmoy Mandal Tushar
-                  </div>
-                </div>
-                <div class="col-12 col-sm-3">
-                  <a
-                    href="./start_a_show.php"
-                    class="btn btn-sm btn-block btn-info mt-3"
-                    >Go to the Link</a
-                  >
-                </div>
-              </div>
-            </div>
-          </div>
+              <?php
+            }
+          ?>
         </div>
       </div>
     </div>
