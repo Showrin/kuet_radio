@@ -303,12 +303,18 @@
                         </div>
                       </div>
                       <div class="col-12 col-sm-3 d-flex align-items-center justify-content-end">
-                        <a
-                          href="<?php echo $song_request['song_url']; ?>"
-                          target="_blank"
-                          class="btn btn-sm btn-info"
-                          >Go to the Link</a
-                        >
+                        <?php
+                          if($song_request['song_url'] !== '') {
+                            ?>
+                              <a
+                                href="<?php echo $song_request['song_url']; ?>"
+                                target="_blank"
+                                class="btn btn-sm btn-info"
+                                >Go to the Link</a
+                              >
+                            <?php
+                          }
+                        ?>
                         <a
                           href="../backend/delete_song_requests.php?request_id=<?php echo $song_request['request_id']; ?>"
                           class="btn btn-sm btn-danger ml-2"
