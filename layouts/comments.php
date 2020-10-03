@@ -6,6 +6,7 @@
   include "../backend/connect_db.php";
   include "../backend/find_user_info.php";
   include '../backend/find_current_show.php';
+  include '../backend/find_comments.php';
 ?>
 
 <!DOCTYPE html>
@@ -287,334 +288,54 @@
         </div>
 
         <div class="col-12">
-          <div class="media box_shadow_basic p-4 card_border_radius mb-4">
+          <div class="media box_shadow_basic p-4 card_border_radius mb-4 d-none">
             <div class="media-body text_dark">
-              <h3 class="mb-4">
-                23 March, 2020
-              </h3>
-              <div class="row">
-                <div class="col-12 col-sm-9">
-                  <h5 class="mt-0 mb-3">
-                    Anuprash Abir
-                  </h5>
+              <?php
+                $current_date = 0;
+
+                while($comment = mysqli_fetch_assoc($comments)) {
+                  $comment_day_night = date("a", $comment['comment_timestamp']);
+                  $comment_time = date("h", $comment['comment_timestamp']) . ":" . date("i", $comment['comment_timestamp']);
+                  $comment_date = date("d", $comment['comment_timestamp']);
+                  $comment_day = date("l", $comment['comment_timestamp']);
+                  $comment_month = date("F", $comment['comment_timestamp']);
+                  $comment_year = date("Y", $comment['comment_timestamp']);
+
+                  if($comment_date !== $current_date) {
+                    $current_date = $comment_date;
+
+              ?>
+                  </div>
                 </div>
-                <div class="col-12 col-sm-3 d-flex justify-content-sm-end mb-3">
-                  <span class="badge badge-info py-2 px-4 text-white">
-                    <span class="fa fa-clock-o"></span>
-                    9:45 pm, Thursday
-                  </span>
+                <div class="media box_shadow_basic p-4 card_border_radius mb-4">
+                  <div class="media-body text_dark">
+                  <h3 class="mb-4">
+                    <?php echo $comment_date . ' ' . $comment_month . ', ' . $comment_year ?>
+                  </h3>
+              <?php
+                }
+              ?>
+                <div class="row">
+                  <div class="col-12 col-sm-9">
+                    <h5 class="mt-0 mb-3">
+                      <?php echo $comment['commentator_name'] ?>
+                      <?php if($comment['commentator_batch'] !== '') { echo ' (' . $comment['commentator_batch'] . ')'; } ?>
+                    </h5>
+                  </div>
+                  <div class="col-12 col-sm-3 d-flex justify-content-sm-end mb-3">
+                    <span class="badge badge-info py-2 px-4 text-white">
+                      <span class="fa fa-clock-o"></span>
+                      <?php echo $comment_time . ' ' . $comment_day_night . ', ' . $comment_day ?>
+                    </span>
+                  </div>
+                  <div class="text-black-50 col-12">
+                    <?php echo $comment['comment'] ?>
+                  </div>
                 </div>
-                <div class="text-black-50 col-12">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis
-                  luctus consectetur finibus. Nunc bibendum luctus lectus sit
-                  amet pellentesque. Maecenas quam arcu, tincidunt id eros at,
-                  placerat euismod justo. Vivamus erat mauris, pretium tempus
-                  metus vel, euismod dignissim velit. Suspendisse rutrum posuere
-                  lacus, at iaculis lacus pellentesque ac. Fusce molestie
-                  malesuada purus, interdum pulvinar velit tristique ac. Aenean
-                  sollicitudin id justo at pulvinar. Sed in laoreet sem.
-                  Praesent egestas tempor gravida. Vivamus purus enim, malesuada
-                  eget condimentum in, congue iaculis sapien. Etiam sed
-                  elementum augue, eu rhoncus risus. Donec bibendum rutrum
-                  felis, quis pharetra odio posuere egestas. Cras justo odio,
-                  consectetur vel leo sit amet, sodales ullamcorper felis.
-                  Praesent suscipit sodales eros nec consectetur.
-                </div>
-              </div>
-              <hr class="mb-4" />
-              <div class="row">
-                <div class="col-12 col-sm-9">
-                  <h5 class="mt-0 mb-3">
-                    Anuprash Abir
-                  </h5>
-                </div>
-                <div class="col-12 col-sm-3 d-flex justify-content-sm-end mb-3">
-                  <span class="badge badge-info py-2 px-4 text-white">
-                    <span class="fa fa-clock-o"></span>
-                    9:45 pm, Thursday
-                  </span>
-                </div>
-                <div class="text-black-50 col-12">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis
-                  luctus consectetur finibus. Nunc bibendum luctus lectus sit
-                  amet pellentesque. Maecenas quam arcu, tincidunt id eros at,
-                  placerat euismod justo. Vivamus erat mauris, pretium tempus
-                  metus vel, euismod dignissim velit. Suspendisse rutrum posuere
-                  lacus, at iaculis lacus pellentesque ac. Fusce molestie
-                  malesuada purus, interdum pulvinar velit tristique ac. Aenean
-                  sollicitudin id justo at pulvinar. Sed in laoreet sem.
-                  Praesent egestas tempor gravida. Vivamus purus enim, malesuada
-                  eget condimentum in, congue iaculis sapien. Etiam sed
-                  elementum augue, eu rhoncus risus. Donec bibendum rutrum
-                  felis, quis pharetra odio posuere egestas. Cras justo odio,
-                  consectetur vel leo sit amet, sodales ullamcorper felis.
-                  Praesent suscipit sodales eros nec consectetur.
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="media box_shadow_basic p-4 card_border_radius mb-4">
-            <div class="media-body text_dark">
-              <h3 class="mb-4">
-                23 March, 2020
-              </h3>
-              <div class="row">
-                <div class="col-12 col-sm-9">
-                  <h5 class="mt-0 mb-3">
-                    Anuprash Abir
-                  </h5>
-                </div>
-                <div class="col-12 col-sm-3 d-flex justify-content-sm-end mb-3">
-                  <span class="badge badge-info py-2 px-4 text-white">
-                    <span class="fa fa-clock-o"></span>
-                    9:45 pm, Thursday
-                  </span>
-                </div>
-                <div class="text-black-50 col-12">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis
-                  luctus consectetur finibus. Nunc bibendum luctus lectus sit
-                  amet pellentesque. Maecenas quam arcu, tincidunt id eros at,
-                  placerat euismod justo. Vivamus erat mauris, pretium tempus
-                  metus vel, euismod dignissim velit. Suspendisse rutrum posuere
-                  lacus, at iaculis lacus pellentesque ac. Fusce molestie
-                  malesuada purus, interdum pulvinar velit tristique ac. Aenean
-                  sollicitudin id justo at pulvinar. Sed in laoreet sem.
-                  Praesent egestas tempor gravida. Vivamus purus enim, malesuada
-                  eget condimentum in, congue iaculis sapien. Etiam sed
-                  elementum augue, eu rhoncus risus. Donec bibendum rutrum
-                  felis, quis pharetra odio posuere egestas. Cras justo odio,
-                  consectetur vel leo sit amet, sodales ullamcorper felis.
-                  Praesent suscipit sodales eros nec consectetur.
-                </div>
-              </div>
-              <hr class="mb-4" />
-              <div class="row">
-                <div class="col-12 col-sm-9">
-                  <h5 class="mt-0 mb-3">
-                    Anuprash Abir
-                  </h5>
-                </div>
-                <div class="col-12 col-sm-3 d-flex justify-content-sm-end mb-3">
-                  <span class="badge badge-info py-2 px-4 text-white">
-                    <span class="fa fa-clock-o"></span>
-                    9:45 pm, Thursday
-                  </span>
-                </div>
-                <div class="text-black-50 col-12">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis
-                  luctus consectetur finibus. Nunc bibendum luctus lectus sit
-                  amet pellentesque. Maecenas quam arcu, tincidunt id eros at,
-                  placerat euismod justo. Vivamus erat mauris, pretium tempus
-                  metus vel, euismod dignissim velit. Suspendisse rutrum posuere
-                  lacus, at iaculis lacus pellentesque ac. Fusce molestie
-                  malesuada purus, interdum pulvinar velit tristique ac. Aenean
-                  sollicitudin id justo at pulvinar. Sed in laoreet sem.
-                  Praesent egestas tempor gravida. Vivamus purus enim, malesuada
-                  eget condimentum in, congue iaculis sapien. Etiam sed
-                  elementum augue, eu rhoncus risus. Donec bibendum rutrum
-                  felis, quis pharetra odio posuere egestas. Cras justo odio,
-                  consectetur vel leo sit amet, sodales ullamcorper felis.
-                  Praesent suscipit sodales eros nec consectetur.
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="media box_shadow_basic p-4 card_border_radius mb-4">
-            <div class="media-body text_dark">
-              <h3 class="mb-4">
-                23 March, 2020
-              </h3>
-              <div class="row">
-                <div class="col-12 col-sm-9">
-                  <h5 class="mt-0 mb-3">
-                    Anuprash Abir
-                  </h5>
-                </div>
-                <div class="col-12 col-sm-3 d-flex justify-content-sm-end mb-3">
-                  <span class="badge badge-info py-2 px-4 text-white">
-                    <span class="fa fa-clock-o"></span>
-                    9:45 pm, Thursday
-                  </span>
-                </div>
-                <div class="text-black-50 col-12">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis
-                  luctus consectetur finibus. Nunc bibendum luctus lectus sit
-                  amet pellentesque. Maecenas quam arcu, tincidunt id eros at,
-                  placerat euismod justo. Vivamus erat mauris, pretium tempus
-                  metus vel, euismod dignissim velit. Suspendisse rutrum posuere
-                  lacus, at iaculis lacus pellentesque ac. Fusce molestie
-                  malesuada purus, interdum pulvinar velit tristique ac. Aenean
-                  sollicitudin id justo at pulvinar. Sed in laoreet sem.
-                  Praesent egestas tempor gravida. Vivamus purus enim, malesuada
-                  eget condimentum in, congue iaculis sapien. Etiam sed
-                  elementum augue, eu rhoncus risus. Donec bibendum rutrum
-                  felis, quis pharetra odio posuere egestas. Cras justo odio,
-                  consectetur vel leo sit amet, sodales ullamcorper felis.
-                  Praesent suscipit sodales eros nec consectetur.
-                </div>
-              </div>
-              <hr class="mb-4" />
-              <div class="row">
-                <div class="col-12 col-sm-9">
-                  <h5 class="mt-0 mb-3">
-                    Anuprash Abir
-                  </h5>
-                </div>
-                <div class="col-12 col-sm-3 d-flex justify-content-sm-end mb-3">
-                  <span class="badge badge-info py-2 px-4 text-white">
-                    <span class="fa fa-clock-o"></span>
-                    9:45 pm, Thursday
-                  </span>
-                </div>
-                <div class="text-black-50 col-12">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis
-                  luctus consectetur finibus. Nunc bibendum luctus lectus sit
-                  amet pellentesque. Maecenas quam arcu, tincidunt id eros at,
-                  placerat euismod justo. Vivamus erat mauris, pretium tempus
-                  metus vel, euismod dignissim velit. Suspendisse rutrum posuere
-                  lacus, at iaculis lacus pellentesque ac. Fusce molestie
-                  malesuada purus, interdum pulvinar velit tristique ac. Aenean
-                  sollicitudin id justo at pulvinar. Sed in laoreet sem.
-                  Praesent egestas tempor gravida. Vivamus purus enim, malesuada
-                  eget condimentum in, congue iaculis sapien. Etiam sed
-                  elementum augue, eu rhoncus risus. Donec bibendum rutrum
-                  felis, quis pharetra odio posuere egestas. Cras justo odio,
-                  consectetur vel leo sit amet, sodales ullamcorper felis.
-                  Praesent suscipit sodales eros nec consectetur.
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="media box_shadow_basic p-4 card_border_radius mb-4">
-            <div class="media-body text_dark">
-              <h3 class="mb-4">
-                23 March, 2020
-              </h3>
-              <div class="row">
-                <div class="col-12 col-sm-9">
-                  <h5 class="mt-0 mb-3">
-                    Anuprash Abir
-                  </h5>
-                </div>
-                <div class="col-12 col-sm-3 d-flex justify-content-sm-end mb-3">
-                  <span class="badge badge-info py-2 px-4 text-white">
-                    <span class="fa fa-clock-o"></span>
-                    9:45 pm, Thursday
-                  </span>
-                </div>
-                <div class="text-black-50 col-12">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis
-                  luctus consectetur finibus. Nunc bibendum luctus lectus sit
-                  amet pellentesque. Maecenas quam arcu, tincidunt id eros at,
-                  placerat euismod justo. Vivamus erat mauris, pretium tempus
-                  metus vel, euismod dignissim velit. Suspendisse rutrum posuere
-                  lacus, at iaculis lacus pellentesque ac. Fusce molestie
-                  malesuada purus, interdum pulvinar velit tristique ac. Aenean
-                  sollicitudin id justo at pulvinar. Sed in laoreet sem.
-                  Praesent egestas tempor gravida. Vivamus purus enim, malesuada
-                  eget condimentum in, congue iaculis sapien. Etiam sed
-                  elementum augue, eu rhoncus risus. Donec bibendum rutrum
-                  felis, quis pharetra odio posuere egestas. Cras justo odio,
-                  consectetur vel leo sit amet, sodales ullamcorper felis.
-                  Praesent suscipit sodales eros nec consectetur.
-                </div>
-              </div>
-              <hr class="mb-4" />
-              <div class="row">
-                <div class="col-12 col-sm-9">
-                  <h5 class="mt-0 mb-3">
-                    Anuprash Abir
-                  </h5>
-                </div>
-                <div class="col-12 col-sm-3 d-flex justify-content-sm-end mb-3">
-                  <span class="badge badge-info py-2 px-4 text-white">
-                    <span class="fa fa-clock-o"></span>
-                    9:45 pm, Thursday
-                  </span>
-                </div>
-                <div class="text-black-50 col-12">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis
-                  luctus consectetur finibus. Nunc bibendum luctus lectus sit
-                  amet pellentesque. Maecenas quam arcu, tincidunt id eros at,
-                  placerat euismod justo. Vivamus erat mauris, pretium tempus
-                  metus vel, euismod dignissim velit. Suspendisse rutrum posuere
-                  lacus, at iaculis lacus pellentesque ac. Fusce molestie
-                  malesuada purus, interdum pulvinar velit tristique ac. Aenean
-                  sollicitudin id justo at pulvinar. Sed in laoreet sem.
-                  Praesent egestas tempor gravida. Vivamus purus enim, malesuada
-                  eget condimentum in, congue iaculis sapien. Etiam sed
-                  elementum augue, eu rhoncus risus. Donec bibendum rutrum
-                  felis, quis pharetra odio posuere egestas. Cras justo odio,
-                  consectetur vel leo sit amet, sodales ullamcorper felis.
-                  Praesent suscipit sodales eros nec consectetur.
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="media box_shadow_basic p-4 card_border_radius mb-4">
-            <div class="media-body text_dark">
-              <h3 class="mb-4">
-                23 March, 2020
-              </h3>
-              <div class="row">
-                <div class="col-12 col-sm-9">
-                  <h5 class="mt-0 mb-3">
-                    Anuprash Abir
-                  </h5>
-                </div>
-                <div class="col-12 col-sm-3 d-flex justify-content-sm-end mb-3">
-                  <span class="badge badge-info py-2 px-4 text-white">
-                    <span class="fa fa-clock-o"></span>
-                    9:45 pm, Thursday
-                  </span>
-                </div>
-                <div class="text-black-50 col-12">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis
-                  luctus consectetur finibus. Nunc bibendum luctus lectus sit
-                  amet pellentesque. Maecenas quam arcu, tincidunt id eros at,
-                  placerat euismod justo. Vivamus erat mauris, pretium tempus
-                  metus vel, euismod dignissim velit. Suspendisse rutrum posuere
-                  lacus, at iaculis lacus pellentesque ac. Fusce molestie
-                  malesuada purus, interdum pulvinar velit tristique ac. Aenean
-                  sollicitudin id justo at pulvinar. Sed in laoreet sem.
-                  Praesent egestas tempor gravida. Vivamus purus enim, malesuada
-                  eget condimentum in, congue iaculis sapien. Etiam sed
-                  elementum augue, eu rhoncus risus. Donec bibendum rutrum
-                  felis, quis pharetra odio posuere egestas. Cras justo odio,
-                  consectetur vel leo sit amet, sodales ullamcorper felis.
-                  Praesent suscipit sodales eros nec consectetur.
-                </div>
-              </div>
-              <hr class="mb-4" />
-              <div class="row">
-                <div class="col-12 col-sm-9">
-                  <h5 class="mt-0 mb-3">
-                    Anuprash Abir
-                  </h5>
-                </div>
-                <div class="col-12 col-sm-3 d-flex justify-content-sm-end mb-3">
-                  <span class="badge badge-info py-2 px-4 text-white">
-                    <span class="fa fa-clock-o"></span>
-                    9:45 pm, Thursday
-                  </span>
-                </div>
-                <div class="text-black-50 col-12">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis
-                  luctus consectetur finibus. Nunc bibendum luctus lectus sit
-                  amet pellentesque. Maecenas quam arcu, tincidunt id eros at,
-                  placerat euismod justo. Vivamus erat mauris, pretium tempus
-                  metus vel, euismod dignissim velit. Suspendisse rutrum posuere
-                  lacus, at iaculis lacus pellentesque ac. Fusce molestie
-                  malesuada purus, interdum pulvinar velit tristique ac. Aenean
-                  sollicitudin id justo at pulvinar. Sed in laoreet sem.
-                  Praesent egestas tempor gravida. Vivamus purus enim, malesuada
-                  eget condimentum in, congue iaculis sapien. Etiam sed
-                  elementum augue, eu rhoncus risus. Donec bibendum rutrum
-                  felis, quis pharetra odio posuere egestas. Cras justo odio,
-                  consectetur vel leo sit amet, sodales ullamcorper felis.
-                  Praesent suscipit sodales eros nec consectetur.
-                </div>
-              </div>
+                <hr class="mb-4" />
+              <?php
+                }
+              ?>
             </div>
           </div>
         </div>
