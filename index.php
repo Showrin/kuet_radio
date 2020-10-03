@@ -281,8 +281,8 @@
               &times;
             </button>
           </div>
-          <div class="modal-body text-secondary">
-            <form>
+          <form id="request_a_song_form" method="POST" action="./backend/create_song_request.php">
+            <div class="modal-body text-secondary">
               <div class="form-group">
                 <label class="text_dark" for="song_name">Song Name</label>
                 <input
@@ -291,6 +291,8 @@
                   id="song_name"
                   aria-describedby="songNameHelp"
                   placeholder="Enter song name"
+                  name="song_name"
+                  required
                 />
                 <small id="songNameHelp" class="form-text text-muted"
                   >Please fill up this field</small
@@ -306,6 +308,7 @@
                   id="singer_name"
                   aria-describedby="singerNameHelp"
                   placeholder="Enter singer name"
+                  name="singer_name"
                 />
                 <small id="singerNameHelp" class="form-text text-muted"
                   >Please fill up this field</small
@@ -321,23 +324,24 @@
                   id="song_url"
                   aria-describedby="songURLHelp"
                   placeholder="Enter song URL"
+                  name="song_url"
                 />
                 <small id="songURLHelp" class="form-text text-muted"
                   >Please fill up this field</small
                 >
               </div>
-            </form>
-          </div>
-          <div class="modal-footer">
-            <button
-              type="button"
-              class="btn btn-secondary"
-              data-dismiss="modal"
-            >
-              Close
-            </button>
-            <button type="submit" class="btn btn-success">Send Request</button>
-          </div>
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-dismiss="modal"
+              >
+                Close
+              </button>
+              <button id="request_a_song_form_submit_btn" type="submit" class="btn btn-success">Send Request</button>
+            </div>
+          </form>
         </div>
       </div>
     </div>
