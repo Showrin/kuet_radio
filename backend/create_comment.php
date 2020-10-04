@@ -1,9 +1,9 @@
 <?php
   include "./connect_db.php";
 
-  $commentator_name = $_POST['commentator_name'];
-  $commentator_batch = $_POST['commentator_batch'];
-  $comment = $_POST['comment'];
+  $commentator_name = mysqli_real_escape_string($connection, $_POST['commentator_name']);
+  $commentator_batch = mysqli_real_escape_string($connection, $_POST['commentator_batch']);
+  $comment = mysqli_real_escape_string($connection, $_POST['comment']);
   $comment_timestamp = time() + (4 * 60 * 60);
 
   $comment_insert_query = "INSERT INTO comments VALUES ('', '$commentator_name', '$commentator_batch', '$comment', '$comment_timestamp')";
