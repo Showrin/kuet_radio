@@ -109,9 +109,7 @@
               KUET Radio
             </h1>
             <p class="font_muli_light font-weight-lighter">
-              Radio broadcasting is transmission by radio waves intended to
-              reach a wide audience. Stations can be linked in radio networks to
-              broadcast a common radio
+              A virtual platform which relates every other curricular and extracurricular side of KUET. Also broadcasts talks of each particular person related to KUET to the worldwide people.
             </p>
           </div>
           <div class="col-12 col-sm-4 col-md-3 offset-sm-1 offset-md-2">
