@@ -284,29 +284,48 @@
           <h1 class="text_dark">Leave a Comment</h1>
         </div>
         <div class="col-12 col-sm-9">
-          <form>
-            <div class="form-group">
-              <label class="text_dark" for="your_name">Name</label>
-              <input
-                type="text"
-                class="form-control"
-                id="your_name"
-                aria-describedby="yourNameHelp"
-                placeholder="Enter your name"
-              />
-              <small id="yourNameHelp" class="form-text text-muted"
-                >Please fill up this field</small
-              >
+          <form method="POST" action="../backend/create_comment.php">
+            <div class="form-row">
+              <div class="col-12 col-sm-6 mb-3">
+                <label class="text_dark" for="your_name">Name</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="your_name"
+                  aria-describedby="yourNameHelp"
+                  name="commentator_name"
+                  placeholder="Enter your name"
+                  required
+                />
+                <small id="yourNameHelp" class="form-text text-muted"
+                  >Please fill up this field</small
+                >
+              </div>
+              <div class="col-12 col-sm-6 mb-3">
+                <label class="text_dark" for="your_batch">Batch</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="your_batch"
+                  name="commentator_batch"  
+                  aria-describedby="yourBatchHelp"
+                  placeholder="Enter your batch"
+                />
+                <small id="yourBatchHelp" class="form-text text-muted"
+                  >Please fill up this field</small
+                >
+              </div>
             </div>
             <div class="form-group">
               <label class="text_dark" for="your_comment">Comment</label>
               <textarea
                 class="form-control"
                 id="your_comment"
-                name="feedback"
+                name="comment"
                 rows="4"
+                required
               ></textarea>
-              <small id="yourNameHelp" class="form-text text-muted"
+              <small id="your_comment" class="form-text text-muted"
                 >Please fill up this field</small
               >
             </div>
