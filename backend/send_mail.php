@@ -5,7 +5,7 @@
   $emailSubject = $_POST['emailSubject'];
   $emailBody = $_POST['emailBody'];
 
-  $mail_to = "<b>[Contact] KUETRadio Website</b> <kuetradioofficial@gmail.com><br />";
+  $mail_to = "<b>[Contact] KUETRadio Website</b> <kuetradioofficial@gmail.com>";
   $mail_from = $senderEmail;
 
   $headers = "From: $mail_to";
@@ -25,6 +25,6 @@
     echo $mail_sent_successfully;
   }
   
-  header("Location: " . $_SERVER['HTTP_REFERER'] . "#contact_form?mail_sent=$mail_sent_successfully");
+  header("Location: " . $_SERVER['HTTP_REFERER'] . "?mail_sent=$mail_sent_successfully");
 
 ?>
