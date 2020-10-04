@@ -8,6 +8,8 @@
 
     include "../backend/find_user_info.php";
   }
+
+  include "../backend/find_president.php";
 ?>
 
 <!DOCTYPE html>
@@ -203,25 +205,30 @@
         <div class="col-12 text_dark">
           Or Contact Us via
           <span class="text-left">
-            <a class="pl-4" href="http://www.facebook.com/profile.php?id="
+            <a class="pl-4" href="https://www.facebook.com/kuetradio" target="_blank"
               ><i class="fa fa-lg fa-facebook"></i
             ></a>
-            <a class="pl-4" href="mailto:kuetradio01@gmail.com"
+            <a class="pl-4" href="mailto:kuetradioofficial@gmail.com"
               ><i
                 class="fa fa-lg fa-envelope"
                 data-toggle="tooltip"
                 data-placement="top"
-                title="kuetradio01@gmail.com"
+                title="kuetradioofficial@gmail.com"
               ></i
             ></a>
-            <a class="pl-4" href="tel:+852 1234 5678"
-              ><i
-                class="fa fa-lg fa-phone"
-                data-toggle="tooltip"
-                data-placement="top"
-                title="+852 1234 5678"
-              ></i
-            ></a>
+            <?php
+              if(isset($president['contact'])) {
+                ?><a class="pl-4" href="tel:<?php echo $president['contact'] ?>"
+                  ><i
+                    class="fa fa-lg fa-phone"
+                    data-toggle="tooltip"
+                    data-placement="top"
+                    title="<?php echo $president['contact'] ?>"
+                  ></i
+                ></a>
+                <?php
+              }
+            ?>
           </span>
         </div>
       </div>
