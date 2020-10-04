@@ -163,14 +163,30 @@
     ?>
     <!-- comment_modal ends -->
 
-    <div class="container my-5" id="comment_form">
+    <div class="container my-5" id="contact_form">
       <div class="row">
+        <?php
+        echo $_GET['mail_sent'];
+          if(isset($_GET['mail_sent']) && $_GET['mail_sent'] === "true") {
+        ?>
+            <div class="alert alert-success col-12 mb-5" role="alert">
+              Your mail has been sent successfully. Thank You.
+            </div>
+        <?php
+          } else if(isset($_GET['mail_sent']) && $_GET['mail_sent'] === "false") {
+        ?>
+            <div class="alert alert-danger col-12 mb-5" role="alert">
+              Sorry! Your mail wasn't sent. Please, try again.
+            </div>
+        <?php
+          }
+        ?>
         <div class="col-12 mb-4">
           <h1 class="text_dark">Contact Us</h1>
         </div>
-        <div class="col-12 col-sm-9">
-          <form>
-            <div class="form-group">
+        <div class="col-12 col-sm-12">
+          <form class="row" method="POST" action="../backend/send_mail.php">
+            <div class="form-group col-12 col-sm-3">
               <label class="text_dark" for="your_name">Name</label>
               <input
                 type="text"
@@ -178,24 +194,57 @@
                 id="your_name"
                 aria-describedby="yourNameHelp"
                 placeholder="Enter your name"
+                name="senderName"
+                required
               />
               <small id="yourNameHelp" class="form-text text-muted"
                 >Please fill up this field</small
               >
             </div>
-            <div class="form-group">
+            <div class="form-group col-12 col-sm-3">
+              <label class="text_dark" for="your_email">Email</label>
+              <input
+                type="email"
+                class="form-control"
+                id="your_email"
+                aria-describedby="yourEmailHelp"
+                placeholder="Enter your email"
+                name="senderEmail"
+                required
+              />
+              <small id="yourEmailHelp" class="form-text text-muted"
+                >Please fill up this field</small
+              >
+            </div>
+            <div class="form-group col-12 col-sm-6">
+              <label class="text_dark" for="your_subject">Subject</label>
+              <input
+                type="text"
+                class="form-control"
+                id="your_subject"
+                aria-describedby="yourSubjectHelp"
+                placeholder="Enter your subject"
+                name="emailSubject"
+                required
+              />
+              <small id="yourSubjectHelp" class="form-text text-muted"
+                >Please fill up this field</small
+              >
+            </div>
+            <div class="form-group col-12">
               <label class="text_dark" for="your_message">Message</label>
               <textarea
                 class="form-control"
                 id="your_message"
-                name="feedback"
+                name="emailBody"
                 rows="4"
+                required
               ></textarea>
               <small id="yourNameHelp" class="form-text text-muted"
                 >Please fill up this field</small
               >
             </div>
-            <div class="form-group">
+            <div class="form-group col-12">
               <button type="submit" class="btn btn-success">Send</button>
             </div>
           </form>
