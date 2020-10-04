@@ -16,12 +16,12 @@
 
   if($senderName != '' && $senderEmail != '' && $emailSubject != '' && $emailBody != ''){
     if (mail($mail_to, $mail_subject, $mail_body, $headers)) {
-      $mail_sent_successfully = true;
+      $mail_sent_successfully = "true";
     } else {
-      $mail_sent_successfully = false;
+      $mail_sent_successfully = "false";
     }
   } else {
-    $mail_sent_successfully = false;
+    $mail_sent_successfully = "false";
     echo $mail_sent_successfully;
   }
   
