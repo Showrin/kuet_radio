@@ -244,22 +244,14 @@
           class="offset-0 offset-sm-3 col-12 col-sm-6 d-flex align-self-center justify-content-center"
         >
           <div class="text-center">
-            <a class="pr-4 text-white" href="http://google.com/+"
-              ><i class="fa fa-lg fa-envelope"></i
-            ></a>
-            <a class="pr-4 text-white" href="http://www.linkedin.com/in/"
-              ><i class="fa fa-lg fa-linkedin"></i
-            ></a>
-            <a class="pr-4 text-white" href="http://youtube.com/"
-              ><i class="fa fa-lg fa-youtube-play"></i
+            <a class="pr-4 text-white" href="https://www.linkedin.com/company/kuet-radio/" target="_blank"><i class="fa fa-lg fa-linkedin"></i></a>
+            <a class="pr-4 text-white" href="https://www.youtube.com/channel/UCiaIVorC078th3HqpiW8gtg" target="_blank"><i class="fa fa-lg fa-youtube-play"></i
             ></a>
             <a
               class="pr-4 text-white"
-              href="http://www.facebook.com/profile.php?id="
-              ><i class="fa fa-lg fa-facebook"></i
+              href="https://www.facebook.com/kuetradio" target="_blank"><i class="fa fa-lg fa-facebook"></i
             ></a>
-            <a class="text-white" href="http://twitter.com/"
-              ><i class="fa fa-lg fa-twitter"></i
+            <a class="text-white" href="https://soundcloud.com/user-368653981" target="_blank"><i class="fa fa-lg fa-soundcloud"></i
             ></a>
           </div>
         </div>
