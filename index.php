@@ -213,15 +213,13 @@
       <div class="row">
         <div class="offset-xl-3 offset-md-2 offset-0 col-12 col-xl-6 col-md-8">
           <h1
-            class="display-4 font-weight-lighter font_muli_light clear_line_height text-center mt-5"
+            class="display-3 font-weight-lighter font_muli_light clear_line_height text-center mt-5"
           >
-            Radio To <br />
-            Spread KUETians' <br />
-            Voice
+            Feel The Thrill<br />of KUET
           </h1>
         </div>
       </div>
-      <div class="row my-3 my-sm-2">
+      <div class="row my-4 my-sm-5">
         <div class="offset-0 offset-xl-4 offset-sm-2 col-12 col-sm-4 col-xl-2">
           <button
             class="btn btn-block bg-primary text-white"
