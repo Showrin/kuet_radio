@@ -376,63 +376,9 @@
     ?>
     <!-- Radio Player Ends -->
 
-    <footer class="footer bg-secondary pt-5 pb-3">
-      <div class="container">
-        <div class="row">
-          <div class="col-4 col-sm-4">
-            <h5>Links</h5>
-            <ul class="list-unstyled">
-              <li><a href="../index.php">Home</a></li>
-              <li><a href="./onAir.php">On Air</a></li>
-              <li><a href="./schedule.php">Schedule</a></li>
-              <li><a href="./team.php">Our Team</a></li>
-              <li><a href="./alumni.php">Alumni</a></li>
-              <li><a href="./contact.php">Contact Us</a></li>
-            </ul>
-          </div>
-          <div class="col-7 col-sm-4">
-            <h5>Our Contacts</h5>
-            <i class="fa fa-phone fa-lg pr-2"></i>
-            <a href="tel:+852 1234 5678">+852 1234 5678</a><br />
-            <i class="fa fa-envelope fa-lg pr-2"></i>
-            <a href="mailto:kuetradio01@gmail.com">kuetradio01@gmail.com</a>
-          </div>
-          <div class="col-12 col-sm-4">
-            <h5>Follow Us on</h5>
-            <div class="text-left">
-              <a class="pr-4 text-white" href="http://google.com/+"
-                ><i class="fa fa-lg fa-envelope"></i
-              ></a>
-              <a class="pr-4 text-white" href="http://www.linkedin.com/in/"
-                ><i class="fa fa-lg fa-linkedin"></i
-              ></a>
-              <a class="pr-4 text-white" href="http://youtube.com/"
-                ><i class="fa fa-lg fa-youtube-play"></i
-              ></a>
-              <a
-                class="pr-4 text-white"
-                href="http://www.facebook.com/profile.php?id="
-                ><i class="fa fa-lg fa-facebook"></i
-              ></a>
-              <a class="text-white" href="http://twitter.com/"
-                ><i class="fa fa-lg fa-twitter"></i
-              ></a>
-            </div>
-          </div>
-        </div>
-        <div class="row justify-content-center mt-4">
-          <div class="col-auto">
-            <p class="text-center">
-              © Copyright <span id="present_copyright_year"></span> KUET Radio |
-              Developed By
-              <a href="https://www.facebook.com/showrinbarua.hridoy"
-                >Showrin Barua</a
-              >
-            </p>
-          </div>
-        </div>
-      </div>
-    </footer>
+    <?php
+      include './components/footer.php';
+    ?>
 
     <!-- jQuery first, then Popper.js, then Bootstrap JS. -->
     <!-- build:js js/main.js -->
