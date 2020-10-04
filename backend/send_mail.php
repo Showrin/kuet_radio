@@ -5,10 +5,10 @@
   $emailSubject = $_POST['emailSubject'];
   $emailBody = $_POST['emailBody'];
 
-  $mail_to = "<b>[Contact] KUETRadio Website</b> <kuetradioofficial@gmail.com>";
+  $mail_to = "kuetradioofficial@gmail.com";
   $mail_from = $senderEmail;
 
-  $headers = "From: $mail_to";
+  $headers = "From: $mail_from";
   $headers .= "Reply-to: $mail_from";
 
   $mail_subject = "[kuetradio.org (Contact)] $emailSubject";
