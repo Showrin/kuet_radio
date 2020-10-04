@@ -11,7 +11,7 @@
   $headers = "From: $mail_to";
   $headers .= "Reply-to: $mail_from";
 
-  $mail_subject = "[showrin.com] $emailSubject";
+  $mail_subject = "[kuetradio.org (Contact)] $emailSubject";
   $mail_body = "$emailBody \n \nfrom \n$senderName \n$senderEmail";
 
   if($senderName != '' && $senderEmail != '' && $emailSubject != '' && $emailBody != ''){
@@ -23,7 +23,8 @@
   } else {
     $mail_sent_successfully = false;
     echo $mail_sent_successfully;
-    header("Location: " . $_SERVER['HTTP_REFERER'] . "#contact_form?mail_sent=$mail_sent_successfully");
   }
+  
+  header("Location: " . $_SERVER['HTTP_REFERER'] . "#contact_form?mail_sent=$mail_sent_successfully");
 
 ?>
