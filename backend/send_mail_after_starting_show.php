@@ -19,8 +19,20 @@
   $mail_subject = "[kuetradio.org (Show Started)] $rj_name started show";
   $mail_body = "Dear Authority,\n\nA show named <b>$show_name</b> has been started by\n<b>RJ $rj_name</b>\n$rj_roll\n$rj_batch\n$rj_contact \n\nfrom \nKUET Radio Website \nkuetadio.org";
 
+  echo $rj_name . '<br />';
+  echo $rj_batch . '<br />';
+  echo $rj_roll . '<br />';
+  echo $rj_contact . '<br />';
+  echo $show_name . '<br />';
+  echo $mail_from . '<br />';
+  echo $headers . '<br />';
+  echo $mail_subject . '<br />';
+  echo $mail_body . '<br />';
+
   while($mail_receiver = mysqli_fetch_assoc($mail_receivers)) {
     $mail_to = $mail_receiver['email'];
+
+    echo $mail_to . '<br />';
 
     mail($mail_to, $mail_subject, $mail_body, $headers);
 
