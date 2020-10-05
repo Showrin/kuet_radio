@@ -274,7 +274,7 @@
           
           <form class="mt-5" method="POST" action="../backend/add_new_post.php">
             <div class="form-row">
-              <div class="col-12 mb-3">
+              <div class="col-12 col-sm-7 mb-3">
                 <label class="text_dark" for="post_name">New Post Name</label>
                 <input
                   type="text"
@@ -285,6 +285,20 @@
                   required
                 />
                 <small id="postNameHelp" class="form-text text-muted"
+                  >Please fill up this field</small
+                >
+              </div>
+              <div class="col-12 col-sm-5 mb-3">
+                <label class="text_dark" for="post_priority">New Post Priority</label>
+                <input
+                  type="number"
+                  class="form-control"
+                  id="post_priority"
+                  aria-describedby="postPriorityHelp"
+                  name="post_priority"
+                  required
+                />
+                <small id="postPriorityHelp" class="form-text text-muted"
                   >Please fill up this field</small
                 >
               </div>
