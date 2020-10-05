@@ -1,6 +1,6 @@
 <?php
 
-  $query = "SELECT * FROM users WHERE isApproved = '1' ORDER BY isInWorkingCommittee, start_year";
+  $query = "SELECT * FROM users INNER JOIN committee_posts ON users.designation = committee_posts.post_name WHERE users.isApproved = '1' ORDER BY users.start_year, committee_posts.post_priority, users.first_name";
   $team_members = mysqli_query($connection, $query);
 
 ?>
