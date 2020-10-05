@@ -229,7 +229,7 @@
 
     <div class="container my-5">
       <div class="row">
-        <div class="col-12 col-sm-9">
+        <div class="col-12 col-sm-12">
           <h1 class="text_dark mt-5 mb-4">Committee Posts Settings</h1>
 
           <form method="POST" action="../backend/check_posts_to_show.php">
@@ -241,10 +241,21 @@
                 include "../backend/show_all_committee_posts.php";
                 while($row = mysqli_fetch_assoc($committee_posts_result)) {
               ?>
-                <div class="col-3">
+                <div class="col-12 col-md-6 col-lg-4">
                   <div class="form-group form-check text_dark">
-                    <input type="checkbox" class="form-check-input" id="<?php echo $row['post_id']; ?>" name='committee_posts[]' value="<?php echo $row['post_id']; ?>" <?php if($row['isChecked'] === '1'){ echo 'checked'; } ?> />
-                    <label class="form-check-label text-capitalize" for="<?php echo $row['post_id']; ?>"><?php echo $row['post_name']; ?></label>
+                    <input class="mb-3" type="checkbox" class="form-check-input" id="<?php echo $row['post_id']; ?>" name='committee_posts[]' value="<?php echo $row['post_id']; ?>" <?php if($row['isChecked'] === '1'){ echo 'checked'; } ?> />
+                    <label class="form-check-label text-capitalize font-weight-bold" for="<?php echo $row['post_id']; ?>"><?php echo $row['post_name']; ?></label>
+                    <label class="text_dark d-block" for="priority<?php echo $row['post_id']; ?>">Priority</label>
+                    <input
+                      type="number"
+                      class="form-control"
+                      id="priority<?php echo $row['post_id']; ?>"
+                      aria-describedby="postNameHelp"
+                      name="priority_of_post_<?php echo $row['post_id']; ?>"
+                      placeholder="Priority"
+                      value=<?php echo $row['post_priority']; ?>
+                      required
+                    />
                   </div>
                 </div>
               <?php
@@ -253,7 +264,7 @@
             </div>
 
             <div class="form-row">
-              <div class="col-12 mb-3">
+              <div class="col-12 my-3">
                 <button type="submit" class="btn btn-success">
                   Update Settings
                 </button>
