@@ -50,5 +50,7 @@
       }
     }
 
+    include "../backend/send_mail_after_starting_show.php";
+
     header("Location:../layouts/start_a_show.php");
 ?>
