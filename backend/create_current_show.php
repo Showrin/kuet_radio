@@ -49,8 +49,8 @@
         mysqli_query($connection, $update_guest_dp_name_query);
       }
     }
-
+    
     include "../backend/find_current_show.php";
 
-    // header("Location:../layouts/start_a_show.php");
+    header("Location:../layouts/start_a_show.php");
 ?>
