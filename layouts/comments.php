@@ -262,7 +262,7 @@
                 ?>">
                   <div class="media-body text_dark">
                   <h3 class="mb-4">
-                    <?php echo $comment_date . ' ' . $comment_month . ', ' . $comment_year ?>
+                    <?php echo $comment_date . ' ' . $comment_month . ', ' . $comment_year . ' (' . $comment_day . ')' ?>
                   </h3>
               <?php
                 }
@@ -277,7 +277,7 @@
                   <div class="col-12 col-sm-3 d-flex justify-content-sm-end mb-3">
                     <span class="badge badge-info py-2 px-4 text-white">
                       <span class="fa fa-clock-o"></span>
-                      <?php echo $comment_time . ' ' . $comment_day_night . ', ' . $comment_day ?>
+                      <?php echo $comment_time . ' ' . $comment_day_night ?>
                     </span>
                   </div>
                   <div class="text-black-50 col-12">
