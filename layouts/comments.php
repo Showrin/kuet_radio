@@ -254,7 +254,12 @@
               ?>
                   </div>
                 </div>
-                <div class="media box_shadow_basic p-4 card_border_radius mb-4">
+                <div class="media box_shadow_basic p-4 card_border_radius mb-4 
+                <?php
+                  if(date("d") == $comment_date && date("F") == $comment_month && date("Y") == $comment_year) {
+                    echo "comment-card-border";
+                  }
+                ?>">
                   <div class="media-body text_dark">
                   <h3 class="mb-4">
                     <?php echo $comment_date . ' ' . $comment_month . ', ' . $comment_year ?>

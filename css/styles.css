@@ -7214,3 +7214,6 @@ html {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis; }
+
+.comment-card-border {
+  border: 1px solid #17a2b8; }
