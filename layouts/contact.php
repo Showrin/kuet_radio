@@ -184,7 +184,7 @@
         </div>
         <div class="col-12 col-sm-12">
           <form class="row" method="POST" action="../backend/send_mail.php">
-            <div class="form-group col-12 col-sm-3">
+            <div class="form-group col-12 col-sm-4">
               <label class="text_dark" for="your_name">Name</label>
               <input
                 type="text"
@@ -199,7 +199,7 @@
                 >Please fill up this field</small
               >
             </div>
-            <div class="form-group col-12 col-sm-3">
+            <div class="form-group col-12 col-sm-4">
               <label class="text_dark" for="your_email">Email</label>
               <input
                 type="email"
@@ -214,7 +214,22 @@
                 >Please fill up this field</small
               >
             </div>
-            <div class="form-group col-12 col-sm-6">
+            <div class="form-group col-12 col-sm-4">
+              <label class="text_dark" for="your_cell_no">Contact no</label>
+              <input
+                type="text"
+                class="form-control"
+                id="your_cell_no"
+                aria-describedby="yourCellNoHelp"
+                placeholder="Enter your Contact no"
+                name="cell_no"
+                required
+              />
+              <small id="yourCellNoHelp" class="form-text text-muted"
+                >Please fill up this field</small
+              >
+            </div>
+            <div class="form-group col-12">
               <label class="text_dark" for="your_subject">Subject</label>
               <input
                 type="text"
