@@ -2,6 +2,8 @@
 
   include "../backend/find_user_info.php";
 
+  $show_name = $running_show['name'];
+
   $rj_name = $user['first_name'] . ' ' . $user['last_name'];
   $rj_batch = $user['batch_no'];
   $rj_roll = $user['roll'];
