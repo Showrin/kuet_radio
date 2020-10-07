@@ -14,7 +14,7 @@
   mysqli_query($connection, $guests_delete_query);
   mysqli_query($connection, $rjs_delete_query);
   
-  include "../backend/send_mail_after_starting_show.php";
+  include "../backend/send_mail_after_stoping_show.php";
   
   header("Location: " . $_SERVER['HTTP_REFERER']);
 ?>
