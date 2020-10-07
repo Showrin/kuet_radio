@@ -264,7 +264,7 @@
               ?>
                 <div class="row">
                   <div class="col-12 col-sm-9">
-                    <h5 class="mt-0 mb-3">
+                    <h5 class="mt-0 mb-3 text-capitalize">
                       <?php echo $comment['commentator_name'] ?>
                       <?php if($comment['commentator_batch'] !== '') { echo ' (' . $comment['commentator_batch'] . ')'; } ?>
                     </h5>
