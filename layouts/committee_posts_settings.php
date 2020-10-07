@@ -285,7 +285,7 @@
                   required
                 />
                 <small id="postNameHelp" class="form-text text-muted"
-                  >Please fill up this field</small
+                  ></small
                 >
               </div>
               <div class="col-12 col-sm-5 mb-3">
@@ -299,7 +299,7 @@
                   required
                 />
                 <small id="postPriorityHelp" class="form-text text-muted"
-                  >Please fill up this field</small
+                  ></small
                 >
               </div>
             </div>

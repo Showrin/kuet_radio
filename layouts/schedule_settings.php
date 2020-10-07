@@ -305,7 +305,7 @@
                   required
                 />
                 <small id="showNameHelp" class="form-text text-muted"
-                  >Please fill up this field</small
+                  ></small
                 >
               </div>
             </div>
@@ -322,7 +322,7 @@
                   required
                 />
                 <small id="showDayHelp" class="form-text text-muted"
-                  >Please fill up this field</small
+                  ></small
                 >
               </div>
 
@@ -337,7 +337,7 @@
                   required
                 />
                 <small id="showTimeHelp" class="form-text text-muted"
-                  >Please fill up this field</small
+                  ></small
                 >
               </div>
             </div>

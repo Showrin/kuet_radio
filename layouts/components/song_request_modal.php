@@ -26,7 +26,7 @@
               required
             />
             <small id="songNameHelp" class="form-text text-muted"
-              >Please fill up this field</small
+              ></small
             >
           </div>
           <div class="form-group">
@@ -42,7 +42,7 @@
               name="singer_name"
             />
             <small id="singerNameHelp" class="form-text text-muted"
-              >Please fill up this field</small
+              ></small
             >
           </div>
           <div class="form-group">
@@ -58,7 +58,7 @@
               name="song_url"
             />
             <small id="songURLHelp" class="form-text text-muted"
-              >Please fill up this field</small
+              ></small
             >
           </div>
         </div>

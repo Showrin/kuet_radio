@@ -291,7 +291,7 @@
                   required
                 />
                 <small id="yourNameHelp" class="form-text text-muted"
-                  >Please fill up this field</small
+                  ></small
                 >
               </div>
               <div class="col-12 col-sm-6 mb-3">
@@ -305,7 +305,7 @@
                   placeholder="Enter your batch"
                 />
                 <small id="yourBatchHelp" class="form-text text-muted"
-                  >Please fill up this field</small
+                  ></small
                 >
               </div>
             </div>
@@ -319,7 +319,7 @@
                 required
               ></textarea>
               <small id="your_comment" class="form-text text-muted"
-                >Please fill up this field</small
+                ></small
               >
             </div>
             <div class="form-group">

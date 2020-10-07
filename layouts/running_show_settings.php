@@ -259,7 +259,7 @@
                   required
                 />
                 <small id="showNameHelp" class="form-text text-muted"
-                  >Please fill up this field</small
+                  ></small
                 >
               </div>
             </div>
@@ -297,7 +297,7 @@
                   required
                 />
                 <small id="guestAmountHelp" class="form-text text-muted"
-                  >Please fill up this field</small
+                  ></small
                 >
               </div>
             </div>
@@ -324,7 +324,7 @@
                               required
                             />
                             <small id="guest1_nameHelp" class="form-text text-muted"
-                              >Please fill up this field</small
+                              ></small
                             >
                           </div>
                           <div class="col-12 col-sm-4 mb-3">
@@ -340,7 +340,7 @@
                               aria-describedby="guest1_depttHelp"
                             />
                             <small id="guest1_depttHelp" class="form-text text-muted"
-                              >Please fill up this field</small
+                              ></small
                             >
                           </div>
                           <div class="col-12 col-sm-4 mb-3">
@@ -356,7 +356,7 @@
                               aria-describedby="guest1_batchHelp"
                             />
                             <small id="guest1_batchHelp" class="form-text text-muted"
-                              >Please fill up this field</small
+                              ></small
                             >
                           </div>
                         </div>
@@ -377,7 +377,7 @@
                             <small
                               id="guest1_descriptionHelp"
                               class="form-text text-muted"
-                              >Please fill up this field</small
+                              ></small
                             >
                           </div>
                         </div>
@@ -420,7 +420,7 @@
                               required
                             />
                             <small id="guest<?php echo $index; ?>_nameHelp" class="form-text text-muted"
-                              >Please fill up this field</small
+                              ></small
                             >
                           </div>
                           <div class="col-12 col-sm-4 mb-3">
@@ -436,7 +436,7 @@
                               aria-describedby="guest<?php echo $index; ?>_depttHelp"
                             />
                             <small id="guest<?php echo $index; ?>_depttHelp" class="form-text text-muted"
-                              >Please fill up this field</small
+                              ></small
                             >
                           </div>
                           <div class="col-12 col-sm-4 mb-3">
@@ -452,7 +452,7 @@
                               aria-describedby="guest<?php echo $index; ?>_batchHelp"
                             />
                             <small id="guest<?php echo $index; ?>_batchHelp" class="form-text text-muted"
-                              >Please fill up this field</small
+                              ></small
                             >
                           </div>
                         </div>
@@ -473,7 +473,7 @@
                             <small
                               id="guest<?php echo $index; ?>_descriptionHelp"
                               class="form-text text-muted"
-                              >Please fill up this field</small
+                              ></small
                             >
                           </div>
                         </div>
@@ -519,7 +519,7 @@
                           required
                         />
                         <small id="guest1_nameHelp" class="form-text text-muted"
-                          >Please fill up this field</small
+                          ></small
                         >
                       </div>
                       <div class="col-12 col-sm-4 mb-3">
@@ -534,7 +534,7 @@
                           aria-describedby="guest1_depttHelp"
                         />
                         <small id="guest1_depttHelp" class="form-text text-muted"
-                          >Please fill up this field</small
+                          ></small
                         >
                       </div>
                       <div class="col-12 col-sm-4 mb-3">
@@ -549,7 +549,7 @@
                           aria-describedby="guest1_batchHelp"
                         />
                         <small id="guest1_batchHelp" class="form-text text-muted"
-                          >Please fill up this field</small
+                          ></small
                         >
                       </div>
                     </div>
@@ -569,7 +569,7 @@
                         <small
                           id="guest1_descriptionHelp"
                           class="form-text text-muted"
-                          >Please fill up this field</small
+                          ></small
                         >
                       </div>
                     </div>
@@ -669,17 +669,17 @@
                         <div class="col-12 col-sm-4 mb-3">
                             <label class="text_dark" for="guest${guestNo}_name">Name</label>
                             <input type="text" class="form-control" id="guest${guestNo}_name" name="guest${guestNo}_name" aria-describedby="guest${guestNo}_nameHelp" required>
-                            <small id="guest${guestNo}_nameHelp" class="form-text text-muted">Please fill up this field</small>
+                            <small id="guest${guestNo}_nameHelp" class="form-text text-muted"></small>
                         </div>
                         <div class="col-12 col-sm-4 mb-3">
                             <label class="text_dark" for="guest${guestNo}_dept">Department (Optional)</label>
                             <input type="text" class="form-control" id="guest${guestNo}_dept" name="guest${guestNo}_dept" aria-describedby="guest${guestNo}_depttHelp">
-                            <small id="guest${guestNo}_depttHelp" class="form-text text-muted">Please fill up this field</small>
+                            <small id="guest${guestNo}_depttHelp" class="form-text text-muted"></small>
                         </div>
                         <div class="col-12 col-sm-4 mb-3">
                             <label class="text_dark" for="guest${guestNo}_batch">Batch (Optional)</label>
                             <input type="text" class="form-control" id="guest${guestNo}_batch" name="guest${guestNo}_batch" aria-describedby="guest${guestNo}_batchHelp">
-                            <small id="guest${guestNo}_batchHelp" class="form-text text-muted">Please fill up this field</small>
+                            <small id="guest${guestNo}_batchHelp" class="form-text text-muted"></small>
                         </div>
                     </div>
 
@@ -687,7 +687,7 @@
                         <div class="col-12 mb-3">
                             <label class="text_dark" for="guest${guestNo}_description">Other Description (Optional)</label>
                             <input type="text" class="form-control" id="guest${guestNo}_description" name="guest${guestNo}_description" aria-describedby="guest${guestNo}_descriptionHelp">
-                            <small id="guest${guestNo}_descriptionHelp" class="form-text text-muted">Please fill up this field</small>
+                            <small id="guest${guestNo}_descriptionHelp" class="form-text text-muted"></small>
                         </div>
                     </div>
 

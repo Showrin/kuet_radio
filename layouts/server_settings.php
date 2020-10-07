@@ -251,7 +251,7 @@
                         name="server<?php echo $server['id'] ?>_ip"
                       />
                       <small id="yourServer<?php echo $server['id'] ?>IpHelp" class="form-text text-muted"
-                        >Please fill up this field</small
+                        ></small
                       >
                     </div>
                     <div class="col-12 col-sm-6 mb-3">
@@ -267,7 +267,7 @@
                         name="server<?php echo $server['id'] ?>_port"
                       />
                       <small id="yourServer<?php echo $server['id'] ?>PortHelp" class="form-text text-muted"
-                        >Please fill up this field</small
+                        ></small
                       >
                     </div>
                   </div>

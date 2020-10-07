@@ -196,7 +196,7 @@
                 required
               />
               <small id="yourNameHelp" class="form-text text-muted"
-                >Please fill up this field</small
+                ></small
               >
             </div>
             <div class="form-group col-12 col-sm-4">
@@ -211,7 +211,7 @@
                 required
               />
               <small id="yourEmailHelp" class="form-text text-muted"
-                >Please fill up this field</small
+                ></small
               >
             </div>
             <div class="form-group col-12 col-sm-4">
@@ -226,7 +226,7 @@
                 required
               />
               <small id="yourCellNoHelp" class="form-text text-muted"
-                >Please fill up this field</small
+                ></small
               >
             </div>
             <div class="form-group col-12">
@@ -241,7 +241,7 @@
                 required
               />
               <small id="yourSubjectHelp" class="form-text text-muted"
-                >Please fill up this field</small
+                ></small
               >
             </div>
             <div class="form-group col-12">
@@ -254,7 +254,7 @@
                 required
               ></textarea>
               <small id="yourNameHelp" class="form-text text-muted"
-                >Please fill up this field</small
+                ></small
               >
             </div>
             <div class="form-group col-12">

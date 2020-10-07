@@ -173,7 +173,7 @@
                 required
               />
               <small id="yourSignInEmailHelp" class="form-text text-muted"
-                >Please fill up this field</small
+                ></small
               >
             </div>
             <div class="form-group">
@@ -187,7 +187,7 @@
                 required
               />
               <small id="sign-in-password-help" class="form-text text-muted"
-                >Please fill up this field</small
+                ></small
               >
             </div>
             <div class="form-group">
@@ -235,7 +235,7 @@
                   required
                 />
                 <small id="yourFirstNameHelp" class="form-text text-muted"
-                  >Please fill up this field</small
+                  ></small
                 >
               </div>
               <div class="col-12 col-sm-6 mb-3">
@@ -249,7 +249,7 @@
                   required
                 />
                 <small id="yourLastNameHelp" class="form-text text-muted"
-                  >Please fill up this field</small
+                  ></small
                 >
               </div>
             </div>
@@ -269,7 +269,7 @@
                   required
                 />
                 <small id="yourBirthdateHelp" class="form-text text-muted"
-                  >Please fill up this field</small
+                  ></small
                 >
               </div>
             </div>
@@ -288,7 +288,7 @@
                   required
                 />
                 <small id="yourContactHelp" class="form-text text-muted"
-                  >Please fill up this field</small
+                  ></small
                 >
               </div>
             </div>
@@ -305,7 +305,7 @@
                   required
                 />
                 <small id="yourDeptHelp" class="form-text text-muted"
-                  >Please fill up this field</small
+                  ></small
                 >
               </div>
             </div>
@@ -322,7 +322,7 @@
                   required
                 />
                 <small id="yourRollHelp" class="form-text text-muted"
-                  >Please fill up this field</small
+                  ></small
                 >
               </div>
               <div class="col-12 col-sm-6 mb-3">
@@ -336,7 +336,7 @@
                   required
                 />
                 <small id="yourBatchHelp" class="form-text text-muted"
-                  >Please fill up this field</small
+                  ></small
                 >
               </div>
             </div>
@@ -353,7 +353,7 @@
                   required
                 />
                 <small id="yourEmailHelp" class="form-text text-muted"
-                  >Please fill up this field</small
+                  ></small
                 >
               </div>
             </div>
@@ -370,7 +370,7 @@
                   required
                 />
                 <small id="sign-up-password-help" class="form-text text-muted"
-                  >Please fill up this field</small
+                  ></small
                 >
               </div>
             </div>
@@ -432,7 +432,7 @@
 									$('#signup-btn').attr('disabled', 'disabled');
                 } else {
                   $("#yourEmailHelp").removeClass("text-danger font-weight-bold").addClass("text-muted");
-                  $("#yourEmailHelp").text("Please fill up this field");
+                  $("#yourEmailHelp").text("");
                   $('#signup-btn').removeAttr('disabled');
                 }
               }

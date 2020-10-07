@@ -249,7 +249,7 @@
                   placeholder="Enter song name"
                 />
                 <small id="songNameHelp" class="form-text text-muted"
-                  >Please fill up this field</small
+                  ></small
                 >
               </div>
               <div class="form-group">
@@ -263,7 +263,7 @@
                   placeholder="Enter singer name"
                 />
                 <small id="singerNameHelp" class="form-text text-muted"
-                  >Please fill up this field</small
+                  ></small
                 >
               </div>
               <div class="form-row">
