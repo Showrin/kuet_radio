@@ -403,7 +403,6 @@
       <script>
         $(document).ready(function() {
           $('#member_update_modal<?php echo $row['id'] ?> #no').on('change', function() {
-          console.log('hey')
             if(this.checked) {
               $('#member_update_modal<?php echo $row['id'] ?> #your_end_year').removeAttr('readonly');
               $('#member_update_modal<?php echo $row['id'] ?> #your_end_year').val('<?php if(strtolower($row['end_year']) !== 'present') { echo $row['end_year']; } ?>');
