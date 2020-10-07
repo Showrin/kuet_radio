@@ -242,10 +242,10 @@
                   <div class="media-body text_dark">
                     <div class="row">
                       <div class="col-12 col-sm-9">
-                        <h5>
+                        <h5 class="text-capitalize">
                           <?php echo $song_request['song_name']; ?>
                         </h5>
-                        <div class="text-black-50">
+                        <div class="text-black-50 text-capitalize">
                           <?php echo $song_request['singer_name']; ?>
                         </div>
                       </div>
