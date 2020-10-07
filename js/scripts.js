@@ -147,4 +147,12 @@ $(document).ready(function () {
 
   // --------------------- Tooltip enabling -------------------------
   $('[data-toggle="tooltip"]').tooltip();
+
+  // --------------------- Disabling Console -------------------------
+  window.console.log = function () {
+    console.error("Sorry , developers tools are blocked here....");
+    window.console.log = function () {
+      return false;
+    };
+  };
 });
