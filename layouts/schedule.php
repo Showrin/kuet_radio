@@ -177,7 +177,7 @@
             ?>
               <div class="col-12 <?php if($show_index % 5 !== 1) { echo "col-sm-6"; } ?>">
                 <div
-                  class="media box_shadow_basic schedule_card_bg_<?php echo ($show_index % 3) + 1; ?> p-4 card_border_radius mb-5"
+                  class="media box_shadow_basic schedule_card_bg_<?php echo ($show_index % 4) + 1; ?> p-4 card_border_radius mb-5"
                 >
                   <div class="media-body text-white">
                     <h1 class="mb-1"><strong><?php echo $show['show_name']; ?></strong></h1>
