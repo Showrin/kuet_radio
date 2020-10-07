@@ -5,6 +5,8 @@
 
   include "./connect_db.php";
   include "../backend/find_current_show.php";
+  
+  $show_name = $running_show['name'];
 
   $show_delete_query = "DELETE FROM running_show";
   $guests_delete_query = "DELETE FROM guests_of_running_show";
