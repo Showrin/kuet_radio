@@ -7,6 +7,7 @@
   include "../backend/find_user_info.php";
   include '../backend/find_team_members.php';
   include '../backend/find_current_show.php';
+  include '../backend/find_shows.php';
 ?>
 
 <!DOCTYPE html>
@@ -237,14 +238,21 @@
             <div class="form-row">
               <div class="col-12 mb-3">
                 <label class="text_dark" for="show_name">Show Name</label>
-                <input
-                  type="text"
+                <select
                   class="form-control"
                   id="show_name"
                   aria-describedby="showNameHelp"
                   name="show_name"
                   required
-                />
+                >
+                  <?php
+                    while($show = mysqli_fetch_assoc($scheduled_shows)) {
+                      ?>
+                        <option><?php echo $show['show_name'] ?></option>
+                      <?php
+                    }
+                  ?>
+                </select>
                 <small id="showNameHelp" class="form-text text-muted"
                   ></small
                 >

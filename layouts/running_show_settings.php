@@ -9,6 +9,7 @@
   include '../backend/find_current_show.php';
   include '../backend/find_current_guests.php';
   include '../backend/find_current_rjs.php';
+  include '../backend/find_shows.php';
 
   if(mysqli_num_rows($running_show)) {
     $running_show_info = mysqli_fetch_assoc($running_show);
@@ -249,15 +250,21 @@
             <div class="form-row">
               <div class="col-12 mb-3">
                 <label class="text_dark" for="show_name">Show Name</label>
-                <input
-                  type="text"
+                <select
                   class="form-control"
                   id="show_name"
                   aria-describedby="showNameHelp"
                   name="show_name"
-                  <?php if(isset($running_show_info)) { echo 'value="' . $running_show_info['name'] . '"'; } ?>
                   required
-                />
+                >
+                  <?php
+                    while($show = mysqli_fetch_assoc($scheduled_shows)) {
+                      ?>
+                        <option <?php if(isset($running_show_info) && strtolower($running_show_info['name']) === strtolower($show['show_name'])) { echo 'selected'; } ?>><?php echo $show['show_name'] ?></option>
+                      <?php
+                    }
+                  ?>
+                </select>
                 <small id="showNameHelp" class="form-text text-muted"
                   ></small
                 >
