@@ -22,6 +22,8 @@
   while($mail_receiver = mysqli_fetch_assoc($mail_receivers)) {
     $mail_to = $mail_receiver['email'];
 
+    echo $mail_receiver['email'] . '<br />';
+
     mail($mail_to, $mail_subject, $mail_body, $headers);
 
   }
