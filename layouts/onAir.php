@@ -169,6 +169,8 @@
                 ></a>
                 <a class="text-white" href="https://soundcloud.com/user-368653981" target="_blank"><i class="fa fa-lg fa-soundcloud"></i
                 ></a>
+                <a class="text-white" href="https://instagram.com/_kuet_radio?igshid=j16g7jsrzoon" target="_blank"><i class="fa fa-lg fa-instagram"></i
+                ></a>
               </div>
             </div>
             <div class="col-10 col-sm-4 col-md-3 col-lg-2">
